@@ -20,7 +20,7 @@ class WQLQuery {
     eval(context) {
         let res = {};
         this.roots.forEach((root) => {
-            res[root.name] = root.eval(context);
+            res[root.getName()] = root.eval(context);
         });
         return res;
     }

@@ -7,12 +7,12 @@ class LeafNode {
         this.name = name;
     }
 
-    name() {
+    getName() {
         return this.name;
     }
 
     eval(context) {
-        return context[this.name];
+        return context[this.getName()];
     }
 }
 
