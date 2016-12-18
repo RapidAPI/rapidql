@@ -13,13 +13,51 @@ class ObjectNode {
     }
 
     eval(context) {
-        const ctx = Object.assign({}, context, context[this.name]);
+        const ctx = Object.assign({}, context, context[this.getName()]);
         let res = {};
+        let promises = [];
         this.children.forEach((child) => {
-             res[child.getName()] = child.eval(ctx);
+            promises.push(new Promise((resolve, reject) => {
+                child.eval(ctx)
+                    .then((val) => {
+                        res[child.getName()] = val;
+                        resolve();
+                    })
+                    .catch(reject);
+            }));
         });
-        return res;
+        return new Promise((resolve, reject) => {
+            Promise.all(promises)
+                .then(()=> {
+                    resolve(res);
+                })
+                .catch(reject);
+        });
     }
 }
 
 module.exports = ObjectNode;
+
+//Playground:
+/*const LeafNode = require("./LeafNode");
+let context = {
+    a: 1,
+    b: {
+        c:3,
+        d:4
+    }
+};
+
+let on = new ObjectNode("b", [
+    new LeafNode("d"),
+    new LeafNode("c")
+]);
+
+on.eval(context)
+    .then((val) => {
+        console.log(val);
+    })
+    .catch((error) => {
+        console.warn(error);
+    });
+    */

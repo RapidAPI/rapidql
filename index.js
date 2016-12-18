@@ -8,13 +8,13 @@ const   WQLQuery = require('./src/WQLQuery'),
 
 /*
 {
-    foo
-    foo1
+    foo,
+    foo1,
     obj {
-        a
-        b
+        a,
+        b,
         obj2 {
-            d
+            d,
         }
     }
 }
@@ -46,6 +46,11 @@ let context = {
 
 let q = new WQLQuery(roots);
 
-let res = q.eval(context);
+q.eval(context)
+    .then((res) => {
+        console.log(JSON.stringify(res));
+    })
+    .catch((error) => {
+        console.warn(error);
+    });
 
-console.log(JSON.stringify(res));
