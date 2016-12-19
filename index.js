@@ -4,7 +4,8 @@
 
 const   WQLQuery = require('./src/WQLQuery'),
         LeafNode = require('./src/LeafNode'),
-        ObjectNode = require('./src/ObjectNode');
+        ObjectNode = require('./src/ObjectNode'),
+        ArrayNode = require('./src/ArrayNode');
 
 /*
 {
@@ -16,7 +17,11 @@ const   WQLQuery = require('./src/WQLQuery'),
         obj2 {
             d,
         }
-    }
+    },
+    arr {
+        k
+    },
+    arrSim
 }
  */
 let roots = [
@@ -28,8 +33,13 @@ let roots = [
         new ObjectNode('obj2', [
             new LeafNode('d')
         ])
-    ])
+    ]),
+    new ArrayNode('arr', [
+        new LeafNode('l')
+    ]),
+    new ArrayNode('arrSim')
 ];
+
 
 let context = {
     'foo' :     'bar',
@@ -41,7 +51,19 @@ let context = {
             'c':3,
             'd':4
         }
-    }
+    },
+    'arr' :     [
+        {'k':1, 'l': 11},
+        {'k':2, 'l': 12},
+        {'k':3, 'l': 13},
+        {'k':4, 'l': 14}
+    ],
+    'arrSim' :  [
+        "hello",
+        "world",
+        "from",
+        "strings"
+    ]
 };
 
 let q = new WQLQuery(roots);
