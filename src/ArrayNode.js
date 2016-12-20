@@ -15,11 +15,11 @@ class ArrayNode {
         return this.name;
     }
     
-    eval(context) {
+    eval(context, ops) {
             let arr = context[this.getName()];
             let promises = [];
             if (!Array.isArray(arr)) {
-                reject(`TypeError: element ${this.getName()} in context is not an array`);
+                Promise.push(new Promise((resolve, reject) => {reject(`TypeError: element ${this.getName()} in context is not an array`)}));
             } else {
 
                 for (let i in arr) {
@@ -33,7 +33,7 @@ class ArrayNode {
                         innerNode = new ObjectNode(this.getName(), this.children);
                     else
                         innerNode = new LeafNode(this.getName());
-                    promises.push(innerNode.eval(innerContext));
+                    promises.push(innerNode.eval(innerContext, ops));
                 }
 
                 return Promise.all(promises);

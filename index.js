@@ -5,7 +5,8 @@
 const   WQLQuery = require('./src/WQLQuery'),
         LeafNode = require('./src/LeafNode'),
         ObjectNode = require('./src/ObjectNode'),
-        ArrayNode = require('./src/ArrayNode');
+        ArrayNode = require('./src/ArrayNode'),
+        FunctionNode = require('./src/FunctionNode');
 
 /*
 {
@@ -35,7 +36,12 @@ let roots = [
         ])
     ]),
     new ArrayNode('arr', [
-        new LeafNode('l')
+        new LeafNode('l'),
+        new FunctionNode('GoogleTranslate.translate', {
+            'apiKey': 'AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM',
+            'string': 'hello world, what a great day',
+            'targetLanguage': 'de'
+        }, [])
     ]),
     new ArrayNode('arrSim')
 ];
@@ -66,7 +72,15 @@ let context = {
     ]
 };
 
-let q = new WQLQuery(roots);
+
+let ops = {
+    RapidAPI : {
+        projectName : 'Iddo_demo_app_1',
+        apiKey: '4c6e5cc0-8426-4c95-9e3b-60adba0e50f6'
+    }
+};
+
+let q = new WQLQuery(roots, ops);
 
 q.eval(context)
     .then((res) => {

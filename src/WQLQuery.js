@@ -7,9 +7,11 @@ class WQLQuery {
     /**
      * Construct a new WQLQuery object from root nodes and context
      * @param roots array of root nodes
+     * @param options any options required by query nodes
      */
-    constructor(roots) {
+    constructor(roots, options) {
         this.roots = roots;
+        this.options = Object.assign({}, options);
     }
 
     /**
@@ -22,7 +24,7 @@ class WQLQuery {
         let promises = [];
         this.roots.forEach((root) => {
             promises.push(new Promise((resolve, reject) => {
-                root.eval(context)
+                root.eval(context, this.options)
                     .then((val) => {
                         res[root.getName()] = val;
                         resolve();

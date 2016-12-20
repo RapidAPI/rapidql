@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nearley": "^2.7.10"
+    "nearley": "^2.7.10",
+    "rapidapi-connect": "0.0.2"
   }
 }

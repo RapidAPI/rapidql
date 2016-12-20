@@ -12,13 +12,13 @@ class ObjectNode {
         return this.name;
     }
 
-    eval(context) {
+    eval(context, ops) {
         const ctx = Object.assign({}, context, context[this.getName()]);
         let res = {};
         let promises = [];
         this.children.forEach((child) => {
             promises.push(new Promise((resolve, reject) => {
-                child.eval(ctx)
+                child.eval(ctx, ops)
                     .then((val) => {
                         res[child.getName()] = val;
                         resolve();
