@@ -4,7 +4,8 @@
 const RapidAPI = require('rapidapi-connect'),
     LeafNode = require('./LeafNode'),
     ObjectNode = require('./ObjectNode'),
-    ArrayNode = require('./ArrayNode');
+    ArrayNode = require('./ArrayNode'),
+    CompositeNode = require('./CompositeNode');
 
 class FunctionNode {
     constructor(name, args, children) {
@@ -63,12 +64,7 @@ class FunctionNode {
                             let innerContext = Object.assign({}, context);
                             innerContext[this.getName()] =  payload;
 
-                            let innerNode;
-
-                            if(Array.isArray(payload))
-                                innerNode = new ArrayNode(this.getName(), this.children);
-                            else
-                                innerNode = new ObjectNode(this.getName(), this.children);
+                            let innerNode = new CompositeNode(this.getName(), this.children);
 
                             innerNode.eval(innerContext, ops).then(resolve).catch(reject);
 
