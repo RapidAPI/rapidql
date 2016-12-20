@@ -6,7 +6,8 @@ const   WQLQuery = require('./src/WQLQuery'),
         LeafNode = require('./src/LeafNode'),
         ObjectNode = require('./src/ObjectNode'),
         ArrayNode = require('./src/ArrayNode'),
-        FunctionNode = require('./src/FunctionNode');
+        FunctionNode = require('./src/FunctionNode'),
+        CompositeNode = require('./src/CompositeNode');
 
 /*
 {
@@ -39,14 +40,14 @@ const   WQLQuery = require('./src/WQLQuery'),
 let roots = [
     new LeafNode('foo'),
     new LeafNode('foo1'),
-    new ObjectNode('obj', [
+    new CompositeNode('obj', [
         new LeafNode('a'),
         new LeafNode('b'),
         new ObjectNode('obj2', [
             new LeafNode('d')
         ])
     ]),
-    new ArrayNode('arr', [
+    new CompositeNode('arr', [
         new LeafNode('l'),
         new FunctionNode('GoogleTranslate.translate', {
             'apiKey': '"AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM"',
