@@ -20,9 +20,20 @@ const   WQLQuery = require('./src/WQLQuery'),
         }
     },
     arr {
-        k
+        l,
+        GoogleTranslate.translate(apiKey = "AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM", string = l, target="de")
     },
-    arrSim
+    arrSim,
+    SpotifyPublicAPI.getArtist (id="7dGJo4pcD2V6oG8kP0tJRR") {
+        name,
+        popularity,
+        followers {
+            total
+        },
+        SpotifyPublicAPI.getArtistRelatedArtists (id= id) {
+            name
+        }
+    }
 }
  */
 let roots = [
@@ -43,7 +54,23 @@ let roots = [
             'targetLanguage': '"de"'
         }, [])
     ]),
-    new ArrayNode('arrSim')
+    new ArrayNode('arrSim'),
+    /*new FunctionNode('SpotifyPublicAPI.getArtist', {
+        'id': '"7dGJo4pcD2V6oG8kP0tJRR"'
+    }, [
+        new LeafNode('name'),
+        new LeafNode('popularity'),
+        new ObjectNode('followers', [
+            new LeafNode('total')
+        ])
+    ]),*/
+    new FunctionNode('SpotifyPublicAPI.getArtistRelatedArtists', {
+        'id' : '"7dGJo4pcD2V6oG8kP0tJRR"'
+    }, [
+        new ArrayNode("artists", [
+            new LeafNode("name")
+        ])
+    ])
 ];
 
 
