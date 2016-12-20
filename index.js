@@ -3,11 +3,11 @@
  */
 
 const   WQLQuery = require('./src/WQLQuery'),
-        LeafNode = require('./src/LeafNode'),
-        ObjectNode = require('./src/ObjectNode'),
-        ArrayNode = require('./src/ArrayNode'),
-        FunctionNode = require('./src/FunctionNode'),
-        CompositeNode = require('./src/CompositeNode');
+        LeafNode = require('./src/Nodes/LeafNode'),
+        ObjectNode = require('./src/Nodes/ObjectNode'),
+        ArrayNode = require('./src/Nodes/ArrayNode'),
+        FunctionNode = require('./src/Nodes/FunctionNode'),
+        CompositeNode = require('./src/Nodes/CompositeNode');
 
 /*
 {
