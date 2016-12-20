@@ -37,7 +37,12 @@ class FunctionNode {
                         if ((arg[0] == `"` && arg[arg.length-1] == `"`) || (arg[0] == `'` && arg[arg.length-1] == `'`)) {
                             processedArgs[key] = arg.slice(1,-1); //Remove quotes and add to processed args
                         } else {
-                            processedArgs[key] = context[arg];
+                            if (context.hasOwnProperty(arg))
+                                processedArgs[key] = context[arg];
+                            else {
+                                reject(`Name error: name ${arg} does not exist in context`);
+                                return;
+                            }
                         }
                     }
                 }
