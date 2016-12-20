@@ -22,9 +22,27 @@ class FunctionNode {
         if (!ops.hasOwnProperty('RapidAPI')) {
             return new Promise((resolve, reject) => {reject(`OptionError: ops don't have RapidAPI keys`)});
         } else {
+
             const rapid = new RapidAPI(ops['RapidAPI']['projectName'], ops['RapidAPI']['apiKey']);
             return new Promise((resolve, reject) => {
-                rapid.call(...this.getName().split('.'), this.args)
+
+                //Process args in context
+                //If they have " " -> string literal (remove quotes)
+                // If they don't -> fetch from context
+                let processedArgs = {};
+                for (let key in this.args) {
+                    if (this.args.hasOwnProperty(key)) {
+                        let arg = this.args[key];
+                        //Check for quotes:
+                        if ((arg[0] == `"` && arg[arg.length-1] == `"`) || (arg[0] == `'` && arg[arg.length-1] == `'`)) {
+                            processedArgs[key] = arg.slice(1,-1); //Remove quotes and add to processed args
+                        } else {
+                            processedArgs[key] = context[arg];
+                        }
+                    }
+                }
+
+                rapid.call(...this.getName().split('.'), processedArgs)
                     .on('success', (payload) => {
                         //If JSON -> parse
                         try {

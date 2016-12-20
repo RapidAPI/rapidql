@@ -38,9 +38,9 @@ let roots = [
     new ArrayNode('arr', [
         new LeafNode('l'),
         new FunctionNode('GoogleTranslate.translate', {
-            'apiKey': 'AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM',
-            'string': 'hello world, what a great day',
-            'targetLanguage': 'de'
+            'apiKey': '"AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM"',
+            'string': 'l',
+            'targetLanguage': '"de"'
         }, [])
     ]),
     new ArrayNode('arrSim')
@@ -59,10 +59,10 @@ let context = {
         }
     },
     'arr' :     [
-        {'k':1, 'l': 11},
-        {'k':2, 'l': 12},
-        {'k':3, 'l': 13},
-        {'k':4, 'l': 14}
+        {'k':1, 'l': 'Hello'},
+        {'k':2, 'l': 'World'},
+        {'k':3, 'l': 'Country'},
+        {'k':4, 'l': 'Water'}
     ],
     'arrSim' :  [
         "hello",
