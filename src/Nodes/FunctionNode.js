@@ -52,8 +52,10 @@ class FunctionNode {
                     .on('success', (payload) => {
                         //If JSON and not parsed -> parse
                         try {
-                            payload = JSON.parse(JSON);
-                        } catch (err) {} //Otherwise - no biggie, "you don't always get what you want" - M. Jagger
+                            payload = JSON.parse(payload);
+                        } catch (err) {
+                            err = err;
+                        } //Otherwise - no biggie, "you don't always get what you want" - M. Jagger
                         //Create context and add payload to it
                         let ctx = Object.assign({}, context);
                         ctx[this.getName()] = payload;

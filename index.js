@@ -40,7 +40,11 @@ wql.query(`
     }
 
 }
-`).then(console.log).catch((err) => {console.warn(err)});
+`).then((val) => {
+
+    console.log(JSON.stringify(val))
+
+}).catch((err) => {console.warn(err)});
 
 
 /*const parser = require('./src/Parser/Parser'),
