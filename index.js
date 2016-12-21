@@ -2,14 +2,114 @@
  * Created by Iddo on 12/17/2016.
  */
 
-const   WQLQuery = require('./src/WQLQuery'),
+
+const WQL = require('./src/WQL');
+
+let wql = new WQL({
+    RapidAPI : {
+        projectName : 'Iddo_demo_app_1',
+        apiKey: '4c6e5cc0-8426-4c95-9e3b-60adba0e50f6'
+    }
+});
+
+/*wql.query(`
+{
+    foo,
+    arr {
+        k,
+        GoogleTranslate.translate(apiKey = "AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM", string = l, targetLanguage="de")
+    }
+}
+`, {
+    'foo' :     'bar',
+    'foo1' :    'bar1',
+    'arr' :     [
+        {'k':1, 'l': 'Hello'},
+        {'k':2, 'l': 'World'},
+        {'k':3, 'l': 'Country'},
+        {'k':4, 'l': 'Water'}
+    ]
+}).then(console.log).catch((err) => {console.warn(err)});*/
+
+wql.query(`
+{
+    FacebookGraphAPI.getUsersFriends(access_token="EAACEdEose0cBAFMrjdYxDXuVe9l0GikZCZBrsuyxZAmESDVMFymr1cCqhEGbdm7Jqo2U5lGm2SH0YelSwLxv2JsUE9seyyjdynJqb0tZCQ30WsvhWZATF0ZA8b8WkjzGKWiGS5Tb8kAeGmH7gPkdeZCyxIZCmp9UBZBWcxbFw9ZAzV5wZDZD", user_id = "me") {
+        data {
+             name
+        }
+    }
+
+}
+`).then(console.log).catch((err) => {console.warn(err)});
+
+
+/*const parser = require('./src/Parser/Parser'),
+    WQLQuery = require('./src/WQLQuery');
+
+let context = {
+    'foo' :     'bar',
+    'foo1' :    'bar1',
+    'obj' :     {
+        'a':1,
+        'b':2,
+        'obj2': {
+            'c':3,
+            'd':4
+        }
+    },
+    'arr' :     [
+        {'k':1, 'l': 'Hello'},
+        {'k':2, 'l': 'World'},
+        {'k':3, 'l': 'Country'},
+        {'k':4, 'l': 'Water'}
+    ],
+    'arrSim' :  [
+        "hello",
+        "world",
+        "from",
+        "strings"
+    ]
+};
+
+parser.parse(`
+{
+    foo,
+    foo1
+}
+`).then((roots) => {
+    let ops = {
+        RapidAPI : {
+            projectName : 'Iddo_demo_app_1',
+            apiKey: '4c6e5cc0-8426-4c95-9e3b-60adba0e50f6'
+        }
+    };
+
+    let q = new WQLQuery(roots, ops);
+
+    q.eval(context)
+        .then((res) => {
+            console.log(JSON.stringify(res));
+        })
+        .catch((error) => {
+            console.warn(error);
+        });
+}).catch((err) => {
+    console.warn(err);
+});
+*/
+
+
+
+
+
+/** const   WQLQuery = require('./src/WQLQuery'),
         LeafNode = require('./src/Nodes/LeafNode'),
         ObjectNode = require('./src/Nodes/ObjectNode'),
         ArrayNode = require('./src/Nodes/ArrayNode'),
         FunctionNode = require('./src/Nodes/FunctionNode'),
         CompositeNode = require('./src/Nodes/CompositeNode');
 
-/*
+
 {
     foo,
     foo1,
@@ -36,7 +136,7 @@ const   WQLQuery = require('./src/WQLQuery'),
         }
     }
 }
- */
+
 let roots = [
     new LeafNode('foo'),
     new LeafNode('foo1'),
@@ -56,23 +156,23 @@ let roots = [
         }, [])
     ]),
     new ArrayNode('arrSim'),
-    /*new FunctionNode('SpotifyPublicAPI.getArtist', {
+    new FunctionNode('SpotifyPublicAPI.getArtist', {
         'id': '"7dGJo4pcD2V6oG8kP0tJRR"'
     }, [
         new LeafNode('name'),
         new LeafNode('popularity'),
         new ObjectNode('followers', [
             new LeafNode('total')
-        ])
-    ]),*/
-    new FunctionNode('SpotifyPublicAPI.getArtistRelatedArtists', {
-        'id' : '"7dGJo4pcD2V6oG8kP0tJRR"'
-    }, [
-        new ArrayNode("artists", [
-            new LeafNode("name")
+        ]),
+        new FunctionNode('SpotifyPublicAPI.getArtistRelatedArtists', {
+            'id' : 'id'
+        }, [
+            new ArrayNode("artists", [
+                new LeafNode("name")
+            ])
         ])
     ])
-];
+];/**
 
 
 let context = {
@@ -118,3 +218,4 @@ q.eval(context)
         console.warn(error);
     });
 
+**/

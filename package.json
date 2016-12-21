@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "nearley": "^2.7.10",
+    "pegjs": "^0.10.0",
     "rapidapi-connect": "0.0.2"
   }
 }

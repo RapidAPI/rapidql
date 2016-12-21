@@ -194,8 +194,8 @@ function peg$parse(input, options) {
           rs[key] = value;
           return rs;
       },
-      peg$c18 = /^[\-0-9"'a-zA-Z.]/,
-      peg$c19 = peg$classExpectation(["-", ["0", "9"], "\"", "'", ["a", "z"], ["A", "Z"], "."], false, false),
+      peg$c18 = /^[\-_0-9"'a-zA-Z.]/,
+      peg$c19 = peg$classExpectation(["-", "_", ["0", "9"], "\"", "'", ["a", "z"], ["A", "Z"], "."], false, false),
       peg$c20 = function(chars) {
       	return chars.join("");
       },

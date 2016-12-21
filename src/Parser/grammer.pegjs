@@ -58,6 +58,6 @@ KVTuple = key:Word "=" value:Word {
     return rs;
 }
 
-Word = chars:[_-0-9"'a-zA-Z.]+ {
+Word = chars:[-_0-9"'a-zA-Z.]+ {
 	return chars.join("");
 }
