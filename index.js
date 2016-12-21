@@ -31,20 +31,54 @@ let wql = new WQL({
     ]
 }).then(console.log).catch((err) => {console.warn(err)});*/
 
-wql.query(`
+function pipe(...funcs) {
+    return function(values) {
+        return funcs.reduce(function(vals, f) {
+            return f(vals);
+        }, values);
+    }
+}
+
+//Get friends and their profile pics
+/*wql.query(`
 {
     FacebookGraphAPI.getUsersFriends(access_token="EAACEdEose0cBAFMrjdYxDXuVe9l0GikZCZBrsuyxZAmESDVMFymr1cCqhEGbdm7Jqo2U5lGm2SH0YelSwLxv2JsUE9seyyjdynJqb0tZCQ30WsvhWZATF0ZA8b8WkjzGKWiGS5Tb8kAeGmH7gPkdeZCyxIZCmp9UBZBWcxbFw9ZAzV5wZDZD", user_id = "me") {
         data {
-             name
+             name,
+             FacebookGraphAPI.getProfilePicture(profile_id=id, access_token="EAACEdEose0cBAFMrjdYxDXuVe9l0GikZCZBrsuyxZAmESDVMFymr1cCqhEGbdm7Jqo2U5lGm2SH0YelSwLxv2JsUE9seyyjdynJqb0tZCQ30WsvhWZATF0ZA8b8WkjzGKWiGS5Tb8kAeGmH7gPkdeZCyxIZCmp9UBZBWcxbFw9ZAzV5wZDZD"){
+                data {
+                    url
+                }
+             }
         }
     }
 
 }
-`).then((val) => {
+`).then(pipe(JSON.stringify, console.log)).catch((err) => {console.warn(err)});*/
 
-    console.log(JSON.stringify(val))
-
-}).catch((err) => {console.warn(err)});
+//Get images from Instagram and then process with AWS Rekognition
+wql.query(`
+{
+    Instagram.getUsersRecentMedia(userId="self", accessToken="175826345.49afbf0.885ac554935e45ac9f83d811e870211c") {
+        data {
+            caption {
+                text
+            },
+            images {
+                standard_resolution {
+                    url,
+                    AWSRekognition.detectLabelsInImage(image=url, apiKey="AKIAJELI5PIGECVCLS2Q", apiSecret = "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") {
+                        Labels {
+                            Name,
+                            Confidence
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+`).then(pipe(JSON.stringify, console.log)).catch((err) => {console.warn(err)});
 
 
 /*const parser = require('./src/Parser/Parser'),
