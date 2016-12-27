@@ -5,12 +5,14 @@
 
 const WQL = require('./src/WQL');
 
-let wql = new WQL({
-    RapidAPI : {
-        projectName : 'Iddo_demo_app_1',
-        apiKey: '4c6e5cc0-8426-4c95-9e3b-60adba0e50f6'
-    }
-});
+module.exports = WQL;
+
+    /*let wql = new WQL({
+        RapidAPI : {
+            projectName : 'Iddo_demo_app_1',
+            apiKey: '4c6e5cc0-8426-4c95-9e3b-60adba0e50f6'
+        }
+    });*/
 
 /*wql.query(`
 {
@@ -42,22 +44,21 @@ function pipe(...funcs) {
 //Get friends and their profile pics
 /*wql.query(`
 {
-    FacebookGraphAPI.getUsersFriends(access_token="EAACEdEose0cBAFMrjdYxDXuVe9l0GikZCZBrsuyxZAmESDVMFymr1cCqhEGbdm7Jqo2U5lGm2SH0YelSwLxv2JsUE9seyyjdynJqb0tZCQ30WsvhWZATF0ZA8b8WkjzGKWiGS5Tb8kAeGmH7gPkdeZCyxIZCmp9UBZBWcxbFw9ZAzV5wZDZD", user_id = "me") {
+    FacebookGraphAPI.getUsersFriends(user_id = "me", access_token="EAACEdEose0cBAMf2uam36XJ5NZByqoq3cwiYacIba3eDkgkMhQ6kVqWbg5zLXw2LgAkZAgYQA9qRZAcYGVP527AHXakDDnF38YOZAZBnQDTQZCmKlG8ZCOFBDSZABdllBteFzzgnBFCQihxO3Vl7wuwZBrXvXLJ61JvaYWVpqoqTDcwZDZD") {
         data {
              name,
-             FacebookGraphAPI.getProfilePicture(profile_id=id, access_token="EAACEdEose0cBAFMrjdYxDXuVe9l0GikZCZBrsuyxZAmESDVMFymr1cCqhEGbdm7Jqo2U5lGm2SH0YelSwLxv2JsUE9seyyjdynJqb0tZCQ30WsvhWZATF0ZA8b8WkjzGKWiGS5Tb8kAeGmH7gPkdeZCyxIZCmp9UBZBWcxbFw9ZAzV5wZDZD"){
+             FacebookGraphAPI.getProfilePicture(profile_id=id, access_token="EAACEdEose0cBAMf2uam36XJ5NZByqoq3cwiYacIba3eDkgkMhQ6kVqWbg5zLXw2LgAkZAgYQA9qRZAcYGVP527AHXakDDnF38YOZAZBnQDTQZCmKlG8ZCOFBDSZABdllBteFzzgnBFCQihxO3Vl7wuwZBrXvXLJ61JvaYWVpqoqTDcwZDZD"){
                 data {
                     url
                 }
              }
         }
     }
-
 }
-`).then(pipe(JSON.stringify, console.log)).catch((err) => {console.warn(err)});*/
+`).then(pipe(JSON.stringify, console.log)).catch(console.warn);*/
 
 //Get images from Instagram and then process with AWS Rekognition
-wql.query(`
+/*wql.query(`
 {
     Instagram.getUsersRecentMedia(userId="self", accessToken="175826345.49afbf0.885ac554935e45ac9f83d811e870211c") {
         data {
@@ -78,7 +79,7 @@ wql.query(`
         }
     }
 }
-`).then(pipe(JSON.stringify, console.log)).catch((err) => {console.warn(err)});
+`).then(pipe(JSON.stringify, console.log)).catch((err) => {console.warn(err)});*/
 
 
 /*const parser = require('./src/Parser/Parser'),
