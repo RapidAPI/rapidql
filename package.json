@@ -1,5 +1,5 @@
 {
-  "name": "RapidQL",
+  "name": "@iddo/RapidQL",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "dependencies": {
     "nearley": "^2.7.10",
     "pegjs": "^0.10.0",
