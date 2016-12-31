@@ -172,7 +172,7 @@ function peg$parse(input, options) {
           const LeafNode = require('./../Nodes/LeafNode'),
               CompositeNode = require('./../Nodes/CompositeNode'),
               FunctionNode = require('./../Nodes/FunctionNode');
-          return new FunctionNode(label, args, values);
+          return new FunctionNode(label, values, args);
       	//return {'label': label, 'args': args, 'value': values};
       },
       peg$c10 = "(",

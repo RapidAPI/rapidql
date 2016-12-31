@@ -1,15 +1,16 @@
 {
-  "name": "@iddo/RapidQL",
-  "version": "1.0.0",
+  "name": "@iddo/rapidql",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "keywords": [],
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
+    "mocha": "^3.2.0",
     "nearley": "^2.7.10",
     "pegjs": "^0.10.0",
     "rapidapi-connect": "0.0.2"

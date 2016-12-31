@@ -19,7 +19,7 @@ class ArrayNode {
             let arr = context[this.getName()];
             let promises = [];
             if (!Array.isArray(arr)) {
-                Promise.push(new Promise((resolve, reject) => {reject(`TypeError: element ${this.getName()} in context is not an array`)}));
+                return new Promise((resolve, reject) => {reject(`TypeError: element ${this.getName()} in context is not an array`)});
             } else {
 
                 for (let i in arr) {

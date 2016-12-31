@@ -8,7 +8,7 @@ const RapidAPI = require('rapidapi-connect'),
     CompositeNode = require('./CompositeNode');
 
 class FunctionNode {
-    constructor(name, args, children) {
+    constructor(name, children, args) {
         this.name = name;
         this.args = args;
         this.children = children;
