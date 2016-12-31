@@ -6,6 +6,9 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"
   },
+  "engines": {
+    "node": "6.1.0"
+  },
   "keywords": [],
   "author": "",
   "license": "UNLICENSED",
