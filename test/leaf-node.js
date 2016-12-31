@@ -1,6 +1,8 @@
 /**
  * Created by iddo on 12/30/16.
  */
+"use strict";
+
 const assert = require('assert'),
     LeafNode = require('../src/Nodes/LeafNode');
 

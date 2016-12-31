@@ -1,6 +1,7 @@
 /**
  * Created by Iddo on 12/18/2016.
  */
+"use strict";
 const nearley = require("nearley"),
     grammer = require("./grammer"),
     peg = require("pegjs");

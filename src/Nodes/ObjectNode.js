@@ -1,6 +1,7 @@
 /**
  * Created by Iddo on 12/17/2016.
  */
+"use strict";
 
 class ObjectNode {
     constructor(name, children) {

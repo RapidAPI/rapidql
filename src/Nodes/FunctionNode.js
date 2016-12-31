@@ -1,6 +1,7 @@
 /**
  * Created by iddo on 12/19/16.
  */
+"use strict";
 const RapidAPI = require('rapidapi-connect'),
     LeafNode = require('./LeafNode'),
     ObjectNode = require('./ObjectNode'),

@@ -1,6 +1,7 @@
 /**
  * Created by iddo on 12/30/16.
  */
+"use strict";
 
 /**
  * Tests all nodes to make sure that they are coherent with the interface:

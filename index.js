@@ -2,6 +2,7 @@
  * Created by Iddo on 12/17/2016.
  */
 
+"use strict";
 
 const WQL = require('./src/WQL');
 

@@ -1,6 +1,7 @@
 /**
  * Created by iddo on 12/20/16.
  */
+"use strict";
 
 const parser = require('./Parser/Parser'),
     WQLQuery = require('./WQLQuery');
