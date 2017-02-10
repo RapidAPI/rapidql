@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9596d340-4f3f-4ef6-babc-0ba4e5549a8d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/parser.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Parser/grammer-raw.pegjs" afterPath="$PROJECT_DIR$/src/Parser/grammer-raw.pegjs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Parser/grammer.js" afterPath="$PROJECT_DIR$/src/Parser/grammer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Parser/grammer.pegjs" afterPath="$PROJECT_DIR$/src/Parser/grammer.pegjs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -115,7 +111,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parser.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parser.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/parser.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1096">
@@ -123,6 +119,19 @@
               <folding>
                 <element signature="e#0#37#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="330">
+                <caret line="73" column="63" selection-start-line="73" selection-start-column="63" selection-end-line="73" selection-end-column="63" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -210,7 +219,6 @@
         <option value="$PROJECT_DIR$/src/ParserGrammer/grammer-raw.pegjs" />
         <option value="$PROJECT_DIR$/src/ParserGrammer/grammer.pegjs" />
         <option value="$PROJECT_DIR$/src/ParserGrammer/Parser.js" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/Nodes/ArrayNode.js" />
         <option value="$PROJECT_DIR$/src/Nodes/CompositeNode.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNode.js" />
@@ -227,6 +235,7 @@
         <option value="$PROJECT_DIR$/src/Parser/grammer-raw.pegjs" />
         <option value="$PROJECT_DIR$/src/Parser/Parser.js" />
         <option value="$PROJECT_DIR$/test/parser.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -499,12 +508,12 @@
       <workItem from="1483047267666" duration="3697000" />
       <workItem from="1483123350071" duration="5091000" />
       <workItem from="1486608359387" duration="138000" />
-      <workItem from="1486686123459" duration="2931000" />
+      <workItem from="1486686123459" duration="3190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47880000" />
+    <option name="totallyTimeSpent" value="48139000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -834,16 +843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="135">
-            <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/ArrayNode.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -973,6 +972,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1096">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#37#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -981,13 +990,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1096">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#37#0" expanded="false" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="330">
+            <caret line="73" column="63" selection-start-line="73" selection-start-column="63" selection-end-line="73" selection-end-column="63" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
