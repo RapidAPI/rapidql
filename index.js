@@ -8,19 +8,19 @@ const WQL = require('./src/WQL');
 
 module.exports = WQL;
 
-    /*let wql = new WQL({
+    let wql = new WQL({
         RapidAPI : {
             projectName : 'Iddo_demo_app_1',
             apiKey: '4c6e5cc0-8426-4c95-9e3b-60adba0e50f6'
         }
-    });*/
+    });
 
-/*wql.query(`
+wql.query(`
 {
     foo,
     arr {
         k,
-        GoogleTranslate.translate(apiKey = "AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM", string = l, targetLanguage="de")
+        GoogleTranslate.translate(apiKey : "AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM", string : l, targetLanguage:"de")
     }
 }
 `, {
@@ -32,7 +32,7 @@ module.exports = WQL;
         {'k':3, 'l': 'Country'},
         {'k':4, 'l': 'Water'}
     ]
-}).then(console.log).catch((err) => {console.warn(err)});*/
+}).then(console.log).catch((err) => {console.warn(err)});
 
 function pipe(...funcs) {
     return function(values) {
