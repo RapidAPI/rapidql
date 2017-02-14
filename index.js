@@ -45,10 +45,10 @@ function pipe(...funcs) {
 //Get friends and their profile pics
 /*wql.query(`
 {
-    FacebookGraphAPI.getUsersFriends(user_id = "me", access_token="EAACEdEose0cBAMf2uam36XJ5NZByqoq3cwiYacIba3eDkgkMhQ6kVqWbg5zLXw2LgAkZAgYQA9qRZAcYGVP527AHXakDDnF38YOZAZBnQDTQZCmKlG8ZCOFBDSZABdllBteFzzgnBFCQihxO3Vl7wuwZBrXvXLJ61JvaYWVpqoqTDcwZDZD") {
+    RapidAPI.FacebookGraphAPI.getUsersFriends(user_id = "me", access_token="EAACEdEose0cBAMf2uam36XJ5NZByqoq3cwiYacIba3eDkgkMhQ6kVqWbg5zLXw2LgAkZAgYQA9qRZAcYGVP527AHXakDDnF38YOZAZBnQDTQZCmKlG8ZCOFBDSZABdllBteFzzgnBFCQihxO3Vl7wuwZBrXvXLJ61JvaYWVpqoqTDcwZDZD") {
         data {
              name,
-             FacebookGraphAPI.getProfilePicture(profile_id=id, access_token="EAACEdEose0cBAMf2uam36XJ5NZByqoq3cwiYacIba3eDkgkMhQ6kVqWbg5zLXw2LgAkZAgYQA9qRZAcYGVP527AHXakDDnF38YOZAZBnQDTQZCmKlG8ZCOFBDSZABdllBteFzzgnBFCQihxO3Vl7wuwZBrXvXLJ61JvaYWVpqoqTDcwZDZD"){
+                RapidAPI.FacebookGraphAPI.getProfilePicture(profile_id=id, access_token="EAACEdEose0cBAMf2uam36XJ5NZByqoq3cwiYacIba3eDkgkMhQ6kVqWbg5zLXw2LgAkZAgYQA9qRZAcYGVP527AHXakDDnF38YOZAZBnQDTQZCmKlG8ZCOFBDSZABdllBteFzzgnBFCQihxO3Vl7wuwZBrXvXLJ61JvaYWVpqoqTDcwZDZD"){
                 data {
                     url
                 }
@@ -61,7 +61,7 @@ function pipe(...funcs) {
 //Get images from Instagram and then process with AWS Rekognition
 /*wql.query(`
 {
-    Instagram.getUsersRecentMedia(userId="self", accessToken="175826345.49afbf0.885ac554935e45ac9f83d811e870211c") {
+    RapidAPI.Instagram.getUsersRecentMedia(userId="self", accessToken="175826345.49afbf0.885ac554935e45ac9f83d811e870211c") {
         data {
             caption {
                 text
@@ -69,7 +69,7 @@ function pipe(...funcs) {
             images {
                 standard_resolution {
                     url,
-                    AWSRekognition.detectLabelsInImage(image=url, apiKey="AKIAJELI5PIGECVCLS2Q", apiSecret = "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") {
+                    RapidAPI.AWSRekognition.detectLabelsInImage(image=url, apiKey="AKIAJELI5PIGECVCLS2Q", apiSecret = "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") {
                         Labels {
                             Name,
                             Confidence
