@@ -90,14 +90,14 @@ describe('Parser', () => {
 
     it('should support function nodes', (done) => {
         parse(`{
-            DataSource.Name.Function(key1:val1, key2:{subKey: subValue}) {
+            RapidAPI.Name.Function(key1:val1, key2:{subKey: subValue}) {
                 a
             }
         }`).then((val) => {
             assert.equal(val.length, 1); // Exactly 1 root node
 
             assert.equal(val[0].hasOwnProperty('args'), true); // Check type. Only function nodes have args (it can be sub-type)
-            assert.equal(val[0].getName(), 'DataSource.Name.Function'); // Root node's name is DataSource.Name.Function
+            assert.equal(val[0].getName(), 'RapidAPI.Name.Function'); // Root node's name is DataSource.Name.Function
 
             assert.equal(val[0].args['key1'], "val1"); //Check simple arg
             assert.deepEqual(val[0].args['key2'], {subKey: "subValue"}); //Check complex arg

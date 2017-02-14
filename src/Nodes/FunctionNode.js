@@ -25,7 +25,7 @@ class FunctionNode {
         this.name = name;
         this.args = args;
         this.children = children;
-
+        
         //Check if type is supported
         if (supportedTypes.hasOwnProperty(this.name.split(SEP_CHAR)[0])) {
             this.type = this.name.split(SEP_CHAR)[0];
@@ -36,11 +36,11 @@ class FunctionNode {
     }
 
     /**
-     * 
+     *
      * @returns {string|*}
      */
     getName() {
-        return this.name;
+        return `${this.type}.${this.name}`;
     }
 
     eval(context, ops) {
@@ -80,7 +80,7 @@ module.exports = FunctionNode;
 
 //PLAYGROUND:
 
-let fn = new FunctionNode('RapidAPI.GoogleTranslate.translate', [], {
+/*let fn = new FunctionNode('RapidAPI.GoogleTranslate.translate', [], {
     'apiKey': '"AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM"',
     'string': '"hello world, what a great day"',
     'targetLanguage': '"de"'
@@ -95,4 +95,4 @@ let ops = {
 
 fn.eval({}, ops)
     .then((res) => {console.log(JSON.stringify(res))})
-    .catch((err) => {console.warn(JSON.stringify(err))});
+    .catch((err) => {console.warn(JSON.stringify(err))});*/
