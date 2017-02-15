@@ -20,19 +20,20 @@ class PostgreSQLNode {
     }
 
     getName() {
-        return "PostgreSQL." + this.name();
+        return "PostgreSQL." + this.name;
     }
 
     //noinspection JSAnnotator
     eval(context, ops) {
+        const self = this;
 
         return new Promise((resolve, reject) => {
             //De-tokenize function call: DBName.DBSchema.DBTable.operation
             const tokenizedName = this.name.split(SEP_CHAR);
-            const DBName = tokenizedName[0],
-                DBSchema = tokenizedName[1],
-                DBTable = tokenizedName[2],
-                operation = tokenizedName[3];
+            const DBName = tokenizedName[1],
+                DBSchema = tokenizedName[2],
+                DBTable = tokenizedName[3],
+                operation = tokenizedName[4];
 
             //Check operation exists
             if(!functions.hasOwnProperty(operation))
@@ -55,19 +56,19 @@ class PostgreSQLNode {
                     }
 
                     //Route different functions
-                    functions[operation](DBSchema, DBTable, client, args)
+                    functions[operation](DBSchema, DBTable, client, self.args)
                         .then((payload) => {
                             //Add to context
                             let ctx = Object.assign({}, context);
-                            ctx[this.getName()] = payload;
+                            ctx[self.getName()] = payload;
                             //Process down the tree...
                             if(typeof payload == 'string'){
                                 (new LeafNode(this.getName())).eval(ctx).then(resolve).catch(reject);
                             } else if(typeof payload == 'object') {
                                 let innerContext = Object.assign({}, context);
-                                innerContext[this.getName()] =  payload;
+                                innerContext[self.getName()] =  payload;
 
-                                let innerNode = new CompositeNode(this.getName(), this.children);
+                                let innerNode = new CompositeNode(self.getName(), self.children);
 
                                 innerNode.eval(innerContext, ops).then(resolve).catch(reject);
 
@@ -82,3 +83,5 @@ class PostgreSQLNode {
         });
     }
 }
+
+module.exports = PostgreSQLNode;

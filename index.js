@@ -47,7 +47,7 @@ module.exports = WQL;
 
 wql.query(`
 {
-    PostgreSQL.Sample.public.users.select(email:"iddo@rapidapi.com") {
+    PostgreSQL.Sample.public.users.select() {
         id,
         name,
         email

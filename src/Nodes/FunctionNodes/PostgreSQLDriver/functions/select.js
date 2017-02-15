@@ -7,26 +7,30 @@ function find(DBSchema, DBTable, client, args) {
     let queryString = "";
 
     //Base query
-    queryString += `SELECT * FROM ${DBSchema}.${DBTable} WHERE`;
+    queryString += `SELECT * FROM ${DBSchema}.${DBTable}`;
 
     //Add where conditions
-    for (let field in args) {
-        if (args.hasOwnProperty(field)) {
-            if (typeof args[field] == 'string') {
-                queryString += ` ${field} = "${args[field]}"`
+    if (Object.keys(args).length > 0) {
+        queryString += ` WHERE`;
+        for (let field in args) {
+            if (args.hasOwnProperty(field)) {
+                if (typeof args[field] == 'string') {
+                    queryString += ` ${field} = '${args[field]}'`
+                }
             }
         }
     }
 
-    client.query(queryString, (err, result) => {
-        return new Promise((resolve, reject) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(result);
-            }
+    return new Promise((resolve, reject) => {
+        client.query(queryString, (err, result) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(result.rows || []);
+                }
         });
     });
+
 }
 
 module.exports = find;

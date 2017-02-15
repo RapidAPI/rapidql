@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9596d340-4f3f-4ef6-babc-0ba4e5549a8d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/select.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/CompositeNode.js" afterPath="$PROJECT_DIR$/src/Nodes/CompositeNode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNode.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Parser/grammer-raw.pegjs" afterPath="$PROJECT_DIR$/src/Parser/grammer-raw.pegjs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Parser/grammer.pegjs" afterPath="$PROJECT_DIR$/src/Parser/grammer.pegjs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WQLQuery.js" afterPath="$PROJECT_DIR$/src/WQLQuery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/select.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/select.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,7 +29,7 @@
             <file leaf-file-name="RapidAPINode.js" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="360">
+                  <state relative-caret-position="342">
                     <caret line="34" column="63" selection-start-line="34" selection-start-column="63" selection-end-line="34" selection-end-column="63" />
                     <folding>
                       <element signature="n#!!doc" expanded="true" />
@@ -56,35 +49,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WQLQuery.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WQLQuery.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PostgreSQLNode.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-178">
-              <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+            <state relative-caret-position="105">
+              <caret line="68" column="71" selection-start-line="68" selection-start-column="71" selection-end-line="68" selection-end-column="71" />
               <folding>
                 <element signature="e#0#38#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="select.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/select.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-              <folding>
-                <element signature="n#!!doc;n#find#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -93,9 +64,33 @@
       <file leaf-file-name="FunctionNode.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+            <state relative-caret-position="489">
+              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="select.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/select.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+              <folding>
+                <element signature="n#!!doc;n#find#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Parser.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Parser/Parser.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#41#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,8 +98,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+            <state relative-caret-position="225">
+              <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -113,17 +108,17 @@
       <file leaf-file-name="grammer.pegjs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Parser/grammer.pegjs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="77" column="16" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
+            <state relative-caret-position="405">
+              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grammer-raw.pegjs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="grammer-raw.pegjs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Parser/grammer-raw.pegjs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
+            <state relative-caret-position="870">
               <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
               <folding />
             </state>
@@ -194,13 +189,13 @@
         <option value="$PROJECT_DIR$/src/Nodes/CompositeNode.js" />
         <option value="$PROJECT_DIR$/src/WQLQuery.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLNode.js" />
-        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/select.js" />
-        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNode.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/src/Parser/grammer.pegjs" />
         <option value="$PROJECT_DIR$/src/Parser/grammer-raw.pegjs" />
+        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/select.js" />
       </list>
     </option>
   </component>
@@ -552,12 +547,12 @@
       <workItem from="1483047267666" duration="3697000" />
       <workItem from="1483123350071" duration="5091000" />
       <workItem from="1486608359387" duration="138000" />
-      <workItem from="1486686123459" duration="10922000" />
+      <workItem from="1486686123459" duration="12330000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55871000" />
+    <option name="totallyTimeSpent" value="57279000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -568,9 +563,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2826087" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5128459" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36264822" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36264822" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39822134" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -628,8 +623,14 @@
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="47" />
+      <option name="time" value="57" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -899,10 +900,10 @@
         <state relative-caret-position="322">
           <caret line="347" column="11" selection-start-line="347" selection-start-column="11" selection-end-line="347" selection-end-column="11" />
           <folding>
-            <marker date="1486687082000" expanded="true" signature="4069:4179" placeholder="{...}" />
-            <marker date="1486687082000" expanded="true" signature="4127:4166" placeholder="{...}" />
-            <marker date="1486687082000" expanded="true" signature="10299:12209" placeholder="{...}" />
-            <marker date="1486687082000" expanded="true" signature="12215:12269" placeholder="{...}" />
+            <marker date="1487121742000" expanded="true" signature="4069:4179" placeholder="{...}" />
+            <marker date="1487121742000" expanded="true" signature="4127:4166" placeholder="{...}" />
+            <marker date="1487121742000" expanded="true" signature="10305:12215" placeholder="{...}" />
+            <marker date="1487121742000" expanded="true" signature="12221:12275" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -954,16 +955,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser/Parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/CompositeNode.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -982,26 +973,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/select.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc;n#find#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-178">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WQLQuery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="47">
@@ -1010,9 +981,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parser/grammer-raw.pegjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parser/Parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parser/grammer.pegjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="342">
           <caret line="34" column="63" selection-start-line="34" selection-start-column="63" selection-end-line="34" selection-end-column="63" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1020,35 +1025,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-          <folding />
+        <state relative-caret-position="105">
+          <caret line="68" column="71" selection-start-line="68" selection-start-column="71" selection-end-line="68" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+        <state relative-caret-position="225">
+          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser/grammer.pegjs">
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/select.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="77" column="16" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser/grammer-raw.pegjs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="270">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+          <folding>
+            <element signature="n#!!doc;n#find#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
