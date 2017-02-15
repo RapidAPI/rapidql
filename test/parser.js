@@ -112,4 +112,20 @@ describe('Parser', () => {
             done(`Rejected with error ${err}`);
         });
     });
+
+    it('should fail with function nodes with unsupported names', (done) => {
+        try {
+            parse(`{
+                UnsupportedType.Collection.Function(key: val) {
+                    a
+                }
+            }`).then(val => {
+                done(`Didn't catch UnsupportedType error`);
+            }).catch(err => {
+                done();
+            })
+        } catch (e) {
+            done();
+        }
+    });
 });
