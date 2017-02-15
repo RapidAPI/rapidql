@@ -14,7 +14,8 @@ class CompositeNode {
     getName() {
         return this.name;
     }
-
+    
+    //noinspection JSAnnotator
     eval(context, ops) {
         if(Array.isArray(context[this.getName()])) {
             return (new ArrayNode(this.getName(), this.children)).eval(context, ops);

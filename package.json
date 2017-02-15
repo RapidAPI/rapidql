@@ -16,6 +16,7 @@
     "mocha": "^3.2.0",
     "nearley": "^2.7.10",
     "pegjs": "^0.10.0",
+    "pg": "^6.1.2",
     "rapidapi-connect": "0.0.2"
   }
 }

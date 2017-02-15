@@ -12,15 +12,26 @@ module.exports = WQL;
         RapidAPI : {
             projectName : 'Iddo_demo_app_1',
             apiKey: '4c6e5cc0-8426-4c95-9e3b-60adba0e50f6'
+        },
+        PostgreSQL: {
+            Sample: {
+                user: 'admin', //env var: PGUSER
+                database: 'compose', //env var: PGDATABASE
+                password: 'MEAVAILETQQUVTIM', //env var: PGPASSWORD
+                host: 'aws-us-east-1-portal.23.dblayer.com', // Server hosting the postgres database
+                port: 17052, //env var: PGPORT
+                max: 10, // max number of clients in the pool
+                idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+            }
         }
     });
 
-wql.query(`
+/*wql.query(`
 {
     foo,
     arr {
         k,
-        GoogleTranslate.translate(apiKey : "AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM", string : l, targetLanguage:"de")
+        RapidAPI.GoogleTranslate.translate(apiKey : "AIzaSyCDogEcpeA84USVXMS471PDt3zsG-caYDM", string : l, targetLanguage:"de")
     }
 }
 `, {
@@ -32,7 +43,17 @@ wql.query(`
         {'k':3, 'l': 'Country'},
         {'k':4, 'l': 'Water'}
     ]
-}).then(console.log).catch((err) => {console.warn(err)});
+}).then(console.log).catch((err) => {console.warn(err)});*/
+
+wql.query(`
+{
+    PostgreSQL.Sample.public.users.select(email:"iddo@rapidapi.com") {
+        id,
+        name,
+        email
+    }
+}
+`).then(console.log).catch((err) => {console.warn(err)});
 
 function pipe(...funcs) {
     return function(values) {

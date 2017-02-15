@@ -22,6 +22,7 @@ class RapidAPINode {
         return this.name;
     }
 
+    //noinspection JSAnnotator
     eval(context, ops) {
         //Init RapidAPI
         if (!ops.hasOwnProperty('RapidAPI')) {
@@ -31,7 +32,7 @@ class RapidAPINode {
             const rapid = new RapidAPI(ops['RapidAPI']['projectName'], ops['RapidAPI']['apiKey']);
             return new Promise((resolve, reject) => {
 
-                rapid.call(...this.getName().split('.'), this.args)
+                rapid.call(...this.getName().split('.').slice(1), this.args)
                     .on('success', (payload) => {
                         //If JSON and not parsed -> parse
                         try {

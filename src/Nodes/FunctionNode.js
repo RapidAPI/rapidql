@@ -2,14 +2,14 @@
  * Created by iddo on 12/19/16.
  */
 "use strict";
-const RapidAPI = require('rapidapi-connect'),
-    LeafNode = require('./LeafNode'),
+const LeafNode = require('./LeafNode'),
     ObjectNode = require('./ObjectNode'),
     ArrayNode = require('./ArrayNode'),
     CompositeNode = require('./CompositeNode');
 
 const supportedTypes = {
-    "RapidAPI": require('./FunctionNodes/RapidAPINode')
+    "RapidAPI": require('./FunctionNodes/RapidAPINode'),
+    "PostgreSQL" : require('./FunctionNodes/PostgreSQLDriver/PostgreSQLNode')
 };
 
 const SEP_CHAR = '.';
@@ -43,6 +43,7 @@ class FunctionNode {
         return `${this.type}.${this.name}`;
     }
 
+    //noinspection JSAnnotator
     eval(context, ops) {
         return new Promise((resolve, reject) => {
             //Process args in context

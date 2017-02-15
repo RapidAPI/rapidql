@@ -15,6 +15,7 @@ class WQLQuery {
         this.options = Object.assign({}, options);
     }
 
+    //noinspection JSAnnotator
     /**
      * Performs the WQL query withing a specific context
      * @param context the context to perform the query in
