@@ -14,6 +14,48 @@ const supportedTypes = {
 
 const SEP_CHAR = '.';
 
+/**
+ * Processes the arg tree, keeping constants and replacing vars from the context
+ * @param args arg tree to be processed
+ * @param context context to take variable values from
+ * @returns {{}}
+ */
+function recursiveReplace(args, context) {
+    let processedArgs = {};
+    for (let key in args) {
+        if (args.hasOwnProperty(key)) {
+            let arg = args[key];
+
+            //remove quotes from key if needed
+            if(key[0] == '"' && key[key.length-1] == '"')
+                key = key.slice(1,-1);
+            
+            //If string, process directly. Else, recurse down the rabbit hole.
+            switch (typeof arg) {
+                case 'string':
+                    //Check for quotes:
+                    if ((arg[0] == `"` && arg[arg.length - 1] == `"`) || (arg[0] == `'` && arg[arg.length - 1] == `'`)) {
+                        processedArgs[key] = arg.slice(1, -1); //Remove quotes and add to processed args
+                    } else {
+                        if (context.hasOwnProperty(arg))
+                            processedArgs[key] = context[arg];
+                        else {
+                            throw `Name error: name ${arg} does not exist in context`;
+                        }
+                    }
+                    break;
+                case 'object':
+                    processedArgs[key] = recursiveReplace(arg, context);
+                    break;
+                default:
+                    throw `Type Error: type ${typeof arg} for argument ${key} is not supported`;
+                    break;
+            }
+        }
+    }
+    return processedArgs;
+}
+
 class FunctionNode {
     /**
      * Construct a new functional node, determining it's type at compile time and throwing an error if type doesn't exist.
@@ -49,33 +91,23 @@ class FunctionNode {
             //Process args in context
             //If they have " " -> string literal (remove quotes)
             //If they don't -> fetch from context
-            let processedArgs = {};
-            for (let key in this.args) {
-                if (this.args.hasOwnProperty(key)) {
-                    let arg = this.args[key];
-                    //Check for quotes:
-                    if ((arg[0] == `"` && arg[arg.length - 1] == `"`) || (arg[0] == `'` && arg[arg.length - 1] == `'`)) {
-                        processedArgs[key] = arg.slice(1, -1); //Remove quotes and add to processed args
-                    } else {
-                        if (context.hasOwnProperty(arg))
-                            processedArgs[key] = context[arg];
-                        else {
-                            reject(`Name error: name ${arg} does not exist in context`);
-                            return;
-                        }
-                    }
-                }
+            try {
+                const processedArgs = recursiveReplace(this.args, context);
+
+                //Determine material node type and materialize itself
+                const MaterialClass = supportedTypes[this.type];
+                const materialNode = new MaterialClass(this.getName(), this.children, processedArgs);
+
+                materialNode.eval(context, ops).then(resolve).catch(reject);
+            } catch (e) {
+                reject(`Error parsing arguments: ${e}`);
             }
-
-            //Determine material node type and materialize itself
-            const MaterialClass = supportedTypes[this.type];
-            const materialNode = new MaterialClass(this.getName(), this.children, processedArgs);
-
-            materialNode.eval(context, ops).then(resolve).catch(reject);
         });
         
     }
 }
+
+FunctionNode.recursiveReplace = recursiveReplace;
 
 module.exports = FunctionNode;
 

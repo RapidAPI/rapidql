@@ -2,6 +2,8 @@
  * Created by iddo on 2/14/17.
  */
 
+const whereGenerator = require('./../whereGenerator');
+
 function find(DBSchema, DBTable, client, args) {
     //We'll build the SQL query with that string
     let queryString = "";
@@ -10,16 +12,7 @@ function find(DBSchema, DBTable, client, args) {
     queryString += `SELECT * FROM ${DBSchema}.${DBTable}`;
 
     //Add where conditions
-    if (Object.keys(args).length > 0) {
-        queryString += ` WHERE`;
-        for (let field in args) {
-            if (args.hasOwnProperty(field)) {
-                if (typeof args[field] == 'string') {
-                    queryString += ` ${field} = '${args[field]}'`
-                }
-            }
-        }
-    }
+    queryString += whereGenerator(args);
 
     return new Promise((resolve, reject) => {
         client.query(queryString, (err, result) => {

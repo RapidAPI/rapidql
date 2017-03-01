@@ -21,7 +21,14 @@ module.exports = WQL;
                 host: 'aws-us-east-1-portal.23.dblayer.com', // Server hosting the postgres database
                 port: 17052, //env var: PGPORT
                 max: 10, // max number of clients in the pool
-                idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+                idleTimeoutMillis: 30000 // how long a client is allowed to remain idle before being closed
+            },
+            Local: {
+                user: 'iddo',
+                database: 'postgres',
+                password: null,
+                host: 'localhost',
+                port: 5432
             }
         }
     });
@@ -45,9 +52,12 @@ module.exports = WQL;
     ]
 }).then(console.log).catch((err) => {console.warn(err)});*/
 
+/*
+The code currently doesn't do recursive replace. It should...
+ */
 wql.query(`
 {
-    PostgreSQL.Sample.public.users.select() {
+    PostgreSQL.Local.public.users.select(birthyear: {"<":"1997"}) {
         id,
         name,
         email
