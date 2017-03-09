@@ -80,3 +80,59 @@ Get friends and their profile pics
         }
     }
     `).then(pipe(JSON.stringify, console.log)).catch(console.warn);
+
+
+##DB Queries
+RapidQL may also be used for querying databases. Database queries and API queries may be combined to create advance data gathering logic.
+
+###Set Up
+To add a database connection to your rql instance, you need to add it's connection details in the RapidQL initialization:
+
+    const RapidQL = require('RapidQL');
+    const rql = new RapidQL({
+            PostgreSQL: {
+                        Sample: {
+                            user: 'admin', //required
+                            database: 'compose', //required
+                            password: '#########', //required
+                            host: 'aws-us-east-1-portal.23.dblayer.com', // required
+                            port: 17052, //required
+                            max: 10, // optional - max connections
+                            idleTimeoutMillis: 30000 // optional - how long a client is allowed to remain idle before being closed
+                        }
+            }
+    });
+
+Once the RapidQL instance is connected to the DB, you may query it. The object you're querying will have the following schema:
+
+    DBType.DBName.Schema.Table.Operation
+
+Where:
+
+- **DBType** : the type of DB you're querying (PostgreSQL, MySQL, Redis, etc...)
+- **DBName** : the name you used when in configuring the DB (as you can be connected to multiple DBs of each type)
+- **Schema** : the schema you wish to work with
+- **Table** : name of the table to be queried
+
+For example, `PostgreSQL.Sample.public.users.select` will query the `Sample` PostgreSQL DB (same sample we used in configuration above), and perform a `select` query on the `users` table in the `public` schema.
+
+###Select
+The most basic way to perform select queries is by passing equality comparisons:
+
+    PostgreSQL.Sample.public.users.select(location: "US")
+
+This will find all users where location is 'US'.
+
+For more complex conditions use:
+
+    PostgreSQL.Sample.public.users.select(birthyear: {"<=": "1997"})
+
+This will find users whose birth year is smaller than or equal to 1997. Using `.select(location:"US") is shorthand for .select(location:{"=":"US"})` You can have multiple conditions, mixing between comparison styles:
+
+    PostgreSQL.Sample.public.users.select(location: 'US', birthyear: {"<=": "1997"})
+
+###Complex queries (SKIP, LIMIT, ORDER BY)
+
+`PostgreSQL.Sample.public.users.select(location: "US")` is shorthand for `PostgreSQL.Sample.public.users.select(where:{"location": "US"})`. Using the full syntax you may add skip, limit and order by clauses.
+
+    PostgreSQL.Sample.public.users.select(where:{"location": "US"}, limit:"3", skip:"1", orderBy: {birthyear:"DESC"})
