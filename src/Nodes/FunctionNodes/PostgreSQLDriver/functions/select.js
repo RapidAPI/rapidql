@@ -4,6 +4,7 @@
 
 const whereGenerator = require('./../whereGenerator');
 
+
 function find(DBSchema, DBTable, client, args) {
     //We'll build the SQL query with that string
     let queryString = "";

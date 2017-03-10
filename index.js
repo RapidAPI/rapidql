@@ -52,19 +52,6 @@ module.exports = WQL;
     ]
 }).then(console.log).catch((err) => {console.warn(err)});*/
 
-/*
-The code currently doesn't do recursive replace. It should...
- */
-wql.query(`
-{
-    PostgreSQL.Local.public.users.select(birthyear: {"<":"1997"}) {
-        id,
-        name,
-        email
-    }
-}
-`).then(console.log).catch((err) => {console.warn(err)});
-
 function pipe(...funcs) {
     return function(values) {
         return funcs.reduce(function(vals, f) {
@@ -72,6 +59,23 @@ function pipe(...funcs) {
         }, values);
     }
 }
+
+/*
+The code currently doesn't do recursive replace. It should...
+ */
+wql.query(`
+{
+    PostgreSQL.Local.public.users.select(birthyear:{"<":"1997"}) {
+        name,
+        email,
+        RapidAPI.FacebookGraphAPI.getUsersFriends(user_id:"me", access_token:facebookid) {
+            summary {
+                total_count
+            }
+        }
+    }
+}
+`).then(pipe(JSON.stringify, console.log)).catch((err) => {console.warn(err)});
 
 //Get friends and their profile pics
 /*wql.query(`

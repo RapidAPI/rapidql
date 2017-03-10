@@ -133,6 +133,8 @@ This will find users whose birth year is smaller than or equal to 1997. Using `.
 
 ###Complex queries (SKIP, LIMIT, ORDER BY)
 
-`PostgreSQL.Sample.public.users.select(location: "US")` is shorthand for `PostgreSQL.Sample.public.users.select(where:{"location": "US"})`. Using the full syntax you may add skip, limit and order by clauses.
+`PostgreSQL.Sample.public.users.select(location: "US")` is shorthand for `PostgreSQL.Sample.public.users.select(WHERE:{"location": "US"})`. Using the full syntax you may add skip, limit and order by clauses.
 
-    PostgreSQL.Sample.public.users.select(where:{"location": "US"}, limit:"3", skip:"1", orderBy: {birthyear:"DESC"})
+    PostgreSQL.Sample.public.users.select(WHERE:{"location": "US"}, LIMIT:"3", SKIP:"1", ORDERBY: {birthyear:"DESC"})
+
+Note case sensitivity.
