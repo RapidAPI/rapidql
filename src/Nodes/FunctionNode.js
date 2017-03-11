@@ -98,7 +98,26 @@ class FunctionNode {
                 const MaterialClass = supportedTypes[this.type];
                 const materialNode = new MaterialClass(this.getName(), this.children, processedArgs);
 
-                materialNode.eval(context, ops).then(resolve).catch(reject);
+                materialNode.eval(context, ops).catch(reject).then((payload) => {
+                    //Create context and add payload to it
+                    let ctx = Object.assign({}, context);
+                    ctx[this.getName()] = payload;
+
+                    //Process down the tree...
+                     if(typeof payload == 'string'){
+                     (new LeafNode(this.getName())).eval(ctx).then(resolve).catch(reject);
+                     } else if(typeof payload == 'object') {
+                     let innerContext = Object.assign({}, context);
+                     innerContext[this.getName()] =  payload;
+
+                     let innerNode = new CompositeNode(this.getName(), this.children);
+
+                     innerNode.eval(innerContext, ops).then(resolve).catch(reject);
+
+                     } else { //"You don't het another chance, life ain't a Nintendo game" - Eminem
+                     reject(`APIError: got invalid data type ${typeof payload} which is not supported by function nodes`);
+                     }
+                });
             } catch (e) {
                 reject(`Error parsing arguments: ${e}`);
             }

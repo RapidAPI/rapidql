@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9596d340-4f3f-4ef6-babc-0ba4e5549a8d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNode.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNode.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/count.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/count.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/whereGenerator.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/whereGenerator.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,68 +27,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="whereGenerator.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/whereGenerator.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="whereGenerator.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/test/whereGenerator.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1290">
-              <caret line="88" column="11" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#38#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="select.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/select.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="29" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#38#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FunctionNode.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FunctionNode.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+            <state relative-caret-position="315">
+              <caret line="106" column="52" selection-start-line="106" selection-start-column="52" selection-end-line="106" selection-end-column="52" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="count.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/count.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#37#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -97,11 +40,21 @@
       <file leaf-file-name="PostgreSQLNode.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="558">
+              <caret line="61" column="45" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
               <folding>
                 <element signature="e#0#38#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RapidAPINode.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -145,21 +98,21 @@
         <option value="$PROJECT_DIR$/src/Nodes/CompositeNode.js" />
         <option value="$PROJECT_DIR$/src/WQLQuery.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLNode.js" />
-        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js" />
         <option value="$PROJECT_DIR$/test/driverTests.js" />
         <option value="$PROJECT_DIR$/test/leaf-node.js" />
         <option value="$PROJECT_DIR$/src/Parser/grammer.pegjs" />
         <option value="$PROJECT_DIR$/src/Parser/grammer-raw.pegjs" />
-        <option value="$PROJECT_DIR$/src/Nodes/FunctionNode.js" />
         <option value="$PROJECT_DIR$/test/functionNode.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/select.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/test/whereGenerator.js" />
-        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/whereGenerator.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/count.js" />
         <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/src/Nodes/FunctionNode.js" />
+        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js" />
+        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js" />
       </list>
     </option>
   </component>
@@ -484,12 +437,12 @@
       <workItem from="1486686123459" duration="13059000" />
       <workItem from="1487268784810" duration="2311000" />
       <workItem from="1488349101314" duration="6452000" />
-      <workItem from="1489022653750" duration="5411000" />
+      <workItem from="1489022653750" duration="6031000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72182000" />
+    <option name="totallyTimeSpent" value="72802000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -499,11 +452,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18217821" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18217821" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0990099" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3970297" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3970297" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -550,29 +503,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js</url>
-          <line>57</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js</url>
           <line>35</line>
           <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js</url>
-          <line>71</line>
-          <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/select.js</url>
           <line>18</line>
           <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/count.js</url>
-          <line>28</line>
-          <properties />
-          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="66" />
@@ -807,16 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="34" column="63" selection-start-line="34" selection-start-column="63" selection-end-line="34" selection-end-column="63" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/form-data/lib/form_data.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
@@ -924,24 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/test/whereGenerator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1290">
@@ -962,6 +871,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/whereGenerator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/count.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -972,18 +889,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/whereGenerator.js">
+    <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
+        <state relative-caret-position="1050">
+          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPINode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+        <state relative-caret-position="390">
+          <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/PostgreSQLNode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="61" column="45" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="106" column="52" selection-start-line="106" selection-start-column="52" selection-end-line="106" selection-end-column="52" />
           <folding />
         </state>
       </provider>

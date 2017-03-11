@@ -59,23 +59,7 @@ class PostgreSQLNode {
                     //Route different functions
                     functions[operation](DBSchema, DBTable, client, self.args)
                         .then((payload) => {
-                            //Add to context
-                            let ctx = Object.assign({}, context);
-                            ctx[self.getName()] = payload;
-                            //Process down the tree...
-                            if(typeof payload == 'string'){
-                                (new LeafNode(this.getName())).eval(ctx).then(resolve).catch(reject);
-                            } else if(typeof payload == 'object') {
-                                let innerContext = Object.assign({}, context);
-                                innerContext[self.getName()] =  payload;
-
-                                let innerNode = new CompositeNode(self.getName(), self.children);
-
-                                innerNode.eval(innerContext, ops).then(resolve).catch(reject);
-
-                            } else { //"You don't het another chance, life ain't a Nintendo game" - Eminem
-                                reject(`APIError: got invalid data type ${typeof payload} which is not supported by function nodes`);
-                            }
+                            resolve(payload);
                         })
                         .catch(reject);
 
