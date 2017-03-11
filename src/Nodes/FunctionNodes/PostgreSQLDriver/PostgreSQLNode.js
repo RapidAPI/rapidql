@@ -9,7 +9,8 @@ const pg = require('pg'),
     CompositeNode = require('./../../CompositeNode');
 
 const functions = {
-    select: require('./functions/select')
+    select: require('./functions/select'),
+    count: require('./functions/count')
 };
 
 class PostgreSQLNode {

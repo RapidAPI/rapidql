@@ -1,4 +1,4 @@
-const specialKeys = ['WHERE', 'LIMIT', 'ORDERBY', 'SKIP'];
+const specialKeys = ['WHERE', 'LIMIT', 'ORDERBY', 'SKIP', "GROUPBY"];
 
 /**
  * This function takes query arguments and turns them into a PostgreSQL WHERE clause
@@ -73,6 +73,11 @@ function whereGenerator(args) {
                 }
             }
         }
+    }
+
+    //GROUP BY clause
+    if (typeof args['GROUPBY'] == 'string') { //Shorthand
+        queryString += ' GROUP BY ' + args['GROUPBY'];
     }
 
     return queryString;

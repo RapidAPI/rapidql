@@ -65,14 +65,9 @@ The code currently doesn't do recursive replace. It should...
  */
 wql.query(`
 {
-    PostgreSQL.Local.public.users.select(birthyear:{"<":"1997"}) {
-        name,
-        email,
-        RapidAPI.FacebookGraphAPI.getUsersFriends(user_id:"me", access_token:facebookid) {
-            summary {
-                total_count
-            }
-        }
+    PostgreSQL.Local.public.users.count(GROUPBY:"birthyear") {
+        birthyear,
+        count
     }
 }
 `).then(pipe(JSON.stringify, console.log)).catch((err) => {console.warn(err)});
