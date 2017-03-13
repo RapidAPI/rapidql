@@ -4,9 +4,9 @@
 "use strict";
 
 const parser = require('./Parser/Parser'),
-    WQLQuery = require('./WQLQuery');
+    RQLQuery = require('./RQLQuery');
 
-class WQL {
+class RQL {
     constructor(ops) {
         this.ops = ops;
     }
@@ -17,11 +17,11 @@ class WQL {
             parser.parse(queryString)
                 .catch(reject)
                 .then((queryRoots) => {
-                    let queryObject = new WQLQuery(queryRoots, this.ops);
+                    let queryObject = new RQLQuery(queryRoots, this.ops);
                     queryObject.eval(context).then(resolve).catch(reject);
                 })
         });
     }
 }
 
-module.exports = WQL;
+module.exports = RQL;

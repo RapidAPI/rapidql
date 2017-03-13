@@ -208,8 +208,8 @@ function peg$parse(input, options) {
               });
               return rs;
           },
-      peg$c22 = /^[<=>-@_0-9"'a-zA-Z.]/,
-      peg$c23 = peg$classExpectation(["<", "=", [">", "@"], "_", ["0", "9"], "\"", "'", ["a", "z"], ["A", "Z"], "."], false, false),
+      peg$c22 = /^[<*=>-@_0-9"'a-zA-Z.]/,
+      peg$c23 = peg$classExpectation(["<", "*", "=", [">", "@"], "_", ["0", "9"], "\"", "'", ["a", "z"], ["A", "Z"], "."], false, false),
       peg$c24 = function(chars) {
       	return chars.join("");
       },
