@@ -2,7 +2,7 @@
 
 ![](http://imgur.com/download/qSQWBoE)
 
-[![](https://circleci.com/gh/iddogino/rapidql.svg?style=shield&circle-token=70838eabb9e7255c543594d9c12d44db3e9b979e)](http://rapidql.com)
+[![](https://circleci.com/gh/iddogino/rapidql.svg?style=shield&circle-token=70838eabb9e7255c543594d9c12d44db3e9b979e)](https://circleci.com/gh/iddogino/rapidql)
 
 ##Installation
     npm install https://github.com/iddogino/rapidql.git -g
