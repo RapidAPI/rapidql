@@ -4,6 +4,11 @@
 
 [![](https://circleci.com/gh/iddogino/rapidql.svg?style=shield&circle-token=70838eabb9e7255c543594d9c12d44db3e9b979e)](http://rapidql.com)
 
+##Installation
+    npm install https://github.com/iddogino/rapidql.git -g
+
+The `-g` flag is necessary to run from command line (see bellow).
+
 ##Initialization
 
 After requiring the RapidQL package, you can initialize it. You may also pass options, such as RapidAPI credentials.
