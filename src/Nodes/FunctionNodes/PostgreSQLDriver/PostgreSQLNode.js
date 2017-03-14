@@ -9,7 +9,7 @@ const pg = require('pg'),
     CompositeNode = require('./../../CompositeNode');
 
 const functions = {
-    select: require('./functions/select'),
+    find: require('./functions/find'),
     count: require('./functions/count')
 };
 

@@ -30,8 +30,8 @@ function whereGenerator(args) {
                     queryString += ` AND`;
 
                 //Simple equality operator
-                if (typeof queryArgs[field] == 'string') {
-                    queryString += ` ${field} = '${queryArgs[field]}'`
+                if (typeof queryArgs[field] == 'string' || typeof queryArgs[field] == 'number') {
+                    queryString += ` ${field} = '${queryArgs[field]}'`;
 
                 //Complex inequalities
                 } else if (typeof queryArgs[field] == 'object') {
@@ -45,14 +45,9 @@ function whereGenerator(args) {
         }
     }
 
-    //LIMIT clause
-    if (typeof args['LIMIT'] == 'string') {
-        queryString += ' LIMIT ' + args['LIMIT'];
-    }
-
-    //SKIP clause
-    if (typeof args['SKIP'] == 'string') {
-        queryString += ' SKIP ' + args['SKIP'];
+    //GROUP BY clause
+    if (typeof args['GROUPBY'] == 'string') { //Shorthand
+        queryString += ' GROUP BY ' + args['GROUPBY'];
     }
 
     //ORDER BY clause
@@ -75,9 +70,14 @@ function whereGenerator(args) {
         }
     }
 
-    //GROUP BY clause
-    if (typeof args['GROUPBY'] == 'string') { //Shorthand
-        queryString += ' GROUP BY ' + args['GROUPBY'];
+    //LIMIT clause
+    if (typeof args['LIMIT'] == 'string') {
+        queryString += ' LIMIT ' + args['LIMIT'];
+    }
+
+    //SKIP clause
+    if (typeof args['SKIP'] == 'string') {
+        queryString += ' SKIP ' + args['SKIP'];
     }
 
     return queryString;

@@ -138,3 +138,23 @@ This will find users whose birth year is smaller than or equal to 1997. Using `.
     PostgreSQL.Sample.public.users.select(WHERE:{"location": "US"}, LIMIT:"3", SKIP:"1", ORDERBY: {birthyear:"DESC"})
 
 Note case sensitivity.
+
+###Count
+Count works just like select, only it returns the `count` value.
+
+    {
+        PostgreSQL.GCELogs.public.blockcalls.count(LIMIT:"10", GROUPBY:"package", ORDERBY:{count:"DESC"}) {
+            package,
+            count
+        }
+    }
+
+##Running in commandline
+Install RapidQL from NPM with the `-g` flag to use from command line. Than, you can use:
+
+    rql queryFile.rql
+
+To run the query in `queryFile.rql`. RapidQL will also look for 2 optional hidden files:
+
+- `.rqlconfig` - json file containing your configurations (DB / RpaidAPI connection details).
+- `.rqlcontext` - base context for RQL (define variables used in the query).

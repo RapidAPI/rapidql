@@ -17,7 +17,7 @@ class WQLQuery {
 
     //noinspection JSAnnotator
     /**
-     * Performs the WQL query withing a specific context
+     * Performs the RQL query withing a specific context
      * @param context the context to perform the query in
      * @return Promise
      */
