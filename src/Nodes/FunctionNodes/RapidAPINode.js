@@ -40,6 +40,11 @@ class RapidAPINode {
                         } catch (err) {
                             err = err;
                         } //Otherwise - no biggie, "you don't always get what you want" - M. Jagger
+                        for (let k in payload) {
+                            if(payload.hasOwnProperty(k))
+                                if(typeof payload[k] == 'number')
+                                    payload[k] = payload[k]+"";
+                        }
                         resolve(payload);
                     })
                     .on('error', (err) => {

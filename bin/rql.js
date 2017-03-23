@@ -44,7 +44,7 @@ fs.readFile(CONFIG_FILE_NAME, 'utf8', function(err, data) {
                 const rqlClient = new RQL(configs);
                 rqlClient.query(queryString, baseContext)
                     .catch((err) => {
-                        throw `Error performing query: \n${e}`;
+                        console.warn(`Error performing query: \n${e}`);
                     })
                     .then((res) => {
                         console.log(JSON.stringify(res, null, 4));
