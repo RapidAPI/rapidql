@@ -1,15 +1,13 @@
 **RapidQL** let's developer query multiple API resources at a time, combining them to create 1 unified Query.
 
-![](http://imgur.com/download/qSQWBoE)
-
 [![](https://circleci.com/gh/iddogino/rapidql.svg?style=shield&circle-token=70838eabb9e7255c543594d9c12d44db3e9b979e)](https://circleci.com/gh/iddogino/rapidql)
 
-##Installation
+## Installation
     npm install https://github.com/iddogino/rapidql.git -g
 
 The `-g` flag is necessary to run from command line (see bellow).
 
-##Initialization
+## Initialization
 
 After requiring the RapidQL package, you can initialize it. You may also pass options, such as RapidAPI credentials.
 
@@ -21,7 +19,7 @@ After requiring the RapidQL package, you can initialize it. You may also pass op
         }
     });
 
-##Querying
+## Querying
 
 You can perform queries using the method rql.query(). It takes 2 arguments:
 
@@ -41,7 +39,7 @@ Queries return promises. If the promise rejects, the returned value will be the 
     }).then(console.log).catch(console.warn);
 
 
-##Sample queries
+## Sample queries
 
 Get images from Instagram and then process with AWS Rekognition
 
@@ -87,10 +85,10 @@ Get friends and their profile pics
     `).then(pipe(JSON.stringify, console.log)).catch(console.warn);
 
 
-##DB Queries
+## DB Queries
 RapidQL may also be used for querying databases. Database queries and API queries may be combined to create advance data gathering logic.
 
-###Set Up
+### Set Up
 To add a database connection to your rql instance, you need to add it's connection details in the RapidQL initialization:
 
     const RapidQL = require('RapidQL');
@@ -121,7 +119,7 @@ Where:
 
 For example, `PostgreSQL.Sample.public.users.select` will query the `Sample` PostgreSQL DB (same sample we used in configuration above), and perform a `select` query on the `users` table in the `public` schema.
 
-###Select
+### Select
 The most basic way to perform select queries is by passing equality comparisons:
 
     PostgreSQL.Sample.public.users.select(location: "US")
@@ -136,7 +134,7 @@ This will find users whose birth year is smaller than or equal to 1997. Using `.
 
     PostgreSQL.Sample.public.users.select(location: 'US', birthyear: {"<=": "1997"})
 
-###Complex queries (SKIP, LIMIT, ORDER BY)
+### Complex queries (SKIP, LIMIT, ORDER BY)
 
 `PostgreSQL.Sample.public.users.select(location: "US")` is shorthand for `PostgreSQL.Sample.public.users.select(WHERE:{"location": "US"})`. Using the full syntax you may add skip, limit and order by clauses.
 
@@ -144,7 +142,7 @@ This will find users whose birth year is smaller than or equal to 1997. Using `.
 
 Note case sensitivity.
 
-###Count
+### Count
 Count works just like select, only it returns the `count` value.
 
     {
@@ -154,7 +152,7 @@ Count works just like select, only it returns the `count` value.
         }
     }
 
-##Running in commandline
+## Running in commandline
 Install RapidQL from NPM with the `-g` flag to use from command line. Than, you can use:
 
     rql queryFile.rql
