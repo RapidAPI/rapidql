@@ -8,9 +8,10 @@ const LeafNode = require('./LeafNode'),
     CompositeNode = require('./CompositeNode');
 
 const supportedTypes = {
-    "RapidAPI": require('./FunctionNodes/RapidAPINode'),
-    "PostgreSQL" : require('./FunctionNodes/PostgreSQLDriver/PostgreSQLNode'),
-    "MySQL" : require('./FunctionNodes/MySQLDriver/MySQLNode')
+    "RapidAPI"      : require('./FunctionNodes/RapidAPIDriver/RapidAPINode'),
+    "PostgreSQL"    : require('./FunctionNodes/PostgreSQLDriver/PostgreSQLNode'),
+    "MySQL"         : require('./FunctionNodes/MySQLDriver/MySQLNode'),
+    "Http"          : require('./FunctionNodes/HttpDriver/HttpNode')
 };
 
 const SEP_CHAR = '.';

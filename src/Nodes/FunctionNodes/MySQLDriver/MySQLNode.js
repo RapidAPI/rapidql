@@ -3,9 +3,7 @@
  */
 const SEP_CHAR = '.';
 
-const mysql = require('mysql'),
-    LeafNode = require('./../../LeafNode'),
-    CompositeNode = require('./../../CompositeNode');
+const mysql = require('mysql');
 
 const functions = {
     find: require('./functions/find'),
@@ -20,7 +18,7 @@ class MySQLNode {
     }
 
     getName() {
-        return "MySQL." + this.name;
+        return this.name;
     }
 
     //noinspection JSAnnotator
@@ -28,7 +26,7 @@ class MySQLNode {
         const self = this;
 
         return new Promise((resolve, reject) => {
-            //De-tokenize function call: DBName.DBSchema.DBTable.operation
+            //De-tokenize function call: DBName.DBTable.operation
             const tokenizedName = this.name.split(SEP_CHAR);
             const DBName = tokenizedName[1],
                 DBTable = tokenizedName[2],

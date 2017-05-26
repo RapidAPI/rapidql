@@ -21,7 +21,7 @@ class PostgreSQLNode {
     }
 
     getName() {
-        return "PostgreSQL." + this.name;
+        return this.name;
     }
 
     //noinspection JSAnnotator
