@@ -6,10 +6,10 @@
  */
 "use strict";
 const RapidAPI = require('rapidapi-connect'),
-    LeafNode = require('./../LeafNode'),
-    ObjectNode = require('./../ObjectNode'),
-    ArrayNode = require('./../ArrayNode'),
-    CompositeNode = require('./../CompositeNode');
+    LeafNode = require('./../../LeafNode'),
+    ObjectNode = require('./../../ObjectNode'),
+    ArrayNode = require('./../../ArrayNode'),
+    CompositeNode = require('./../../CompositeNode');
 
 class RapidAPINode {
     constructor(name, children, args) {

@@ -43,7 +43,7 @@ KVTuple = key:Word ":" value:KVValue {
 }
 
 //Added new intermidiate type to support (key:{subkey:value})
-KVValue = Word / KVCompValue
+KVValue = ValueWord / KVCompValue
 
 //This support having json types in args
 KVCompValue = "{}" {return {};} //empty
@@ -56,6 +56,10 @@ KVCompValue = "{}" {return {};} //empty
         return rs;
     }
 
-Word = chars:[<*=>-@_0-9"'a-zA-Z.]+ {
+Word = chars:[-<*=>@_0-9"'a-zA-Z.]+ {
+	return chars.join("");
+}
+
+ValueWord = chars:[-<*=>@_0-9\/"':a-zA-Z.]+ {
 	return chars.join("");
 }
