@@ -15,6 +15,13 @@ class RapidAPINode {
     constructor(name, children, args) {
         this.name = name;
         this.args = args;
+        for (let k in args) {
+            if (this.args.hasOwnProperty(k)) {
+                if (typeof this.args[k] == 'object') {
+                    this.args[k] = JSON.stringify(this.args[k])
+                }
+            }
+        }
         this.children = children;
     }
 
