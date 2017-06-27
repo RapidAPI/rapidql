@@ -7,6 +7,54 @@ const assert = require('assert'),
     FunctionNode = require('../src/Nodes/FunctionNode');
 
 describe('Function Nodes', () => {
+    describe('getFromContext', () => {
+       it('should get the correct value from context', () => {
+           assert.deepEqual(FunctionNode.getFromContext('a', {'a': 'HELLO'}), "HELLO");
+       });
+
+        it('should throw an error if key does not exist in context', (done) => {
+            try {
+                FunctionNode.getFromContext('a', {'b':'BBB'});
+                done("Didn't throw error for key that is not in context");
+            } catch (e) {
+                done();
+            }
+        });
+    });
+
+    describe('quoted', () => {
+        it('should identify a string quoted with double quotes', ()=> {
+            assert.deepEqual(FunctionNode.quoted('"asd"'), true);
+        });
+
+        it('should identify a string quoted with single quotes', ()=> {
+            assert.deepEqual(FunctionNode.quoted("'aa'"), true);
+        });
+
+        it('should not identify a not quoted string', () => {
+            assert.deepEqual(FunctionNode.quoted("asdfs"), false);
+        });
+
+        it('should not identify a partially quoted string', () => {
+            assert.deepEqual(FunctionNode.quoted("'sdfsd"), false);
+            assert.deepEqual(FunctionNode.quoted("sdfsd'"), false);
+            assert.deepEqual(FunctionNode.quoted('"sdfsd'), false);
+            assert.deepEqual(FunctionNode.quoted('"sdfsd'), false);
+            assert.deepEqual(FunctionNode.quoted('sdfsdd"'), false);
+        });
+    });
+
+    describe('removeQuotes', () => {
+        it('should remove quotes', () => {
+            assert.deepEqual(FunctionNode.removeQuotes('"asdasda"'), 'asdasda');
+            assert.deepEqual(FunctionNode.removeQuotes("'asdasda'"), 'asdasda');
+        });
+
+        it('shouldnt change string with no quotes', () => {
+            assert.deepEqual(FunctionNode.removeQuotes("asdasda"), 'asdasda');
+        });
+    });
+
     describe('Recursive replace', () => {
         it('should replace a single constant', () => {
             assert.deepEqual(FunctionNode.recursiveReplace({a: '"b"'}, {}), {a:'b'});

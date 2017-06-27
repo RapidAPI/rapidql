@@ -41,7 +41,13 @@ class HttpNode {
                     body        = (operation == 'get') ? (null) : (self.args['body'] || {}),
                     form        = (operation == 'get') ? (null) : (self.args['form'] || {}),
                     json        = (operation == 'get') ? (null) : (self.args['json'] || null),
-                    headers     = self.args['headers'] || {};
+                    headers     = self.args['headers'] || {},
+                    bearer      = self.args['bearer'] || null;
+
+
+            if (bearer != null) {
+                headers['Authorization'] = `Bearer ${bearer}`;
+            }
 
             request(url, {
                 method      : operation,

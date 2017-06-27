@@ -22,6 +22,14 @@ class RQL {
                 })
         });
     }
+
+    log(queryString, context) {
+        this.query(queryString, context).then((val) => {
+            console.log(JSON.stringify(val, null, 2));
+        }).catch((err) => {
+            console.warn(err);
+        })
+    }
 }
 
 module.exports = RQL;

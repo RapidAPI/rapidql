@@ -7,6 +7,8 @@ const LeafNode = require('./LeafNode'),
     ArrayNode = require('./ArrayNode'),
     CompositeNode = require('./CompositeNode');
 
+const Mustache = require('mustache');
+
 const supportedTypes = {
     "RapidAPI"      : require('./FunctionNodes/RapidAPIDriver/RapidAPINode'),
     "PostgreSQL"    : require('./FunctionNodes/PostgreSQLDriver/PostgreSQLNode'),
@@ -15,6 +17,47 @@ const supportedTypes = {
 };
 
 const SEP_CHAR = '.';
+
+/**
+ * Get's a key's value from the context or throws a 'Does not exist' error
+ * @param key
+ * @param context
+ */
+function getFromContext(key, context) {
+    if (context.hasOwnProperty(key))
+        return context[key];
+    else {
+        throw `Name error: name ${key} does not exist in context`;
+    }
+}
+
+/**
+ * Check if a string is wrapped in quotes
+ * @param arg the string to be checked
+ * @returns {boolean}
+ */
+function quoted(arg) {
+    return ((arg[0] == `"` && arg[arg.length - 1] == `"`) || (arg[0] == `'` && arg[arg.length - 1] == `'`));
+}
+
+/**
+ * If key is surrounded by quotes, this will remove them
+ * @param key
+ * @returns {Array.<T>|string|Blob|ArrayBuffer}
+ */
+function removeQuotes(key) {
+    return quoted(key) ? key.slice(1, -1) : key;
+}
+
+
+/**
+ * Replaces template ({{var}}) with values from the context
+ * @param value the template
+ * @param context
+ */
+function replaceVariables(value, context) {
+    return Mustache.render(value, context);
+}
 
 /**
  * Processes the arg tree, keeping constants and replacing vars from the context
@@ -29,22 +72,15 @@ function recursiveReplace(args, context) {
             let arg = args[key];
 
             //remove quotes from key if needed
-            if(key[0] == '"' && key[key.length-1] == '"')
-                key = key.slice(1,-1);
+            key = removeQuotes(key);
             
             //If string, process directly. Else, recurse down the rabbit hole.
             switch (typeof arg) {
                 case 'string':
                     //Check for quotes:
-                    if ((arg[0] == `"` && arg[arg.length - 1] == `"`) || (arg[0] == `'` && arg[arg.length - 1] == `'`)) {
-                        processedArgs[key] = arg.slice(1, -1); //Remove quotes and add to processed args
-                    } else {
-                        if (context.hasOwnProperty(arg))
-                            processedArgs[key] = context[arg];
-                        else {
-                            throw `Name error: name ${arg} does not exist in context`;
-                        }
-                    }
+                    processedArgs[key] = quoted(arg) ? replaceVariables(arg.slice(1, -1), context) : getFromContext(arg, context);
+                    //If literal - Remove quotes, render template and add to processed args
+                    // If Variable - get from context
                     break;
                 case 'object':
                     processedArgs[key] = recursiveReplace(arg, context);
@@ -129,6 +165,9 @@ class FunctionNode {
 }
 
 FunctionNode.recursiveReplace = recursiveReplace;
+FunctionNode.getFromContext = getFromContext;
+FunctionNode.quoted = quoted;
+FunctionNode.removeQuotes = removeQuotes;
 
 module.exports = FunctionNode;
 

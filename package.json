@@ -17,6 +17,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "mocha": "^3.2.0",
+    "mustache": "^2.3.0",
     "mysql": "^2.13.0",
     "nearley": "^2.7.10",
     "pegjs": "^0.10.0",

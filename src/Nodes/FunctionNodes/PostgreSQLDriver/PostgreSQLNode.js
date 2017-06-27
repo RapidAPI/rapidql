@@ -10,7 +10,8 @@ const pg = require('pg'),
 
 const functions = {
     find: require('./functions/find'),
-    count: require('./functions/count')
+    count: require('./functions/count'),
+    insert: require('./functions/insert')
 };
 
 class PostgreSQLNode {

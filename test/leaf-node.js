@@ -3,11 +3,11 @@
  */
 "use strict";
 
-const assert = require('assert'),
-    LeafNode = require('../src/Nodes/LeafNode');
+const assert = require("assert");
+const LeafNode = require("../src/Nodes/LeafNode");
 
-describe('LeafNode', () => {
-    let _name = 'a';
+describe("LeafNode", () => {
+    let _name = "a";
     let _val = 'b';
     let _context = {
         [_name] : _val
