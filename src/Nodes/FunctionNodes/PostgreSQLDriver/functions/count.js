@@ -2,7 +2,7 @@
  * Created by iddo on 3/1/17.
  */
 
-const whereGenerator = require('./../whereGenerator');
+const whereGenerator = require('./../whereGenerator').whereGenerator;
 
 function count(DBSchema, DBTable, client, args) {
     //We'll build the SQL query with that string

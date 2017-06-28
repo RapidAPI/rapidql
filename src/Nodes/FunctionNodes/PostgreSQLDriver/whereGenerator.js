@@ -1,8 +1,49 @@
 const specialKeys = ['WHERE', 'LIMIT', 'ORDERBY', 'SKIP', "GROUPBY"];
 
+//Import utility functions
+const removeSpecialArgs = require('./utils').removeSpecialArgs;
+const quoteAsNeeded = require('./utils').quoteAsNeeded;
+
+
+/**
+ * Generates the "WHERE x=y..." part of the where query
+ * @param queryArgs
+ * @returns {string}
+ */
+function whereClauseGenerator(queryArgs) {
+    let queryString = "";
+    if (Object.keys(queryArgs).length > 0) {
+        queryString += ` WHERE`;
+        //Has one is set to true after first condition is added, to append the AND keyword
+        let hasOne = false;
+        for (let field in queryArgs) {
+            if (queryArgs.hasOwnProperty(field)) {
+                if (hasOne)
+                    queryString += ` AND`;
+
+                //Simple equality operator
+                if (typeof queryArgs[field] == 'string' || typeof queryArgs[field] == 'number') {
+                    queryString += ` ${field} = ${quoteAsNeeded(queryArgs[field])}`;
+
+                    //Complex inequalities
+                } else if (typeof queryArgs[field] == 'object') {
+                    //If comparators have quotes - remove
+                    const compOp = Object.keys(queryArgs[field])[0];
+                    const compVal = queryArgs[field][Object.keys(queryArgs[field])[0]];
+                    queryString += ` ${field} ${compOp} ${quoteAsNeeded(compVal)}`;
+                }
+                hasOne = true;
+            }
+        }
+    }
+
+    return queryString;
+}
+
+
 /**
  * This function takes query arguments and turns them into a PostgreSQL WHERE clause
- * @param queryArgs
+ * @param args
  */
 function whereGenerator(args) {
     let queryString = "";
@@ -15,35 +56,10 @@ function whereGenerator(args) {
         queryArgs = Object.assign({},args);
 
     //Remove special instructions (LIMIT, SKIP, ETC...)
-    specialKeys.forEach((key) => {
-        delete queryArgs[key];
-    });
+    queryArgs = removeSpecialArgs(queryArgs, specialKeys);
 
     //WHERE clause
-    if (Object.keys(queryArgs).length > 0) {
-        queryString += ` WHERE`;
-        //Has one is set to true after first condition is added, to append the AND keyword
-        let hasOne = false;
-        for (let field in queryArgs) {
-            if (queryArgs.hasOwnProperty(field)) {
-                if (hasOne)
-                    queryString += ` AND`;
-
-                //Simple equality operator
-                if (typeof queryArgs[field] == 'string' || typeof queryArgs[field] == 'number') {
-                    queryString += ` ${field} = '${queryArgs[field]}'`;
-
-                //Complex inequalities
-                } else if (typeof queryArgs[field] == 'object') {
-                    //If comparators have quotes - remove
-                    const compOp = Object.keys(queryArgs[field])[0];
-                    const compVal = queryArgs[field][Object.keys(queryArgs[field])[0]];
-                    queryString += ` ${field} ${compOp} ${compVal}`;
-                }
-                hasOne = true;
-            }
-        }
-    }
+    queryString += whereClauseGenerator(queryArgs);
 
     //GROUP BY clause
     if (typeof args['GROUPBY'] == 'string') { //Shorthand
@@ -83,4 +99,5 @@ function whereGenerator(args) {
     return queryString;
 }
 
-module.exports = whereGenerator;
+module.exports.whereGenerator = whereGenerator;
+module.exports.whereClauseGenerator = whereClauseGenerator;

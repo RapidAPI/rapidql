@@ -2,7 +2,7 @@
  * Created by iddo on 2/14/17.
  */
 
-const whereGenerator = require('./../whereGenerator');
+const whereGenerator = require('./../whereGenerator').whereGenerator;
 
 
 function find(DBSchema, DBTable, client, args) {

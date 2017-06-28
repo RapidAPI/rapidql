@@ -4,20 +4,41 @@
 "use strict";
 
 const assert = require('assert'),
-    whereGenerator = require('./../whereGenerator');
+    whereGenerator = require('./../whereGenerator').whereGenerator,
+    whereClauseGenerator = require('./../whereGenerator').whereClauseGenerator;
 
 module.exports = () => {
+    describe('whereClauseGenerator', () => {
+        it('should support empty queries', () => {
+            assert.equal(whereClauseGenerator({}), "");
+        });
+
+        it('should support single condition', () => {
+            assert.equal(whereClauseGenerator({'a':'b'}), " WHERE a = 'b'");
+        });
+
+        it('should support multiple conditions', () => {
+            assert.equal(whereClauseGenerator({'a':'b', 'c':'d'}), " WHERE a = 'b' AND c = 'd'");
+        });
+
+        it('should support complex conditions', () => {
+            assert.equal(whereClauseGenerator({'a':'b', 'c':{'>':'d'}}), " WHERE a = 'b' AND c > 'd'");
+        });
+    });
+
+
     describe('Where generator', ()=> {
         describe('Simple shorthand queries', () => {
             it('should support empty queries', () => {
                 assert.equal(whereGenerator({}), "");
             });
             it('should support queries with a single condition', () => {
-                assert.equal(whereGenerator({a:'1'}), " WHERE a = '1'");
+                assert.equal(whereGenerator({a:'1'}), " WHERE a = 1");
+                assert.equal(whereGenerator({a:'a'}), " WHERE a = 'a'");
             });
 
             it('should support queries with multiple parameters', () => {
-                assert.equal(whereGenerator({a:'1', b:'ccc'}), " WHERE a = '1' AND b = 'ccc'")
+                assert.equal(whereGenerator({a:'1', b:'ccc'}), " WHERE a = 1 AND b = 'ccc'")
             });
 
             it('should support queries with complex parameters', () => {
@@ -31,11 +52,12 @@ module.exports = () => {
                 assert.equal(whereGenerator({WHERE:{}}), "");
             });
             it('should support queries with a single condition', () => {
-                assert.equal(whereGenerator({WHERE:{a:'1'}}), " WHERE a = '1'");
+                assert.equal(whereGenerator({WHERE:{a:'1'}}), " WHERE a = 1");
+                assert.equal(whereGenerator({WHERE:{a:'a'}}), " WHERE a = 'a'");
             });
 
             it('should support queries with multiple parameters', () => {
-                assert.equal(whereGenerator({WHERE:{a:'1', b:'ccc'}}), " WHERE a = '1' AND b = 'ccc'")
+                assert.equal(whereGenerator({WHERE:{a:'1', b:'ccc'}}), " WHERE a = 1 AND b = 'ccc'")
             });
 
             it('should support queries with complex parameters', () => {
@@ -51,11 +73,11 @@ module.exports = () => {
                 });
 
                 it('should add a LIMIT clause for a non empty shorthand query', () => {
-                    assert.equal(whereGenerator({a:'1', LIMIT:"5"}), " WHERE a = '1' LIMIT 5");
+                    assert.equal(whereGenerator({a:'1', LIMIT:"5"}), " WHERE a = 1 LIMIT 5");
                 });
 
                 it('should add a LIMIT clause for a non empty full query', () => {
-                    assert.equal(whereGenerator({WHERE: {a:'1'}, LIMIT:"5"}), " WHERE a = '1' LIMIT 5");
+                    assert.equal(whereGenerator({WHERE: {a:'1'}, LIMIT:"5"}), " WHERE a = 1 LIMIT 5");
                 });
             });
 
@@ -65,11 +87,11 @@ module.exports = () => {
                 });
 
                 it('should add a SKIP clause for a non empty shorthand query', () => {
-                    assert.equal(whereGenerator({a:'1', SKIP:"5"}), " WHERE a = '1' SKIP 5");
+                    assert.equal(whereGenerator({a:'1', SKIP:"5"}), " WHERE a = 1 SKIP 5");
                 });
 
                 it('should add a SKIP clause for a non empty full query', () => {
-                    assert.equal(whereGenerator({WHERE: {a:'1'}, SKIP:"5"}), " WHERE a = '1' SKIP 5");
+                    assert.equal(whereGenerator({WHERE: {a:'1'}, SKIP:"5"}), " WHERE a = 1 SKIP 5");
                 });
             });
 
