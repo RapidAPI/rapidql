@@ -37,6 +37,21 @@ module.exports = () => {
         });
     });
 
+    describe('isNumberParseable', () => {
+        it('should identify number parseable', () => {
+            assert.equal(utils.isNumberParseable("1"), true);
+            assert.equal(utils.isNumberParseable("1.5"), true);
+            assert.equal(utils.isNumberParseable("-1.5"), true);
+            assert.equal(utils.isNumberParseable(-1.5), true);
+        });
+
+        it('should identify non number parseable', () => {
+            assert.equal(utils.isNumberParseable("1 apple"), false);
+            assert.equal(utils.isNumberParseable("iddo"), false);
+            assert.equal(utils.isNumberParseable("2017-1"), false);
+        });
+    });
+
     describe('quoteAsNeeded', () => {
         it('should quote strings', () => {
             assert.equal(utils.quoteAsNeeded('a'), "'a'");
@@ -52,6 +67,12 @@ module.exports = () => {
 
         it('shouldn\'t quote strings parsed as floats', () => {
             assert.equal(utils.quoteAsNeeded("1.5"), "1.5");
+        });
+    });
+
+    describe('objValues', () => {
+        it('should get an objects values', () => {
+            assert.deepEqual(utils.objValues({'s':'ss', 'a':1}), ['ss',1])
         });
     });
 };

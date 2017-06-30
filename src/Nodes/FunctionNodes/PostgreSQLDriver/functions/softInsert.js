@@ -1,11 +1,12 @@
 /**
- * Created by iddo on 6/23/17.
+ * Created by iddo on 6/30/17.
  */
-
 const insertClauseGenerator = require('./../insertGenerator').insertClauseGenerator;
 
 module.exports = (DBSchema, DBTable, client, args) => {
-    const queryString = insertClauseGenerator(DBSchema, DBTable, args);
+    let queryString = insertClauseGenerator(DBSchema, DBTable, args);
+
+    queryString += ' ON CONFLICT DO NOTHING;';
 
     return new Promise((resolve, reject) => {
         client.query(queryString, (err, result) => {
