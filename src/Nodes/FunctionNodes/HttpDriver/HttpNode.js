@@ -17,11 +17,11 @@ function getRequestClient(ops) {
 
     if (ops.hasOwnProperty('Http')) {
         if (ops.Http.hasOwnProperty('rateLimit')) {
-            if (ops.Http.rateLimit.hasOwnProperty('count') && ops.Http.rateLimit.hasOwnProperty('limit')) {
-                global.request = limit(_request).to(ops.Http.rateLimit.count).per(ops.Http.rateLimit.limit);
+            if (ops.Http.rateLimit.hasOwnProperty('count') && ops.Http.rateLimit.hasOwnProperty('period')) {
+                global.request = limit(_request).to(ops.Http.rateLimit.count).per(ops.Http.rateLimit.period);
                 return getRequestClient(ops);
             }
-        }
+        }period
     }
 
     global.request = _request;
