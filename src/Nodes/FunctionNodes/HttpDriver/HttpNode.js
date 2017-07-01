@@ -6,8 +6,28 @@ const SEP_CHAR = '.';
 const NODE_NAME = 'HttpNode';
 const OBJECT_TYPE = 'object';
 
-const   request = require('request'),
+const   _request = require('request'),
         queryString = require("query-string");
+const limit = require("simple-rate-limiter");
+
+global.request = null;
+function getRequestClient(ops) {
+    if (global.request !== null)
+        return global.request;
+
+    if (ops.hasOwnProperty('Http')) {
+        if (ops.Http.hasOwnProperty('rateLimit')) {
+            if (ops.Http.rateLimit.hasOwnProperty('count') && ops.Http.rateLimit.hasOwnProperty('limit')) {
+                global.request = limit(_request).to(ops.Http.rateLimit.count).per(ops.Http.rateLimit.limit);
+                return getRequestClient(ops);
+            }
+        }
+    }
+
+    global.request = _request;
+    return getRequestClient(ops);
+
+}
 
 const functions = {
     get: null,
@@ -49,7 +69,7 @@ class HttpNode {
                 headers['Authorization'] = `Bearer ${bearer}`;
             }
 
-            request(url, {
+            getRequestClient(ops)(url, {
                 method      : operation,
                 headers     : headers,
                 body        : body,
