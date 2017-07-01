@@ -30,7 +30,7 @@ function isNumberParseable(val) {
 function quoteAsNeeded(value) {
     return  (typeof value == 'number')  ? `${value}` :
             (isNumberParseable(value)) ? `${parseFloat(value)}` :
-            (typeof value == 'string')  ? `'${value}'`
+            (typeof value == 'string')  ? `'${value.replace(/'/g, "''")}'`
             : `'${value}'`;
 }
 

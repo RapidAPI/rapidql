@@ -15,23 +15,16 @@ const functions = {
     softInsert: require('./functions/softInsert')
 };
 
-let clients = {};
-function getClient(DBName, DBConfigs, cb) {
+global.clients = {};
+function getClient(DBName, DBConfigs) {
     // This is basically a singleton. If we already have a client, we should use it.
     // Otherwise, we create a new one.
     if (clients.hasOwnProperty(DBName)) {
-        cb(null, clients[DBName], ()=>{});
+        return global.clients[DBName];
     } else {
         const pool = new pg.Pool(DBConfigs);
-        pool.connect(function(err, client, done) {
-            if (err) {
-                cb(err);
-            } else {
-                clients[DBName] = client;
-                getClient(DBName, DBConfigs, cb); // Now it has the client, and the first condition will catch it
-                //I don't want to implement the call back logic twice :-/
-            }
-        });
+        global.clients[DBName] = pool;
+        return getClient(DBName, DBConfigs);
     }
 }
 
@@ -72,7 +65,9 @@ class PostgreSQLNode {
             } else {
                 const DBConfigs = ops.PostgreSQL[DBName];
 
-                getClient(DBName, DBConfigs, function(err, client) {
+                const pool = getClient(DBName, DBConfigs);
+
+                pool.connect(function(err, client, done) {
                     if (err) {
                         return reject(`DB Error: Error connecting to database ${DBName} -> ${err}`);
                     }
@@ -80,10 +75,10 @@ class PostgreSQLNode {
                     //Route different functions
                     functions[operation](DBSchema, DBTable, client, self.args)
                         .then((payload) => {
+                            done();
                             resolve(payload);
                         })
                         .catch(reject);
-
                 });
             }
         });

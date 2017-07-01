@@ -57,6 +57,14 @@ module.exports = () => {
             assert.equal(utils.quoteAsNeeded('a'), "'a'");
         });
 
+        it('should escape a single quote in strings', () => {
+            assert.equal(utils.quoteAsNeeded("a'"), "'a'''");
+        });
+
+        it('should escape multiple quotes in strings', () => {
+            assert.equal(utils.quoteAsNeeded("a' b'"), "'a'' b'''");
+        });
+
         it('shouldn\'t quote numbers', () => {
             assert.equal(utils.quoteAsNeeded(1), "1");
         });
