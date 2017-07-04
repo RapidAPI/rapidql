@@ -21,7 +21,7 @@ function getRequestClient(ops) {
                 global.request = limit(_request).to(ops.Http.rateLimit.count).per(ops.Http.rateLimit.period);
                 return getRequestClient(ops);
             }
-        }period
+        }
     }
 
     global.request = _request;

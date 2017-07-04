@@ -30,7 +30,9 @@ class ArrayNode {
                     innerContext[this.getName()] = obj;
 
                     let innerNode;
-                    if(typeof obj == "object")
+                    if(typeof obj === "object")
+                        innerNode = new ObjectNode(this.getName(), this.children);
+                    else if (this.children.length > 0)
                         innerNode = new ObjectNode(this.getName(), this.children);
                     else
                         innerNode = new LeafNode(this.getName());
