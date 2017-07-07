@@ -6,14 +6,15 @@ const insertClauseGenerator = require('./../insertGenerator').insertClauseGenera
 module.exports = (DBSchema, DBTable, client, args) => {
     let queryString = insertClauseGenerator(DBSchema, DBTable, args);
 
-    queryString += ' ON CONFLICT DO NOTHING;';
+
+    queryString += ' ON CONFLICT DO NOTHING RETURNING *;';
 
     return new Promise((resolve, reject) => {
         client.query(queryString, (err, result) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(result || []);
+                resolve(result.rows || []);
             }
         });
     });
