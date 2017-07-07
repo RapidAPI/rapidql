@@ -58,14 +58,14 @@ class HttpNode {
 
             const   params      = self.args['params'] || {},
                     url         = `${(self.args['url'] || "")}?${queryString.stringify(params)}`,
-                    body        = (operation == 'get') ? (null) : (self.args['body'] || {}),
-                    form        = (operation == 'get') ? (null) : (self.args['form'] || {}),
-                    json        = (operation == 'get') ? (null) : (self.args['json'] || null),
+                    body        = (operation === 'get') ? (null) : (self.args['body'] || {}),
+                    form        = (operation === 'get') ? (null) : (self.args['form'] || {}),
+                    json        = (operation === 'get') ? (null) : (self.args['json'] || null),
                     headers     = self.args['headers'] || {},
                     bearer      = self.args['bearer'] || null;
 
 
-            if (bearer != null) {
+            if (bearer !== null) {
                 headers['Authorization'] = `Bearer ${bearer}`;
             }
 

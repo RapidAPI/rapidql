@@ -13,7 +13,7 @@ module.exports = (DBSchema, DBTable, client, args) => {
             if (err) {
                 reject(err);
             } else {
-                resolve(result.rows || []);
+                resolve(result || []);
             }
         });
     });
