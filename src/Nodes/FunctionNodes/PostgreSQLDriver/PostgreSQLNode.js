@@ -12,7 +12,8 @@ const functions = {
     find: require('./functions/find'),
     count: require('./functions/count'),
     insert: require('./functions/insert'),
-    softInsert: require('./functions/softInsert')
+    softInsert: require('./functions/softInsert'),
+    update: require('./functions/update')
 };
 
 global.clients = {};

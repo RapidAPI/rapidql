@@ -11,4 +11,5 @@ describe('PostgreSQL Driver', ()=> {
     require('./../src/Nodes/FunctionNodes/PostgreSQLDriver/test/whereGenerator')();
     require('./../src/Nodes/FunctionNodes/PostgreSQLDriver/test/utils')();
     require('./../src/Nodes/FunctionNodes/PostgreSQLDriver/test/insertGenerator')();
+    require('./../src/Nodes/FunctionNodes/PostgreSQLDriver/test/updateGenerator')();
 });

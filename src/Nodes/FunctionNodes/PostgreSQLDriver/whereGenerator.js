@@ -1,4 +1,4 @@
-const specialKeys = ['WHERE', 'LIMIT', 'ORDERBY', 'SKIP', "GROUPBY"];
+const specialKeys = ['WHERE', 'LIMIT', 'ORDERBY', 'SKIP', "GROUPBY", "SET"];
 
 //Import utility functions
 const removeSpecialArgs = require('./utils').removeSpecialArgs;
@@ -43,7 +43,7 @@ function whereClauseGenerator(queryArgs) {
 
 /**
  * This function takes query arguments and turns them into a PostgreSQL WHERE clause
- * @param args
+ * @param args the input arguments
  */
 function whereGenerator(args) {
     let queryString = "";
