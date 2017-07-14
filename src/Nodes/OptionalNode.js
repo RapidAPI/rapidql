@@ -12,9 +12,9 @@ class OptionalNode {
         return this.innerNode.getName();
     }
 
-    eval(context) {
+    eval(context, ops) {
         return new Promise((resolve, reject) => {
-            this.innerNode.eval(context)
+            this.innerNode.eval(context, ops)
                 .then((val) => {
                     resolve(val);
                 })

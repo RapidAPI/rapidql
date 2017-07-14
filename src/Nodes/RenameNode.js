@@ -13,8 +13,8 @@ class RenameNode {
         return this.name;
     }
 
-    eval(context) {
-        return this.innerNode.eval(context);
+    eval(context, ops) {
+        return this.innerNode.eval(context, ops);
     }
 }
 
