@@ -12,18 +12,18 @@ Complex = "{" firstNode:Node? nodes:("," Node)* "}" {
 }
 
 Node
-	= FunctionNode
+	= RenameNode
+    / OptionalNode
+    / FunctionNode
     / CompositeNode
 	/ LeafNode
 
-LeafNode = Word
-
-CompositeNode = label:Word values:Complex {
-    return {'label' : label, 'value': values};
+RenameNode = name:Word ":" n:Node {
+	return {type: 'rename', value:n, name:name}
 }
 
-FunctionNode = label:Word args:ArgSet values:Complex {
-	return {'label': label, 'args': args, 'value': values};
+OptionalNode = "?" n:Node {
+	return {type: 'optional', value:n}
 }
 
 ArgSet = "(" tuple:KVTuple? tuples:("," KVTuple)* ")" {
@@ -61,6 +61,6 @@ Word = chars:[-<*=>@_0-9"'a-zA-Z.]+ {
 	return chars.join("");
 }
 
-ValueWord = '"' chars:[-<*=>,{}@_0-9\/:a-zA-Z.]+ '"' {
+ValueWord = '"' chars:[-<*=>,{}@_0-9\?/:a-zA-Z.]+ '"' {
 	return '"' + chars.join("") + '"';
 }

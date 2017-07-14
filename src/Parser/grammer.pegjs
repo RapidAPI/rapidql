@@ -17,9 +17,21 @@ Complex = "{" firstNode:Node? nodes:("," Node)* "}" {
 }
 
 Node
-	= FunctionNode
+	= RenameNode
+    / OptionalNode
+    / FunctionNode
     / CompositeNode
 	/ LeafNode
+
+RenameNode = name:Word ":" innerNode:Node {
+	const RenameNode = require('./../Nodes/RenameNode');
+	return new RenameNode(name, innerNode);
+}
+
+OptionalNode = "?" innerNode:Node {
+	const OptionalNode = require('./../Nodes/OptionalNode')
+	return new OptionalNode(innerNode);
+}
 
 LeafNode = label:Word {
     const LeafNode = require('./../Nodes/LeafNode'),
@@ -80,6 +92,6 @@ Word = chars:[-<*=>@_0-9"'a-zA-Z.]+ {
 	return chars.join("");
 }
 
-ValueWord = '"' chars:[-<*=>,{}@_0-9\/:a-zA-Z.]+ '"' {
+ValueWord = '"' chars:[-<*=>,{}@_0-9\?/:a-zA-Z.]+ '"' {
 	return '"' + chars.join("") + '"';
 }

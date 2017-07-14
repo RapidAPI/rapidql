@@ -6,6 +6,8 @@
 const assert = require('assert'),
     LeafNode = require('../src/Nodes/LeafNode'),
     CompositeNode = require('../src/Nodes/CompositeNode'),
+    RenameNode = require('../src/Nodes/RenameNode'),
+    OptionalNode = require('../src/Nodes/OptionalNode'),
     FunctionNode = require('../src/Nodes/FunctionNode');
 
 
@@ -127,5 +129,153 @@ describe('Parser', () => {
         } catch (e) {
             done();
         }
+    });
+
+    describe('OptionalNode', () => {
+        it('should support optional leaf nodes', async () => {
+            const val = await parse(`
+                {
+                    ?a
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof OptionalNode, true); // Optional node
+            assert.equal(n.getName(), "a");
+            assert.equal(n.innerNode instanceof LeafNode, true);
+        });
+
+        it('should support optional composite nodes nodes', async () => {
+            const val = await parse(`
+                {
+                    ?a {
+                        b
+                    }
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof OptionalNode, true); // Optional node
+            assert.equal(n.getName(), "a");
+            assert.equal(n.innerNode instanceof CompositeNode, true);
+            assert.equal(n.innerNode.children.length, 1);
+            assert.equal(n.innerNode.children[0].getName(), "b");
+        });
+
+        it('should support optional nodes in composite nodes', async () => {
+            const val = await parse(`
+                {
+                    a {
+                        ? b
+                    }
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof CompositeNode, true); // Optional node
+            assert.equal(n.getName(), "a");
+            assert.equal(n.children.length, 1);
+            assert.equal(n.children[0] instanceof OptionalNode, true);
+            assert.equal(n.children[0].getName(), "b");
+        });
+
+        it('should support optional function nodes', async () => {
+            const val = await parse(`
+                {
+                    ?RapidAPI.Name.Function(key1:val1, key2:{subKey: subValue}) {
+                        b
+                    }
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof OptionalNode, true); // Optional node
+            assert.equal(n.getName(), "RapidAPI.Name.Function");
+            assert.equal(n.innerNode instanceof FunctionNode, true);
+            assert.equal(n.innerNode.children.length, 1);
+            assert.equal(n.innerNode.children[0].getName(), "b");
+        });
+
+        it('should support optional renamed nodes', async () => {
+            const val = await parse(`
+                {
+                    ?a:b
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof OptionalNode, true); // Optional node
+            assert.equal(n.innerNode instanceof RenameNode, true); // Optional node
+            assert.equal(n.innerNode.innerNode instanceof LeafNode, true); // Optional node
+        });
+    });
+
+    describe('RenameNode', () => {
+        it('should support renamed leaf nodes', async () => {
+            const val = await parse(`
+                {
+                    b:a
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof RenameNode, true); // Optional node
+            assert.equal(n.getName(), "b");
+            assert.equal(n.innerNode instanceof LeafNode, true);
+            assert.equal(n.innerNode.getName(), "a");
+        });
+
+        it('should support renamed composite nodes', async () => {
+            const val = await parse(`
+                {
+                    c:a {
+                        b
+                    }
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof RenameNode, true); // Optional node
+            assert.equal(n.getName(), "c");
+            assert.equal(n.innerNode instanceof CompositeNode, true);
+            assert.equal(n.innerNode.getName(), "a");
+            assert.equal(n.innerNode.children.length, 1);
+            assert.equal(n.innerNode.children[0].getName(), "b");
+        });
+
+        it('should support renamed nodes in composite nodes', async () => {
+            const val = await parse(`
+                {
+                    a {
+                        c:b
+                    }
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof CompositeNode, true); // Optional node
+            assert.equal(n.getName(), "a");
+            assert.equal(n.children.length, 1);
+            assert.equal(n.children[0] instanceof RenameNode, true);
+            assert.equal(n.children[0].getName(), "c");
+            assert.equal(n.children[0].innerNode instanceof LeafNode, true);
+        });
+
+        it('should support optional function nodes', async () => {
+            const val = await parse(`
+                {
+                    a:RapidAPI.Name.Function(key1:val1, key2:{subKey: subValue}) {
+                        b
+                    }
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof RenameNode, true); // Optional node
+            assert.equal(n.getName(), "a");
+            assert.equal(n.innerNode instanceof FunctionNode, true);
+            assert.equal(n.innerNode.children.length, 1);
+            assert.equal(n.innerNode.children[0].getName(), "b");
+        });
     });
 });
