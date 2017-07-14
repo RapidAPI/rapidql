@@ -16,6 +16,7 @@
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
+    "commander": "^2.11.0",
     "mocha": "^3.2.0",
     "mustache": "^2.3.0",
     "mysql": "^2.13.0",
