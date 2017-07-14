@@ -15,7 +15,8 @@ class ArrayNode {
     getName() {
         return this.name;
     }
-    
+
+    //noinspection JSAnnotator
     eval(context, ops) {
             let arr = context[this.getName()];
             let promises = [];

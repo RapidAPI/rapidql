@@ -26,6 +26,16 @@ OptionalNode = "?" n:Node {
 	return {type: 'optional', value:n}
 }
 
+LeafNode = Word
+
+CompositeNode = label:Word values:Complex {
+    return {'label' : label, 'value': values};
+}
+
+FunctionNode = label:Word args:ArgSet values:Complex {
+	return {'label': label, 'args': args, 'value': values};
+}
+
 ArgSet = "(" tuple:KVTuple? tuples:("," KVTuple)* ")" {
 	let rs = {};
     Object.assign(rs, tuple);

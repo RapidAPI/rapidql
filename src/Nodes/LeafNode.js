@@ -12,13 +12,12 @@ class LeafNode {
         return this.name;
     }
 
-    eval(context) {
-        return new Promise((resolve, reject) => {
-            if (context.hasOwnProperty(this.getName()))
-                resolve(context[this.getName()]);
-            else
-                reject(`Name ${this.getName()} does not exist in context ${context}`)
-        });
+    //noinspection JSAnnotator
+    async eval(context) {
+        if (context.hasOwnProperty(this.getName()))
+            return context[this.getName()];
+        else
+            throw `Name ${this.getName()} does not exist in context ${context}`;
     }
 }
 
