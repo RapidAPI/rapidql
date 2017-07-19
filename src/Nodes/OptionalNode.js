@@ -12,6 +12,7 @@ class OptionalNode {
         return this.innerNode.getName();
     }
 
+    //noinspection JSAnnotator
     eval(context, ops) {
         return new Promise((resolve, reject) => {
             this.innerNode.eval(context, ops)

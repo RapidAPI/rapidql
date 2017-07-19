@@ -21,6 +21,7 @@ Node
     / OptionalNode
     / FunctionNode
     / CompositeNode
+    / CastedLeafNode
 	/ LeafNode
 
 RenameNode = name:Word ":" innerNode:Node {
@@ -31,6 +32,11 @@ RenameNode = name:Word ":" innerNode:Node {
 OptionalNode = "?" innerNode:Node {
 	const OptionalNode = require('./../Nodes/OptionalNode')
 	return new OptionalNode(innerNode);
+}
+
+CastedLeafNode = cast:Word "(" innerNode:LeafNode ")" {
+    const CastedLeafNode = require('./../Nodes/CastedLeafNode');
+	return new CastedLeafNode(cast, innerNode);
 }
 
 LeafNode = label:Word {

@@ -13,6 +13,7 @@ class RenameNode {
         return this.name;
     }
 
+    //noinspection JSAnnotator
     eval(context, ops) {
         return this.innerNode.eval(context, ops);
     }

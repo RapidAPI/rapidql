@@ -8,6 +8,7 @@ const assert = require('assert'),
     CompositeNode = require('../src/Nodes/CompositeNode'),
     RenameNode = require('../src/Nodes/RenameNode'),
     OptionalNode = require('../src/Nodes/OptionalNode'),
+    CastedLeafNode = require('../src/Nodes/CastedLeafNode'),
     FunctionNode = require('../src/Nodes/FunctionNode');
 
 
@@ -276,6 +277,56 @@ describe('Parser', () => {
             assert.equal(n.innerNode instanceof FunctionNode, true);
             assert.equal(n.innerNode.children.length, 1);
             assert.equal(n.innerNode.children[0].getName(), "b");
+        });
+    });
+
+    describe('Casted leaf nodes', () => {
+        it('should support casted leaf nodes', async () => {
+            const val = await parse(`
+                {
+                    int(a)
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof CastedLeafNode, true); // Casted Leaf node
+            assert.equal(n.type, "int");
+            assert.equal(n.getName(), "a");
+            assert.equal(n.innerNode instanceof LeafNode, true);
+        });
+
+        it('should support optional casted leaf nodes', async () => {
+            const val = await parse(`
+                {
+                    ?float(a)
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof OptionalNode, true); // Optional node
+            assert.equal(n.getName(), "a");
+            assert.equal(n.innerNode instanceof CastedLeafNode, true);
+            assert.equal(n.innerNode.type, "float");
+            assert.equal(n.innerNode.innerNode instanceof LeafNode, true);
+        });
+
+        it('should support casted leaf nodes in composite nodes', async () => {
+            const val = await parse(`
+                {
+                    a {
+                        int(b)
+                    }
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof CompositeNode, true); // Composite node
+            assert.equal(n.getName(), "a");
+            assert.equal(n.children.length, 1);
+            assert.equal(n.children[0] instanceof CastedLeafNode, true);
+            assert.equal(n.children[0].type, "int");
+            assert.equal(n.children[0].getName(), "b");
+            assert.equal(n.children[0].innerNode instanceof LeafNode, true);
         });
     });
 });

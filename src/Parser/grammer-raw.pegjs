@@ -16,6 +16,7 @@ Node
     / OptionalNode
     / FunctionNode
     / CompositeNode
+   	/ CastedLeafNode
 	/ LeafNode
 
 RenameNode = name:Word ":" n:Node {
@@ -24,6 +25,10 @@ RenameNode = name:Word ":" n:Node {
 
 OptionalNode = "?" n:Node {
 	return {type: 'optional', value:n}
+}
+
+CastedLeafNode = cast:Word "(" innerNode:LeafNode ")" {
+	return {cast:cast, innerNode:innerNode}
 }
 
 LeafNode = Word
