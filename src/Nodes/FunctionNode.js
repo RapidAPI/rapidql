@@ -13,7 +13,8 @@ const supportedTypes = {
     "RapidAPI"      : require('./FunctionNodes/RapidAPIDriver/RapidAPINode'),
     "PostgreSQL"    : require('./FunctionNodes/PostgreSQLDriver/PostgreSQLNode'),
     "MySQL"         : require('./FunctionNodes/MySQLDriver/MySQLNode'),
-    "Http"          : require('./FunctionNodes/HttpDriver/HttpNode')
+    "Http"          : require('./FunctionNodes/HttpDriver/HttpNode'),
+    "Redis"         : require('./FunctionNodes/RedisDriver/RedisNode')
 };
 
 const SEP_CHAR = '.';
@@ -142,9 +143,9 @@ class FunctionNode {
                     ctx[this.getName()] = payload;
 
                     //Process down the tree...
-                     if(typeof payload == 'string'){
-                     (new LeafNode(this.getName())).eval(ctx).then(resolve).catch(reject);
-                     } else if(typeof payload == 'object') {
+                     if(typeof payload === 'string') {
+                         (new LeafNode(this.getName())).eval(ctx).then(resolve).catch(reject);
+                     } else if(typeof payload === 'object') {
                      let innerContext = Object.assign({}, context);
                      innerContext[this.getName()] =  payload;
 

@@ -16,15 +16,15 @@ const functions = {
     update: require('./functions/update')
 };
 
-global.clients = {};
+global._postgresql_clients = {};
 function getClient(DBName, DBConfigs) {
     // This is basically a singleton. If we already have a client, we should use it.
     // Otherwise, we create a new one.
-    if (clients.hasOwnProperty(DBName)) {
-        return global.clients[DBName];
+    if (global._postgresql_clients.hasOwnProperty(DBName)) {
+        return global._postgresql_clients[DBName];
     } else {
         const pool = new pg.Pool(DBConfigs);
-        global.clients[DBName] = pool;
+        global._postgresql_clients[DBName] = pool;
         return getClient(DBName, DBConfigs);
     }
 }

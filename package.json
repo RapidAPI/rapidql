@@ -25,6 +25,7 @@
     "pg": "^6.1.2",
     "query-string": "^4.3.4",
     "rapidapi-connect": "0.0.4",
+    "redis": "^2.7.1",
     "request": "^2.81.0",
     "simple-rate-limiter": "^0.2.3"
   }

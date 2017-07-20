@@ -17,7 +17,13 @@ class CompositeNode {
     
     //noinspection JSAnnotator
     eval(context, ops) {
-        if(Array.isArray(context[this.getName()])) {
+        if (this.children.length === 0) {
+            // If object has no children, append all
+            return new Promise((resolve, reject) => {
+                resolve(context[this.getName()]);
+            });
+        }
+        else if(Array.isArray(context[this.getName()])) {
             return (new ArrayNode(this.getName(), this.children)).eval(context, ops);
         } else {
             return (new ObjectNode(this.getName(), this.children)).eval(context, ops);

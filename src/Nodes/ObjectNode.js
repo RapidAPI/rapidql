@@ -13,6 +13,7 @@ class ObjectNode {
         return this.name;
     }
 
+    //noinspection JSAnnotator
     eval(context, ops) {
         const ctx = Object.assign({}, context, context[this.getName()]);
         let res = {};
