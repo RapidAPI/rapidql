@@ -4,9 +4,24 @@
 
 const flattenObject = require('./../utils').flattenObject;
 
+const ObjectId = require('mongodb').ObjectId;
+
+function convertObjectIds(obj) {
+    for (let key in obj) {
+        if (typeof obj[key] === 'object')
+            obj[key] = convertObjectIds(obj[key]);
+        else {
+            if (key === "$oid")
+                return ObjectId(obj[key]);
+        }
+    }
+    return obj;
+}
+
 module.exports = (DBTable, db, args) => {
     return new Promise((resolve, reject) => {
-        db.collection(DBTable).find(flattenObject(args)).toArray((err, doc) => {
+        let query = flattenObject(convertObjectIds(args));
+        db.collection(DBTable).find(query).toArray((err, doc) => {
             if (err)
                 reject(`MongoDB error performing find: ${err}`);
             else

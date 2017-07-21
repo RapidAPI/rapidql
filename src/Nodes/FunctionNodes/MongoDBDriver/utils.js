@@ -8,7 +8,7 @@ const flattenObject = (obj) => {
         if(obj.hasOwnProperty(key)) {
             if(typeof obj[key] !== 'object') {
                 toReturn[key] = obj[key];
-            } else {
+            } else if (obj[key]._bsontype !== 'ObjectID') {
                 let internalObj = flattenObject(obj[key]);
 
                 for (let internalKey in internalObj) {
@@ -16,6 +16,8 @@ const flattenObject = (obj) => {
                         toReturn[`${key}.${internalKey}`] = internalObj[internalKey];
                     }
                 }
+            } else {
+                toReturn[key] = obj[key];
             }
         }
     }

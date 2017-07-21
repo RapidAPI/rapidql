@@ -161,3 +161,16 @@ To run the query in `queryFile.rql`. RapidQL will also look for 2 optional hidde
 
 - `.rqlconfig` - json file containing your configurations (DB / RpaidAPI connection details).
 - `.rqlcontext` - base context for RQL (define variables used in the query).
+
+## RQL Server
+Install RapidQL from NPM with the `-g` flag to use from command line.
+To use RQL from platforms other than nodejs, you can either use it as a command line executable (see above), or run it as a server. Running `rql-server` will set up an HTTP server, accepting RQL queries and returning their results in JSON format.
+
+### Parameters:
+
+- **-p** / **--port** : set the port rql will listen on. 3000 by default.
+- **-c** / **--conf** : set the config file for rql to pull configurations from. By default - .rqlconfig at the same path.
+
+### API:
+
+Th

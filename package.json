@@ -10,7 +10,8 @@
     "node": "6.1.0"
   },
   "bin": {
-    "rql": "bin/rql.js"
+    "rql": "bin/rql.js",
+    "rql-server": "bin/server.js"
   },
   "keywords": [],
   "author": "",
