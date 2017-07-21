@@ -18,14 +18,31 @@ function convertObjectIds(obj) {
     return obj;
 }
 
+
+function unconvertObjectIds(obj) {
+    for (let key in obj) {
+        if (typeof obj[key] === 'object') {
+            if (obj[key]._bsontype == 'ObjectID') {
+                obj[key] = obj[key]+"";
+            } else {
+                obj[key] = unconvertObjectIds(obj[key]);
+            }
+        }
+    }
+    return obj;
+}
+
+
 module.exports = (DBTable, db, args) => {
     return new Promise((resolve, reject) => {
         let query = flattenObject(convertObjectIds(args));
         db.collection(DBTable).find(query).toArray((err, doc) => {
             if (err)
                 reject(`MongoDB error performing find: ${err}`);
-            else
-                resolve(doc);
+            else {
+                let converted = unconvertObjectIds(doc);
+                resolve(converted);
+            }
         });
     });
 };
