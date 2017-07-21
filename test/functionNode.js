@@ -56,12 +56,16 @@ describe('Function Nodes', () => {
     });
 
     describe('Recursive replace', () => {
-        it('should replace a single constant', () => {
+        it('should replace a single constant string', () => {
             assert.deepEqual(FunctionNode.recursiveReplace({a: '"b"'}, {}), {a:'b'});
         });
 
         it('should replace multiple constants', ()=> {
-            assert.deepEqual(FunctionNode.recursiveReplace({a: '"b"', c: '"bbb"'}, {}), {a:'b', c:'bbb'});
+            assert.deepEqual(FunctionNode.recursiveReplace({a: '"b"', c: '"bbb"', num:-5}, {}), {a:'b', c:'bbb', num:-5});
+        });
+
+        it('should replace a single constant number', () => {
+            assert.deepEqual(FunctionNode.recursiveReplace({a: 123}, {}), {a:123});
         });
 
         it('should replace variables with context value', () => {

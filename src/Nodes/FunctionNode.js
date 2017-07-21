@@ -14,7 +14,8 @@ const supportedTypes = {
     "PostgreSQL"    : require('./FunctionNodes/PostgreSQLDriver/PostgreSQLNode'),
     "MySQL"         : require('./FunctionNodes/MySQLDriver/MySQLNode'),
     "Http"          : require('./FunctionNodes/HttpDriver/HttpNode'),
-    "Redis"         : require('./FunctionNodes/RedisDriver/RedisNode')
+    "Redis"         : require('./FunctionNodes/RedisDriver/RedisNode'),
+    "MongoDB"       : require('./FunctionNodes/MongoDBDriver/MongoDBNode')
 };
 
 const SEP_CHAR = '.';
@@ -82,6 +83,9 @@ function recursiveReplace(args, context) {
                     processedArgs[key] = quoted(arg) ? replaceVariables(arg.slice(1, -1), context) : getFromContext(arg, context);
                     //If literal - Remove quotes, render template and add to processed args
                     // If Variable - get from context
+                    break;
+                case 'number':
+                    processedArgs[key] = arg;
                     break;
                 case 'object':
                     processedArgs[key] = recursiveReplace(arg, context);

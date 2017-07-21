@@ -116,6 +116,64 @@ describe('Parser', () => {
         });
     });
 
+    describe('function nodes data types', () => {
+        it('should support variable names', async () => {
+            const val = await parse(`{
+                RapidAPI.Name.Function(key1:val1, key2:val2) {
+                    a
+                }
+            }`);
+            assert.equal(val.length, 1); // Exactly 1 root node
+            assert.equal(val[0].hasOwnProperty('args'), true); // Check type. Only function nodes have args (it can be sub-type)
+            assert.equal(val[0].args['key1'], "val1"); //Check simple arg
+            assert.equal(val[0].args['key2'], "val2"); //Check simple arg
+        });
+
+        it('should support string literals', async () => {
+            const val = await parse(`{
+                RapidAPI.Name.Function(key1:"str1", key2:"str2") {
+                    a
+                }
+            }`);
+            assert.equal(val.length, 1); // Exactly 1 root node
+            assert.equal(val[0].hasOwnProperty('args'), true); // Check type. Only function nodes have args (it can be sub-type)
+            assert.equal(val[0].args['key1'], '"str1"'); //Check simple arg
+            assert.equal(val[0].args['key2'], '"str2"'); //Check simple arg
+        });
+
+        it('should support number literals', async () => {
+            const val = await parse(`{
+                RapidAPI.Name.Function(key1:123, key2:124.6, key3:-1, key4:0) {
+                    a
+                }
+            }`);
+            assert.equal(val.length, 1); // Exactly 1 root node
+            assert.equal(val[0].hasOwnProperty('args'), true); // Check type. Only function nodes have args (it can be sub-type)
+            assert.equal(val[0].args['key1'], 123); //Check simple arg
+            assert.equal(typeof val[0].args['key1'], 'number'); //Check type
+            assert.equal(val[0].args['key2'], 124.6); //Check simple arg
+            assert.equal(typeof val[0].args['key2'], 'number'); //Check type
+            assert.equal(val[0].args['key3'], -1); //Check simple arg
+            assert.equal(typeof val[0].args['key3'], 'number'); //Check type
+            assert.equal(val[0].args['key4'], 0); //Check simple arg
+            assert.equal(typeof val[0].args['key4'], 'number'); //Check type
+        });
+
+        it('should support objects', async () => {
+            const val = await parse(`{
+                RapidAPI.Name.Function(obj:{key1:"str1", key2:2}) {
+                    a
+                }
+            }`);
+            assert.equal(val.length, 1); // Exactly 1 root node
+            assert.equal(val[0].hasOwnProperty('args'), true); // Check type. Only function nodes have args (it can be sub-type)
+            assert.equal(typeof val[0].args['obj'], 'object'); //Check simple arg
+            assert.equal(val[0].args['obj']['key1'], '"str1"'); //Check simple arg
+            assert.equal(val[0].args['obj']['key2'], 2); //Check simple arg
+        });
+
+    });
+
     it('should fail with function nodes with unsupported names', (done) => {
         try {
             parse(`{

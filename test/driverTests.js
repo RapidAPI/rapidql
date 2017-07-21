@@ -12,4 +12,5 @@ describe('PostgreSQL Driver', ()=> {
     require('./../src/Nodes/FunctionNodes/PostgreSQLDriver/test/utils')();
     require('./../src/Nodes/FunctionNodes/PostgreSQLDriver/test/insertGenerator')();
     require('./../src/Nodes/FunctionNodes/PostgreSQLDriver/test/updateGenerator')();
+    require('./../src/Nodes/FunctionNodes/MongoDBDriver/test/utils')();
 });
