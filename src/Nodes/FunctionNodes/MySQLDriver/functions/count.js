@@ -15,7 +15,7 @@ function count(DBTable, client, args) {
     }
 
     //Base query
-    queryString += `SELECT COUNT(*) ${coloumns} FROM ${DBTable}`;
+    queryString += `SELECT COUNT(*) ${coloumns} FROM \`${DBTable}\``;
 
     //Add where conditions
     queryString += whereGenerator(args);
