@@ -9,7 +9,7 @@ function find(DBTable, client, args) {
     let queryString = "";
 
     //Base query
-    queryString += `SELECT * FROM ${DBTable}`;
+    queryString += `SELECT * FROM \`${DBTable}\``;
 
     //Add where conditions
     queryString += whereGenerator(args);
