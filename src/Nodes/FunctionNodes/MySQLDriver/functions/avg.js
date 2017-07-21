@@ -1,10 +1,9 @@
 /**
  * Created by iddo on 7/21/17.
  */
-
 const whereGenerator = require('./../whereGenerator');
 
-function sum(DBTable, client, args) {
+function avg(DBTable, client, args) {
     //We'll build the SQL query with that string
     let queryString = "";
 
@@ -19,7 +18,7 @@ function sum(DBTable, client, args) {
         return new Promise((resolve, reject) => {reject(`MySQL: to use the .sum() function, must supply FIELD to sum`)});
 
     //Base query
-    queryString += `SELECT SUM(${args['FIELD']}) as ${args['FIELD']} ${coloumns} FROM \`${DBTable}\``;
+    queryString += `SELECT AVG(${args['FIELD']}) as ${args['FIELD']} ${coloumns} FROM \`${DBTable}\``;
 
     //Add where conditions
     queryString += whereGenerator(args);
@@ -36,4 +35,4 @@ function sum(DBTable, client, args) {
 
 }
 
-module.exports = sum;
+module.exports = avg;

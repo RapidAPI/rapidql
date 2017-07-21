@@ -8,7 +8,8 @@ const mysql = require('mysql');
 const functions = {
     find: require('./functions/find'),
     count: require('./functions/count'),
-    sum: require('./functions/sum')
+    sum: require('./functions/sum'),
+    avg: require('./functions/avg')
 };
 
 class MySQLNode {
