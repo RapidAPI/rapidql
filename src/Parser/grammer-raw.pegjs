@@ -72,11 +72,11 @@ KVCompValue = "{}" {return {};} //empty
         return rs;
     }
 
-Word = chars:[-<*=>@_0-9"'a-zA-Z.]+ {
+Word = chars:[-$<*=>@_0-9"'a-zA-Z.]+ {
 	return chars.join("");
 }
 
-ValueWord = '"' chars:[-<*=>,{}@_0-9\?/:a-zA-Z.]+ '"' {
+ValueWord = '"' chars:[-$<*=>,{}@_0-9\?/:a-zA-Z.]+ '"' {
 	return '"' + chars.join("") + '"';
 }
 
