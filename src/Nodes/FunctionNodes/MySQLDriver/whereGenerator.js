@@ -1,4 +1,4 @@
-const specialKeys = ['WHERE', 'LIMIT', 'ORDERBY', 'SKIP', "GROUPBY"];
+const specialKeys = ['WHERE', 'LIMIT', 'ORDERBY', 'SKIP', "GROUPBY", "FIELD"];
 
 /**
  * This function takes query arguments and turns them into a PostgreSQL WHERE clause
