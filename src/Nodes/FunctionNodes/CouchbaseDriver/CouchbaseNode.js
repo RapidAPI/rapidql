@@ -5,7 +5,8 @@ const couchbase = require('couchbase');
 const functions = {
     find: require("./functions/find"),
     count: require("./functions/count"),
-    insert: require("./functions/insert")
+    insert: require("./functions/insert"),
+    update: require("./functions/update")
 };
 
 global._couchbase_clients = {};
