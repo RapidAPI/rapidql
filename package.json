@@ -18,6 +18,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "commander": "^2.11.0",
+    "couchbase": "^2.3.5",
     "mocha": "^3.2.0",
     "mongodb": "^2.2.30",
     "mustache": "^2.3.0",

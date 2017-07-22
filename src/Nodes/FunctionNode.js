@@ -15,7 +15,8 @@ const supportedTypes = {
     "MySQL"         : require('./FunctionNodes/MySQLDriver/MySQLNode'),
     "Http"          : require('./FunctionNodes/HttpDriver/HttpNode'),
     "Redis"         : require('./FunctionNodes/RedisDriver/RedisNode'),
-    "MongoDB"       : require('./FunctionNodes/MongoDBDriver/MongoDBNode')
+    "MongoDB"       : require('./FunctionNodes/MongoDBDriver/MongoDBNode'),
+    "Couchbase"     : require('./FunctionNodes/CouchbaseDriver/CouchbaseNode')
 };
 
 const SEP_CHAR = '.';
