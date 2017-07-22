@@ -1,4 +1,4 @@
-const specialKeys = ['WHERE', 'LIMIT', 'ORDERBY', 'SKIP', "GROUPBY", "SET"];
+const specialKeys = ['WHERE', 'LIMIT', 'ORDERBY', 'SKIP', "GROUPBY", "SET", "FIELD"];
 
 //Import utility functions
 const removeSpecialArgs = require('./utils').removeSpecialArgs;

@@ -7,7 +7,7 @@ const setClauseGenerator = require('./../updateGenerator').setClauseGenerator;
 module.exports = (DBSchema, DBTable, client, args) => {
     let queryString = "";
 
-    queryString += `UPDATE ${DBSchema}.${DBTable}`;
+    queryString += `UPDATE \`${DBSchema}\`.\`${DBTable}\``;
 
     if(args.hasOwnProperty('SET')) {
         queryString += setClauseGenerator(args['SET']);

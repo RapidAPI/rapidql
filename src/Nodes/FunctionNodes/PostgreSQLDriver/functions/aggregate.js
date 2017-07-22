@@ -1,10 +1,10 @@
 /**
- * Created by iddo on 3/1/17.
+ * Created by iddo on 7/21/17.
  */
 
 const whereGenerator = require('./../whereGenerator').whereGenerator;
 
-function count(DBSchema, DBTable, client, args) {
+function aggregate(DBSchema, DBTable, client, args, aggregateFunction) {
     //We'll build the SQL query with that string
     let queryString = "";
 
@@ -15,8 +15,11 @@ function count(DBSchema, DBTable, client, args) {
         coloumns += `, ${args['GROUPBY']}`;
     }
 
+    if (!args['FIELD'])
+        return new Promise((resolve, reject) => {reject(`PostgreSQL: to use the ${aggregateFunction}() aggregate function, must supply FIELD to aggregate`)});
+
     //Base query
-    queryString += `SELECT COUNT(*) ${coloumns} FROM \`${DBSchema}\`.\`${DBTable}\``;
+    queryString += `SELECT ${aggregateFunction.toUpperCase()}(${args['FIELD']}) as ${args['FIELD']} ${coloumns} FROM \`${DBSchema}\`.\`${DBTable}\``;
 
     //Add where conditions
     queryString += whereGenerator(args);
@@ -33,4 +36,8 @@ function count(DBSchema, DBTable, client, args) {
 
 }
 
-module.exports = count;
+module.exports = (aggregateFunction) => {
+    return function (DBSchema, DBTable, client, args) {
+        return aggregate(DBSchema, DBTable, client, args, aggregateFunction);
+    }
+};

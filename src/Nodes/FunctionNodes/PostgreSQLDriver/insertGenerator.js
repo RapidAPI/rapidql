@@ -22,7 +22,7 @@ module.exports.insertClauseGenerator = (DBSchema, DBTable, args) => {
     let query = 'INSERT INTO';
 
     //Add relation name
-    query += ` ${DBSchema}.${DBTable}`;
+    query += ` \`${DBSchema}\`.\`${DBTable}\``;
 
     //Add Columns
     query += ` (${Object.keys(args).join(", ")})`;
