@@ -229,8 +229,8 @@ function peg$parse(input, options) {
       },
       peg$c30 = "\"",
       peg$c31 = peg$literalExpectation("\"", false),
-      peg$c32 = /^[\-$!<*=>,{}@_0-9?\/:a-zA-Z.]/,
-      peg$c33 = peg$classExpectation(["-", "$", "!", "<", "*", "=", ">", ",", "{", "}", "@", "_", ["0", "9"], "?", "/", ":", ["a", "z"], ["A", "Z"], "."], false, false),
+      peg$c32 = /^[\-$!<*=>,{}@_0-9?\/:a-zA-Z. ]/,
+      peg$c33 = peg$classExpectation(["-", "$", "!", "<", "*", "=", ">", ",", "{", "}", "@", "_", ["0", "9"], "?", "/", ":", ["a", "z"], ["A", "Z"], ".", " "], false, false),
       peg$c34 = function(chars) {
       	return '"' + chars.join("") + '"';
       },

@@ -14,9 +14,7 @@ const WHITE_SPACES = [
 
 module.exports.parse = (str) => {
     //Find and replace spaces
-    WHITE_SPACES.forEach((whiteSpace) => {
-        str = str.replace(new RegExp(whiteSpace, "g"), '');
-    });
+    str = str.replace(/\s+(?=([^"]*"[^"]*")*[^"]*$)/g, '');
 
     return new Promise((resolve, reject) => {
         try {
