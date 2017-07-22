@@ -116,6 +116,20 @@ describe('Parser', () => {
         });
     });
 
+    it('should support white spaces in function node arguments', (done) => {
+        parse(`{
+            RapidAPI.Name.Function(key1:"iddo", value:{city: "san francisco"}) {x
+                a
+            }
+        }`).then((val) => {
+            assert.equal(val.length, 1);
+            assert.equal(val[0].hasOwnProperty('args'), true);
+            done();
+        }).catch((err) => {
+            done(new Error(`Rejected with error ${err}`));
+        });
+    });
+
     describe('function nodes data types', () => {
         it('should support variable names', async () => {
             const val = await parse(`{
