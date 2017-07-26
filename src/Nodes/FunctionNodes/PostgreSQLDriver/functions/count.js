@@ -16,7 +16,7 @@ function count(DBSchema, DBTable, client, args) {
     }
 
     //Base query
-    queryString += `SELECT COUNT(*) ${coloumns} FROM \`${DBSchema}\`.\`${DBTable}\``;
+    queryString += `SELECT COUNT(*) ${coloumns} FROM ${DBSchema}.${DBTable}`;
 
     //Add where conditions
     queryString += whereGenerator(args);

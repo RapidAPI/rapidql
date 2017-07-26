@@ -3,35 +3,8 @@
  */
 
 const flattenObject = require('./../utils').flattenObject;
-
-const ObjectId = require('mongodb').ObjectId;
-
-function convertObjectIds(obj) {
-    for (let key in obj) {
-        if (typeof obj[key] === 'object')
-            obj[key] = convertObjectIds(obj[key]);
-        else {
-            if (key === "$oid")
-                return ObjectId(obj[key]);
-        }
-    }
-    return obj;
-}
-
-
-function unconvertObjectIds(obj) {
-    for (let key in obj) {
-        if (typeof obj[key] === 'object') {
-            if (obj[key]._bsontype == 'ObjectID') {
-                obj[key] = obj[key]+"";
-            } else {
-                obj[key] = unconvertObjectIds(obj[key]);
-            }
-        }
-    }
-    return obj;
-}
-
+const convertObjectIds = require('./../utils').convertObjectIds;
+const unconvertObjectIds = require('./../utils').unconvertObjectIds;
 
 module.exports = (DBTable, db, args) => {
     return new Promise((resolve, reject) => {

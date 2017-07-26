@@ -6,7 +6,11 @@ const SEP_CHAR = '.';
 const MongoClient = require('mongodb').MongoClient;
 
 const functions = {
-    find: require('./functions/find')
+    find: require('./functions/find'),
+    sum: require('./functions/aggregate')('sum'),
+    avg: require('./functions/aggregate')('avg'),
+    min: require('./functions/aggregate')('min'),
+    max: require('./functions/aggregate')('max')
 };
 
 global._mongodb_clients = {};

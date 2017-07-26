@@ -19,7 +19,7 @@ function aggregate(DBSchema, DBTable, client, args, aggregateFunction) {
         return new Promise((resolve, reject) => {reject(`PostgreSQL: to use the ${aggregateFunction}() aggregate function, must supply FIELD to aggregate`)});
 
     //Base query
-    queryString += `SELECT ${aggregateFunction.toUpperCase()}(${args['FIELD']}) as ${args['FIELD']} ${coloumns} FROM \`${DBSchema}\`.\`${DBTable}\``;
+    queryString += `SELECT ${aggregateFunction.toUpperCase()}(${args['FIELD']}) as ${args['FIELD']} ${coloumns} FROM ${DBSchema}.${DBTable}`;
 
     //Add where conditions
     queryString += whereGenerator(args);

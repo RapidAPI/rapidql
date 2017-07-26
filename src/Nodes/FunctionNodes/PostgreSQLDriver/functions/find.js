@@ -10,7 +10,7 @@ function find(DBSchema, DBTable, client, args) {
     let queryString = "";
 
     //Base query
-    queryString += `SELECT * FROM \`${DBSchema}\`.\`${DBTable}\``;
+    queryString += `SELECT * FROM ${DBSchema}.${DBTable}`;
 
     //Add where conditions
     queryString += whereGenerator(args);
