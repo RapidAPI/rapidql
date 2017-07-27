@@ -6,17 +6,20 @@ const nearley = require("nearley"),
     grammer = require("./grammer"),
     peg = require("pegjs");
 
+
 const WHITE_SPACES = [
     ' ',
     '\n',
     '\t'
 ];
+function removeWhiteSpaces(str) {
+    str = str.replace("\n", "").replace("\t", "");
+    return str.replace(/\s+(?=((\\[\\"]|[^\\"])*"(\\[\\"]|[^\\"])*")*(\\[\\"]|[^\\"])*$)/g, '');
+}
 
 module.exports.parse = (str) => {
     //Find and replace spaces
-    WHITE_SPACES.forEach((whiteSpace) => {
-        str = str.replace(new RegExp(whiteSpace, "g"), '');
-    });
+    str = removeWhiteSpaces(str);
 
     return new Promise((resolve, reject) => {
         try {

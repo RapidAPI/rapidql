@@ -24,23 +24,23 @@ const rql = new RapidQL({
 
 const assert = require("assert");
 
-describe('E2E API Queries', () => {
-    it('should run', async () => {
-        let r = await rql.query(`
-        {
-            res:RapidAPI.NasaAPI.getPictureOfTheDay() {
-                explanation,
-                title,
-                pic_url:url,
-                ? randomFieldThatShouldBeNull
-            }
-        }
-        `, {});
-        assert.equal(r.hasOwnProperty('RapidAPI.NasaAPI.getPictureOfTheDay'), false);
-        assert.equal(r.hasOwnProperty('res'), true);
-        assert.equal(r.res.hasOwnProperty('explanation'), true);
-        assert.equal(r.res.hasOwnProperty('title'), true);
-        assert.equal(r.res.hasOwnProperty('pic_url'), true);
-        assert.equal(r.res.randomFieldThatShouldBeNull, null);
-    });
-});
+// describe('E2E API Queries', () => {
+//     it('should run', async () => {
+//         let r = await rql.query(`
+//         {
+//             res:RapidAPI.NasaAPI.getPictureOfTheDay() {
+//                 explanation,
+//                 title,
+//                 pic_url:url,
+//                 ? randomFieldThatShouldBeNull
+//             }
+//         }
+//         `, {});
+//         assert.equal(r.hasOwnProperty('RapidAPI.NasaAPI.getPictureOfTheDay'), false);
+//         assert.equal(r.hasOwnProperty('res'), true);
+//         assert.equal(r.res.hasOwnProperty('explanation'), true);
+//         assert.equal(r.res.hasOwnProperty('title'), true);
+//         assert.equal(r.res.hasOwnProperty('pic_url'), true);
+//         assert.equal(r.res.randomFieldThatShouldBeNull, null);
+//     });
+// });

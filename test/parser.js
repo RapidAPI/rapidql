@@ -69,6 +69,27 @@ describe('Parser', () => {
         });
     });
 
+    it('should detect quoted 2 leaf nodes and remove quotes', (done) => {
+        parse(`{
+            "b",
+            'c'
+        }`).then((val) => {
+            assert.equal(val.length, 2); // Exactly 2 nodes
+
+            //Node 1
+            assert.equal(val[0] instanceof LeafNode, true); // Leaf node
+            assert.equal(val[0].getName(), 'b'); //Name is b
+
+            //Node 2
+            assert.equal(val[1] instanceof LeafNode, true); // Leaf node
+            assert.equal(val[1].getName(), 'c'); //Name is b
+
+            done();
+        }).catch((err) => {
+            done(`Rejected with error ${err}`);
+        });
+    });
+
     it('should support composite nodes', (done) => {
         parse(`{
             a {
@@ -138,6 +159,18 @@ describe('Parser', () => {
             assert.equal(val.length, 1); // Exactly 1 root node
             assert.equal(val[0].hasOwnProperty('args'), true); // Check type. Only function nodes have args (it can be sub-type)
             assert.equal(val[0].args['key1'], '"str1"'); //Check simple arg
+            assert.equal(val[0].args['key2'], '"str2"'); //Check simple arg
+        });
+
+        it('should support string literals with spaces', async () => {
+            const val = await parse(`{
+                RapidAPI.Name.Function(key1:"str1 part2", key2:"str2") {
+                    a
+                }
+            }`);
+            assert.equal(val.length, 1); // Exactly 1 root node
+            assert.equal(val[0].hasOwnProperty('args'), true); // Check type. Only function nodes have args (it can be sub-type)
+            assert.equal(val[0].args['key1'], '"str1 part2"'); //Check simple arg
             assert.equal(val[0].args['key2'], '"str2"'); //Check simple arg
         });
 

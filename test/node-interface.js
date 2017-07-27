@@ -40,7 +40,7 @@ describe(`Node interfaces`, () => {
                 });
 
                 it(`should return a promise when called`, () => {
-                    let p = node.eval({}, {});
+                    let p = node.eval({"RapidAPI.a":["ad"]}, {RapidAPI:{}});
                     assert.equal(true, (Promise.resolve(p) == p)); //http://stackoverflow.com/questions/27746304/how-do-i-tell-if-an-object-is-a-promise/38339199#38339199
                 });
             });

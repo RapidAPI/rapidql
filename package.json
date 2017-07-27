@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "./node_modules/mocha/bin/mocha  --recursive"
   },
   "engines": {
     "node": "6.1.0"
@@ -17,8 +17,10 @@
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
+    "chai": "^4.1.0",
     "commander": "^2.11.0",
     "mocha": "^3.2.0",
+    "mocha-testcheck": "^1.0.0-rc.0",
     "mongodb": "^2.2.30",
     "mustache": "^2.3.0",
     "mysql": "^2.13.0",
@@ -29,6 +31,7 @@
     "rapidapi-connect": "0.0.4",
     "redis": "^2.7.1",
     "request": "^2.81.0",
-    "simple-rate-limiter": "^0.2.3"
+    "simple-rate-limiter": "^0.2.3",
+    "testcheck": "^1.0.0-rc.2"
   }
 }
