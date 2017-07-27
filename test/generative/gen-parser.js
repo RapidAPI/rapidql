@@ -80,7 +80,6 @@ describe('Generative - Parser', () => {
             param1 = param1.replace(/'/g, '').replace(/\\/g, '').replace(/"/g, '');
             param2 = param2.replace(/'/g, '').replace(/\\/g, '').replace(/"/g, '');
 
-            try {
                 //make sure keys aren't empty
                 key1 += (key1.length === 0) ? "a" : "";
                 key2 += (key2.length === 0) ? "b" : "";
@@ -95,10 +94,6 @@ describe('Generative - Parser', () => {
                 assert.equal(val[0].hasOwnProperty('args'), true); // Check type. Only function nodes have args (it can be sub-type)
                 assert.equal(val[0].args[key1], `"${param1}"`); //Check simple arg
                 assert.equal(val[0].args[key2], `"${param2}"`); //Check simple arg
-            } catch(e){
-                console.log();
-                console.log(e);
-            }
         });
     });
 });
