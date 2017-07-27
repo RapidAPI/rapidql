@@ -86,9 +86,9 @@ describe('Generative - Parser', () => {
 
                 const queryString = `{
                 RapidAPI.Name.Function(${key1}:"${param1}", ${key2}:"${param2}") {
-                    a
-                }
-            }`;
+                        a
+                    }
+                }`;
                 const val = await parse(queryString);
                 assert.equal(val.length, 1); // Exactly 1 root node
                 assert.equal(val[0].hasOwnProperty('args'), true); // Check type. Only function nodes have args (it can be sub-type)

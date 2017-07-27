@@ -56,13 +56,14 @@ module.exports.convertObjectIds = convertObjectIds;
  */
 function unconvertObjectIds(obj) {
     for (let key in obj) {
-        if (typeof obj[key] === 'object') {
-            if (obj[key]._bsontype == 'ObjectID') {
-                obj[key] = obj[key]+"";
-            } else {
-                obj[key] = unconvertObjectIds(obj[key]);
+        if(obj.hasOwnProperty(key) && obj[key] !== null && obj[key] !== undefined)
+            if (typeof obj[key] === 'object') {
+                if (obj[key]._bsontype == 'ObjectID') {
+                    obj[key] = obj[key]+"";
+                } else {
+                    obj[key] = unconvertObjectIds(obj[key]);
+                }
             }
-        }
     }
     return obj;
 }

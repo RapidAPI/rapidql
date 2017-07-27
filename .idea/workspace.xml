@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9596d340-4f3f-4ef6-babc-0ba4e5549a8d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/generative/gen-typecasted-leaf-nodes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/test/http.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/utils.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Parser/Parser.js" afterPath="$PROJECT_DIR$/src/Parser/Parser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/driverTests.js" afterPath="$PROJECT_DIR$/test/driverTests.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/generative/gen-parser.js" afterPath="$PROJECT_DIR$/test/generative/gen-parser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/parser.js" afterPath="$PROJECT_DIR$/test/parser.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,11 +28,21 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="type-casted-leaf-node.js" pinned="false" current-in-tab="true">
+            <file leaf-file-name="type-casted-leaf-node.js" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/test/type-casted-leaf-node.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-1663">
+                  <state relative-caret-position="-297">
                     <caret line="67" column="11" lean-forward="true" selection-start-line="67" selection-start-column="11" selection-end-line="67" selection-end-column="11" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="HttpNode.js" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/HttpNode.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="-437">
+                    <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                     <folding />
                   </state>
                 </provider>
@@ -48,9 +62,11 @@
       <file leaf-file-name="playground.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/playground.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
-              <caret line="112" column="4" lean-forward="true" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
-              <folding />
+            <state relative-caret-position="833">
+              <caret line="210" column="24" lean-forward="true" selection-start-line="210" selection-start-column="24" selection-end-line="210" selection-end-column="24" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,18 +84,8 @@
       <file leaf-file-name="parser.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/parser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="161" column="75" lean-forward="false" selection-start-line="153" selection-start-column="12" selection-end-line="161" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="E2E.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/E2E.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+            <state relative-caret-position="750">
+              <caret line="50" column="7" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -88,8 +94,8 @@
       <file leaf-file-name="gen-parser.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/generative/gen-parser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1395">
-              <caret line="95" column="82" lean-forward="false" selection-start-line="95" selection-start-column="82" selection-end-line="95" selection-end-column="82" />
+            <state relative-caret-position="75">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="43" />
               <folding>
                 <element signature="e#0#38#0" expanded="false" />
               </folding>
@@ -97,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gen-typecasted-leaf-nodes.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gen-typecasted-leaf-nodes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/generative/gen-typecasted-leaf-nodes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="33" column="11" lean-forward="true" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+            <state relative-caret-position="675">
+              <caret line="47" column="3" lean-forward="true" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="3" />
               <folding>
                 <element signature="e#0#38#0" expanded="false" />
               </folding>
@@ -109,31 +115,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CastedLeafNode.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Nodes/CastedLeafNode.js">
+      <file leaf-file-name="utils.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="588">
+              <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="65" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#38#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="insertGenerator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/test/insertGenerator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grammer.pegjs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Parser/grammer.pegjs">
+      <file leaf-file-name="driverTests.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/driverTests.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="102" column="30" lean-forward="false" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
+            <state relative-caret-position="240">
+              <caret line="18" column="66" lean-forward="false" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grammer-raw.pegjs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Parser/grammer-raw.pegjs">
+      <file leaf-file-name="http.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/test/http.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="57" column="1" lean-forward="false" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
+            <state relative-caret-position="90">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#38#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Parser.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Parser/Parser.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -157,6 +187,7 @@
       <find>Type Error: type</find>
       <find>ctx</find>
       <find>RapidAPI.a</find>
+      <find>space</find>
     </findStrings>
     <replaceStrings>
       <replace>`</replace>
@@ -168,8 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPIDriver/types/hash.js" />
-        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPIDriver/types/string.js" />
         <option value="$PROJECT_DIR$/src/Nodes/ObjectNode.js" />
         <option value="$PROJECT_DIR$/src/Nodes/CompositeNode.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/RedisDriver/types/string.js" />
@@ -180,7 +209,6 @@
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/index.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNode.js" />
         <option value="$PROJECT_DIR$/test/functionNode.js" />
-        <option value="$PROJECT_DIR$/test/driverTests.js" />
         <option value="$PROJECT_DIR$/bin/server.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/MySQLDriver/functions/find.js" />
@@ -202,7 +230,6 @@
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/test/utils.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/MongoDBNode.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/aggregate.js" />
-        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/utils.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/insertGenerator.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/test/main.js" />
@@ -212,13 +239,17 @@
         <option value="$PROJECT_DIR$/test/node-interface.js" />
         <option value="$PROJECT_DIR$/src/Parser/grammer-raw.pegjs" />
         <option value="$PROJECT_DIR$/src/Parser/grammer.pegjs" />
-        <option value="$PROJECT_DIR$/test/parser.js" />
         <option value="$PROJECT_DIR$/test/E2E.js" />
-        <option value="$PROJECT_DIR$/src/Parser/Parser.js" />
-        <option value="$PROJECT_DIR$/test/generative/gen-parser.js" />
         <option value="$PROJECT_DIR$/samples.js" />
-        <option value="$PROJECT_DIR$/playground.js" />
         <option value="$PROJECT_DIR$/test/generative/gen-typecasted-leaf-nodes.js" />
+        <option value="$PROJECT_DIR$/src/Parser/Parser.js" />
+        <option value="$PROJECT_DIR$/test/parser.js" />
+        <option value="$PROJECT_DIR$/test/generative/gen-parser.js" />
+        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/test/test-server.js" />
+        <option value="$PROJECT_DIR$/test/driverTests.js" />
+        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/test/http.js" />
+        <option value="$PROJECT_DIR$/playground.js" />
+        <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/utils.js" />
       </list>
     </option>
   </component>
@@ -320,24 +351,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generative" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RapidQL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RapidQL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -410,6 +423,118 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Nodes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FunctionNodes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PostgreSQLDriver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RapidQL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RapidQL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Nodes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FunctionNodes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PostgreSQLDriver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RapidQL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RapidQL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Nodes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FunctionNodes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HttpDriver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RapidQL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RapidQL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Nodes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FunctionNodes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HttpDriver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RapidQL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RapidQL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="bin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -453,7 +578,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.Test">
+  <component name="RunManager" selected="Node.js.playground.js">
     <configuration default="false" name="playground.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="playground.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
@@ -645,44 +770,44 @@
       <workItem from="1499991730809" duration="11689000" />
       <workItem from="1500498293518" duration="16498000" />
       <workItem from="1500573838321" duration="8854000" />
-      <workItem from="1501033056983" duration="14235000" />
+      <workItem from="1501033056983" duration="15405000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test - 2017.07.27 at 16h 30m 04s.xml">
-      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="Test - 2017.07.27 at 16h 30m 56s.xml">
-      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="Test - 2017.07.27 at 16h 32m 10s.xml">
-      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="Test - 2017.07.27 at 16h 32m 31s.xml">
-      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="Test - 2017.07.27 at 16h 32m 39s.xml">
-      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="Test - 2017.07.27 at 16h 32m 43s.xml">
-      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="Test - 2017.07.27 at 16h 32m 51s.xml">
-      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="Test - 2017.07.27 at 16h 33m 00s.xml">
-      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="Test - 2017.07.27 at 16h 33m 09s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
     <history-entry file="Test - 2017.07.27 at 16h 34m 01s.xml">
       <configuration name="Test" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="Test - 2017.07.27 at 16h 39m 34s.xml">
+      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Test - 2017.07.27 at 16h 39m 49s.xml">
+      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Test - 2017.07.27 at 16h 40m 02s.xml">
+      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Test - 2017.07.27 at 16h 40m 16s.xml">
+      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Test - 2017.07.27 at 16h 41m 44s.xml">
+      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Test - 2017.07.27 at 16h 42m 29s.xml">
+      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Test - 2017.07.27 at 16h 42m 56s.xml">
+      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Test - 2017.07.27 at 16h 49m 42s.xml">
+      <configuration name="Test" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196316000" />
+    <option name="totallyTimeSpent" value="197486000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2560" y="-329" width="2560" height="1440" extended-state="0" />
@@ -692,11 +817,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27868852" sideWeight="0.50913423" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3080292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3080292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2751825" sideWeight="0.49086577" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39124086" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39124086" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -739,7 +864,7 @@
           <option name="timeStamp" value="107" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="185" />
+      <option name="time" value="186" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="NodeJSConfigurationType">
@@ -748,34 +873,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bin/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mysql/lib/ConnectionConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="176" column="27" lean-forward="false" selection-start-line="176" selection-start-column="27" selection-end-line="176" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mysql/lib/protocol/sequences/Sequence.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="51" column="13" lean-forward="false" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MySQLDriver/functions/sum.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="38" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MySQLDriver/functions/count.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -922,16 +1019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="97" column="5" lean-forward="false" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/functions/aggregate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -988,14 +1075,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/driverTests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -1064,14 +1143,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser/Parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="88" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Parser/grammer.pegjs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
@@ -1084,14 +1155,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="161" column="75" lean-forward="false" selection-start-line="153" selection-start-column="12" selection-end-line="161" selection-end-column="75" />
           <folding />
         </state>
       </provider>
@@ -1112,18 +1175,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/playground.js">
+    <entry file="file://$PROJECT_DIR$/test/generative/gen-typecasted-leaf-nodes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="112" column="4" lean-forward="true" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
+        <state relative-caret-position="675">
+          <caret line="47" column="3" lean-forward="true" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parser/Parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="7" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/test/test-server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/driverTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="66" lean-forward="false" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/PostgreSQLDriver/test/insertGenerator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/generative/gen-parser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="95" column="82" lean-forward="false" selection-start-line="95" selection-start-column="82" selection-end-line="95" selection-end-column="82" />
+        <state relative-caret-position="75">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/test/http.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="e#0#38#0" expanded="false" />
           </folding>
@@ -1132,16 +1247,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/type-casted-leaf-node.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1663">
+        <state relative-caret-position="-297">
           <caret line="67" column="11" lean-forward="true" selection-start-line="67" selection-start-column="11" selection-end-line="67" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/generative/gen-typecasted-leaf-nodes.js">
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/HttpNode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="33" column="11" lean-forward="true" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+        <state relative-caret-position="-437">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/playground.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="210" column="24" lean-forward="true" selection-start-line="210" selection-start-column="24" selection-end-line="210" selection-end-column="24" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="65" selection-end-column="13" />
           <folding>
             <element signature="e#0#38#0" expanded="false" />
           </folding>

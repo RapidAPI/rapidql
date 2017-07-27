@@ -16,6 +16,7 @@ function removeWhiteSpaces(str) {
     str = str.replace("\n", "").replace("\t", "");
     return str.replace(/\s+(?=((\\[\\"]|[^\\"])*"(\\[\\"]|[^\\"])*")*(\\[\\"]|[^\\"])*$)/g, '');
 }
+module.exports.removeWhiteSpaces = removeWhiteSpaces;
 
 module.exports.parse = (str) => {
     //Find and replace spaces

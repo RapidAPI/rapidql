@@ -13,8 +13,24 @@ const assert = require('assert'),
 
 
 const parse = require('../src/Parser/Parser').parse;
+const removeWhiteSpaces = require('../src/Parser/Parser').removeWhiteSpaces;
 
 describe('Parser', () => {
+
+    describe('removeWhiteSpaces', () => {
+        it('should remove white spaces from simple string', () => {
+             assert.equal('sdfsdfsdf', removeWhiteSpaces('sdf sdf sdf'));
+        });
+
+        it('should ignore white spaces in double quoted string', () => {
+            assert.equal('sdfsdfsdf"iddo is awesome"', removeWhiteSpaces('sdf sdf sdf "iddo is awesome"'));
+        });
+
+        it('should ignore escaped double quoted string', () => {
+            assert.equal('sdfsdfsdf"iddo is \"awesome\""', removeWhiteSpaces('sdf sdf sdf "iddo is \"awesome\""'));
+        });
+    });
+
     describe('Basics', () => {
         it('should return empty query', (done) => {
             parse(`{}`).then(val => {
