@@ -1,6 +1,8 @@
 /**
  * Created by iddo on 7/27/17.
  */
+"use strict";
+
 const { describe, it } = require('mocha');
 const { check, gen } = require('mocha-testcheck');
 const { expect, assert } = require('chai');
