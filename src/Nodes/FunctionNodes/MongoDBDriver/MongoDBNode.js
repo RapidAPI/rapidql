@@ -10,7 +10,8 @@ const functions = {
     sum: require('./functions/aggregate')('sum'),
     avg: require('./functions/aggregate')('avg'),
     min: require('./functions/aggregate')('min'),
-    max: require('./functions/aggregate')('max')
+    max: require('./functions/aggregate')('max'),
+    insert: require('./functions/insert')
 };
 
 global._mongodb_clients = {};

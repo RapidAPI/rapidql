@@ -78,24 +78,3 @@ function removeSpecialArgs(queryArgs) {
     return queryArgs;
 }
 module.exports.removeSpecialArgs = removeSpecialArgs;
-
-// MongoDB only support functions in ES5 format. Unfortunetly.
-// const reducers = {
-//     avg : arr => arr.map(a => parseFloat(a)).reduce( ( p, c ) => p + c, 0 ) / arr.length,
-//     max : arr => Math.max(...arr.map(a => parseFloat(a))),
-//     min : arr => Math.min(...arr.map(a => parseFloat(a))),
-//     sum : arr => arr.map(a => parseFloat(a)).reduce( ( p, c ) => p + c, 0 )
-// };
-const reducers = {
-    avg : arr => arr.map(a => parseFloat(a)).reduce( ( p, c ) => p + c, 0 ) / arr.length,
-    max : arr => Math.max(...arr.map(a => parseFloat(a))),
-    min : arr => Math.min(...arr.map(a => parseFloat(a))),
-    sum : function (arr) {
-        return arr.map(function (a) {
-            return parseFloat(a);
-        }).reduce(function (p, c) {
-            return p + c;
-        }, 0);
-    }
-};
-module.exports.reducers = reducers;
