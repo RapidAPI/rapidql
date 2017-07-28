@@ -24,28 +24,6 @@ const aggregate = (DBTable, db, args, aggregateFunction) => {
                 resolve(result[0]);
             }
         });
-        // db.collection(DBTable).mapReduce(
-        //     function() { //MAP
-        //         emit(""+fieldName, ""+this[fieldName]);
-        //     },
-        //     reducers[aggregateFunction], //REDUCE
-        //     {
-        //         query: query,
-        //         out : { inline: 1 },
-        //         scope: {
-        //             fieldName: args['FIELD']
-        //         }
-        //     },
-        //     (err, doc) => {
-        //     if (err)
-        //         reject(`MongoDB error performing aggregation: ${err}`);
-        //     else {
-        //         let result = {
-        //             [args['FIELD']]: doc[0]['value']
-        //         };
-        //         resolve(result);
-        //     }
-        // });
     });
 };
 

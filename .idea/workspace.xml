@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9596d340-4f3f-4ef6-babc-0ba4e5549a8d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/insert.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/MongoDBNode.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/MongoDBNode.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/aggregate.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/aggregate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/utils.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/utils.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="playground.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="playground.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/playground.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="153" column="3" lean-forward="true" selection-start-line="153" selection-start-column="3" selection-end-line="153" selection-end-column="3" />
+            <state relative-caret-position="717">
+              <caret line="176" column="16" lean-forward="false" selection-start-line="176" selection-start-column="16" selection-end-line="176" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -40,8 +37,8 @@
       <file leaf-file-name="insert.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/insert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+            <state relative-caret-position="180">
+              <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
               <folding>
                 <element signature="e#0#38#0" expanded="false" />
               </folding>
@@ -59,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aggregate.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="aggregate.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/aggregate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="345">
+              <caret line="25" column="11" lean-forward="false" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
               <folding>
                 <element signature="e#0#38#0" expanded="false" />
               </folding>
@@ -162,9 +159,9 @@
         <option value="$PROJECT_DIR$/test/composite-node.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/insert.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/MongoDBNode.js" />
-        <option value="$PROJECT_DIR$/playground.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/utils.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/aggregate.js" />
+        <option value="$PROJECT_DIR$/playground.js" />
       </list>
     </option>
   </component>
@@ -761,7 +758,7 @@
       <workItem from="1499991730809" duration="11689000" />
       <workItem from="1500498293518" duration="16498000" />
       <workItem from="1500573838321" duration="8854000" />
-      <workItem from="1501033056983" duration="22719000" />
+      <workItem from="1501033056983" duration="22888000" />
     </task>
     <servers />
   </component>
@@ -798,7 +795,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204800000" />
+    <option name="totallyTimeSpent" value="204969000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2560" y="-329" width="2560" height="1440" extended-state="0" />
@@ -808,10 +805,10 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27868852" sideWeight="0.50913423" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3080292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3080292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29927006" sideWeight="0.49086577" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29927006" sideWeight="0.49086577" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39124086" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -871,12 +868,6 @@
           <line>38</line>
           <properties />
           <option name="timeStamp" value="197" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/aggregate.js</url>
-          <line>40</line>
-          <properties />
-          <option name="timeStamp" value="198" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="201" />
@@ -1245,14 +1236,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/find.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1271,24 +1254,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/insert.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/playground.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="153" column="3" lean-forward="true" selection-start-line="153" selection-start-column="3" selection-end-line="153" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/utils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
@@ -1301,11 +1266,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/aggregate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="25" column="11" lean-forward="false" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
           <folding>
             <element signature="e#0#38#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/insert.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/playground.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="717">
+          <caret line="176" column="16" lean-forward="false" selection-start-line="176" selection-start-column="16" selection-end-line="176" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
