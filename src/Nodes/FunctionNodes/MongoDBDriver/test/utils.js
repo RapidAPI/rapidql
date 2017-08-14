@@ -2,7 +2,8 @@
  * Created by iddo on 7/20/17.
  */
 const assert = require('assert'),
-    flattenObject = require('./../utils').flattenObject;
+    flattenObject = require('./../utils').flattenObject,
+    reducers = require('./../utils').reducers;
 
 
 module.exports = () => {

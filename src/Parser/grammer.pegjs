@@ -94,14 +94,37 @@ KVCompValue = "{}" {return {};} //empty
         return rs;
     }
 
-Word = chars:[-$!<*=>@_0-9"'a-zA-Z.]+ {
+Word = chars:[-$!<*=>@_0-9a-zA-Z.]+ {
 	return chars.join("");
+} / str:StringLiteralValue {
+    return str.slice(1,-1);
 }
 
-ValueWord = '"' chars:[-$!<*=>,{}@_0-9\?/:a-zA-Z.]+ '"' {
-	return '"' + chars.join("") + '"';
-}
+ValueWord = StringLiteralValue
 
 Number = sign:"-"? chars:[-.0-9]+ {
 	return parseFloat([sign].concat(chars).join(""));
 }
+
+StringLiteralValue
+  = '"' chars:DoubleStringCharacter* '"' { return '"' +chars.join('') + '"'; }
+  / "'" chars:SingleStringCharacter* "'" { return '"' +chars.join('') + '"'; }
+
+DoubleStringCharacter
+  = !('"' / "\\") char:. { return char; }
+  / "\\" sequence:EscapeSequence { return sequence; }
+
+SingleStringCharacter
+  = !("'" / "\\") char:. { return char; }
+  / "\\" sequence:EscapeSequence { return sequence; }
+
+EscapeSequence
+  = "'"
+  / '"'
+  / "\\"
+  / "b"  { return "\b";   }
+  / "f"  { return "\f";   }
+  / "n"  { return "\n";   }
+  / "r"  { return "\r";   }
+  / "t"  { return "\t";   }
+  / "v"  { return "\x0B"; }

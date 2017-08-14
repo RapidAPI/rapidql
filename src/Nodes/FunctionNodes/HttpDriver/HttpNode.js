@@ -59,7 +59,7 @@ class HttpNode {
             const   params      = self.args['params'] || {},
                     url         = `${(self.args['url'] || "")}?${queryString.stringify(params)}`,
                     body        = (operation === 'get') ? (null) : (self.args['body'] || {}),
-                    form        = (operation === 'get') ? (null) : (self.args['form'] || {}),
+                    form        = (operation === 'get') ? (null) : (self.args['form'] || null),
                     json        = (operation === 'get') ? (null) : (self.args['json'] || null),
                     headers     = self.args['headers'] || {},
                     bearer      = self.args['bearer'] || null;
@@ -85,7 +85,7 @@ class HttpNode {
                 if(response.statusCode > 299)
                     return reject(`HttpError: got non-2xx response from ${url}: \ncode: ${response.statusCode}, \ncontent: ${response}`);
 
-                if(typeof body != OBJECT_TYPE) {
+                if(typeof body !== OBJECT_TYPE) {
                     try {
                         return resolve(JSON.parse(body));
                     } catch (e) {

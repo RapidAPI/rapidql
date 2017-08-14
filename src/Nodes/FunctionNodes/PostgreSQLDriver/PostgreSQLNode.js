@@ -13,7 +13,11 @@ const functions = {
     count: require('./functions/count'),
     insert: require('./functions/insert'),
     softInsert: require('./functions/softInsert'),
-    update: require('./functions/update')
+    update: require('./functions/update'),
+    avg: require('./functions/aggregate')('avg'),
+    sum: require('./functions/aggregate')('sum'),
+    max: require('./functions/aggregate')('max'),
+    min: require('./functions/aggregate')('min')
 };
 
 global._postgresql_clients = {};
