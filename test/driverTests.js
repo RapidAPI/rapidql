@@ -15,6 +15,7 @@ describe('PostgreSQL Driver', ()=> {
     require('./../src/Nodes/FunctionNodes/MongoDBDriver/test/utils')();
 });
 
-describe('HTTP Driver', () => {
-    require('./../src/Nodes/FunctionNodes/HttpDriver/test/http')();
-});
+// Too slow...
+// describe('HTTP Driver', () => {
+//     require('./../src/Nodes/FunctionNodes/HttpDriver/test/http')();
+// });
