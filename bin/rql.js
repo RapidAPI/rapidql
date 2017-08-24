@@ -32,26 +32,16 @@ fs.readFile(CONFIG_FILE_NAME, 'utf8', function(err, data) {
 
         //Read query
         if (process.argv.length < 3)
-            throw  `Please provide query file`;
-        const queryFile = process.argv[2];
-        fs.readFile(queryFile, 'utf8', function (err, queryString) {
-            if (err) {
-                throw `Error reading query file: ${err}`;
-            } else if (!data) {
-                throw  `Query file empty`;
-            } else {
-                //Perform query
-                const rqlClient = new RQL(configs);
-                rqlClient.query(queryString, baseContext)
-                    .catch((err) => {
-                        console.warn(`Error performing query: \n${e}`);
-                    })
-                    .then((res) => {
-                        console.log(JSON.stringify(res, null, 4));
-                        process.exit(0)
-                    });
-            }
-        });
-
+            throw  `Please provide query`;
+        let queryString = process.argv[2];
+        const rqlClient = new RQL(configs);
+        rqlClient.query(queryString, baseContext)
+            .catch((err) => {
+                console.warn(`Error performing query: \n${err}`);
+            })
+            .then((res) => {
+                console.log(JSON.stringify(res, null, 4));
+                process.exit(0)
+            });
     });
 });
