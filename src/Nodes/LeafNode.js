@@ -2,6 +2,7 @@
  * Created by Iddo on 12/17/2016.
  */
 "use strict";
+const utils = require('./utils');
 
 class LeafNode {
     constructor(name) {
@@ -14,10 +15,7 @@ class LeafNode {
 
     //noinspection JSAnnotator
     async eval(context) {
-        if (context.hasOwnProperty(this.getName()))
-            return context[this.getName()];
-        else
-            throw `Name ${this.getName()} does not exist in context ${context}`;
+        return utils.resolve(this.getName(), context);
     }
 }
 
