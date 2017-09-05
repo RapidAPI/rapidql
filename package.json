@@ -20,6 +20,7 @@
   "dependencies": {
     "chai": "^4.1.0",
     "commander": "^2.11.0",
+    "couchbase": "^2.3.5",
     "mocha": "^3.2.0",
     "mocha-testcheck": "^1.0.0-rc.0",
     "mongodb": "^2.2.30",
@@ -34,6 +35,6 @@
     "redis": "^2.7.1",
     "request": "^2.81.0",
     "simple-rate-limiter": "^0.2.3",
-    "testcheck": "^1.0.0-rc.2"
+    "uuid": "^3.1.0"
   }
 }
