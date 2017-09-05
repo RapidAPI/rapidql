@@ -15,7 +15,8 @@ const supportedTypes = {
     "MySQL"         : require('./FunctionNodes/MySQLDriver/MySQLNode'),
     "Http"          : require('./FunctionNodes/HttpDriver/HttpNode'),
     "Redis"         : require('./FunctionNodes/RedisDriver/RedisNode'),
-    "MongoDB"       : require('./FunctionNodes/MongoDBDriver/MongoDBNode')
+    "MongoDB"       : require('./FunctionNodes/MongoDBDriver/MongoDBNode'),
+    "MapReduce"     : require('./FunctionNodes/MapReduce/MapReduceNode')
 };
 
 const SEP_CHAR = '.';
@@ -153,7 +154,7 @@ class FunctionNode {
                      let innerContext = Object.assign({}, context);
                      innerContext[this.getName()] =  payload;
 
-                     let innerNode = new CompositeNode(this.getName(), this.children);
+                     let innerNode = new CompositeNode(this.getName(), materialNode.children);
 
                      innerNode.eval(innerContext, ops).then(resolve).catch(reject);
 
