@@ -33,5 +33,18 @@ describe("LeafNode", () => {
                 done();
             });
         });
+
+        it('should return deep value from object', (done) => {
+            (new LeafNode('a.b')).eval({
+                a : {
+                    b : 12
+                }
+            }).then((val) => {
+                assert.equal(val, 12);
+                done();
+            }).catch((err) => {
+                done(`Failed with error: ${err}`);
+            });
+        })
     });
 });

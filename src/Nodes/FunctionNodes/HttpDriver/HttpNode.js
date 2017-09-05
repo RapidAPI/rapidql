@@ -57,7 +57,7 @@ class HttpNode {
                 return reject(`Operation Error: operation ${operation} does not exist / is not supported`);
 
             const   params      = self.args['params'] || {},
-                    url         = `${(self.args['url'] || "")}?${queryString.stringify(params)}`,
+                    url         = `${(self.args['url'] || "")}${Object.keys(params).length ? "?" : ""}${queryString.stringify(params)}`,
                     body        = (operation === 'get') ? (null) : (self.args['body'] || {}),
                     form        = (operation === 'get') ? (null) : (self.args['form'] || null),
                     json        = (operation === 'get') ? (null) : (self.args['json'] || null),

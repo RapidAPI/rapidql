@@ -19,3 +19,8 @@ describe('PostgreSQL Driver', ()=> {
 // describe('HTTP Driver', () => {
 //     require('./../src/Nodes/FunctionNodes/HttpDriver/test/http')();
 // });
+
+describe('Map Reduce', () => {
+    require('./../src/Nodes/FunctionNodes/MapReduce/test/mapReduce')();
+    require('./../src/Nodes/FunctionNodes/MapReduce/test/MapReduceNode')();
+});
