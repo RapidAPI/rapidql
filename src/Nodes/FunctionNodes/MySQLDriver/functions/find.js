@@ -12,7 +12,7 @@ function find(DBTable, client, args) {
     queryString += `SELECT * FROM \`${DBTable}\``;
 
     //Add where conditions
-    queryString += whereGenerator(args);
+    queryString += whereGenerator.whereGenerator(args);
 
     return new Promise((resolve, reject) => {
         client.query(queryString, (err, result) => {
