@@ -22,7 +22,7 @@ function sum(DBTable, client, args) {
     queryString += `SELECT SUM(${args['FIELD']}) as ${args['FIELD']} ${coloumns} FROM \`${DBTable}\``;
 
     //Add where conditions
-    queryString += whereGenerator(args);
+    queryString += whereGenerator.whereGenerator(args);
 
     return new Promise((resolve, reject) => {
         client.query(queryString, (err, result) => {

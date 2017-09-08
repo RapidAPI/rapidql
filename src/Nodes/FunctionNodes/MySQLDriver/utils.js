@@ -10,8 +10,8 @@
  * @returns {*}
  */
 function removeSpecialArgs(queryArgs, _specialKeys) {
-    let queryArgs = Object.assign({}, _queryArgs);
-    specialKeys.forEach((key) => {
+    queryArgs = Object.assign({}, queryArgs);
+    _specialKeys.forEach((key) => {
         delete queryArgs[key];
     });
     return queryArgs;
