@@ -55,7 +55,7 @@ class RapidAPINode {
                         resolve(payload);
                     })
                     .on('error', (err) => {
-                        reject(`APIError: got error from ${this.getName()} API: ${err}`);
+                        reject(`APIError: got error from ${this.getName()} API: ${typeof err === 'object' ? JSON.stringify(err) : err}`);
                     });
             });
         }
