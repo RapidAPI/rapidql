@@ -12,6 +12,17 @@ const functions = {
     avg: require('./functions/avg')
 };
 
+global._mysql_clients = {};
+function getClient(DBName, DBConfigs) {
+    if (global._mysql_clients.hasOwnProperty(DBName)) {
+        return global._mysql_clients[DBName];
+    } else {
+        const pool = mysql.createPool(DBConfigs);
+        global._mysql_clients[DBName] = pool;
+        return getClient(DBName, DBConfigs);
+    }
+}
+
 class MySQLNode {
     constructor(name, children, args) {
         this.name = name;
@@ -46,8 +57,10 @@ class MySQLNode {
                 return reject(`Missing configs: MySQL settings for DB ${DBName} are missing`);
             } else {
                 const dbConfigs = ops.MySQL[DBName];
-                const dbConnection = mysql.createConnection(dbConfigs);
-                dbConnection.connect((err) => {
+
+                const pool = getClient(DBName, dbConfigs);
+
+                pool.getConnection((err, dbConnection) => {
                     if(err) {
                         return reject(`DB Error: Error connecting to database ${DBName} -> ${err}`);
                     }
@@ -55,10 +68,28 @@ class MySQLNode {
                     //Route different functions
                     functions[operation](DBTable, dbConnection, self.args)
                         .then((payload) => {
+                            dbConnection.release();
                             resolve(payload);
                         })
-                        .catch(reject);
+                        .catch((err) => {
+                            dbConnection.release();
+                            reject(err);
+                        });
                 });
+
+                // const dbConnection = mysql.createConnection(dbConfigs);
+                // dbConnection.connect((err) => {
+                //     if(err) {
+                //         return reject(`DB Error: Error connecting to database ${DBName} -> ${err}`);
+                //     }
+                //
+                //     //Route different functions
+                //     functions[operation](DBTable, dbConnection, self.args)
+                //         .then((payload) => {
+                //             resolve(payload);
+                //         })
+                //         .catch(reject);
+                // });
             }
         });
     }
