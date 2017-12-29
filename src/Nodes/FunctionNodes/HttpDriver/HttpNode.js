@@ -62,11 +62,16 @@ class HttpNode {
                     form        = (operation === 'get') ? (null) : (self.args['form'] || null),
                     json        = (operation === 'get') ? (null) : (self.args['json'] || null),
                     headers     = self.args['headers'] || {},
-                    bearer      = self.args['bearer'] || null;
+                    bearer      = self.args['bearer'] || null,
+                    basic       = self.args['basic'] || null;
 
 
             if (bearer !== null) {
                 headers['Authorization'] = `Bearer ${bearer}`;
+            }
+
+            if (basic !== null) {
+                headers['Authorization'] = `Basic ${new Buffer(basic['username'] + ":" + basic['password']).toString("base64")}`;
             }
 
             getRequestClient(ops)(url, {
