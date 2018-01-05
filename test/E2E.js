@@ -24,7 +24,8 @@ const rql = new RapidQL({
 
 const assert = require("assert");
 
-describe('E2E API Queries', () => {
+describe('E2E API Queries', function () {
+    this.timeout(10000);
     it('should run', async () => {
         let r = await rql.query(`
         {

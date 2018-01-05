@@ -24,3 +24,7 @@ describe('Map Reduce', () => {
     require('./../src/Nodes/FunctionNodes/MapReduce/test/mapReduce')();
     require('./../src/Nodes/FunctionNodes/MapReduce/test/MapReduceNode')();
 });
+
+describe('CSV', () => {
+    require('./../src/Nodes/FunctionNodes/CsvDriver/test/csv')();
+});

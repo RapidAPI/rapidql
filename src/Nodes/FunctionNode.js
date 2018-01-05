@@ -16,7 +16,8 @@ const supportedTypes = {
     "Http"          : require('./FunctionNodes/HttpDriver/HttpNode'),
     "Redis"         : require('./FunctionNodes/RedisDriver/RedisNode'),
     "MongoDB"       : require('./FunctionNodes/MongoDBDriver/MongoDBNode'),
-    "MapReduce"     : require('./FunctionNodes/MapReduce/MapReduceNode')
+    "MapReduce"     : require('./FunctionNodes/MapReduce/MapReduceNode'),
+    "Csv"           : require('./FunctionNodes/CsvDriver/CsvNode')
 };
 
 const SEP_CHAR = '.';
