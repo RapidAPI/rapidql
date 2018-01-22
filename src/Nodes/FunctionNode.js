@@ -122,6 +122,18 @@ class FunctionNode {
         }
     }
 
+  /**
+   * Process arguments and replace variables based on context
+   * @param context
+   * @returns {{}}
+   */
+    getProcessedArgs(context) {
+        //Process args in context
+        //If they have " " -> string literal (remove quotes)
+        //If they don't -> fetch from context
+        return recursiveReplace(this.args, context);
+    }
+
     /**
      *
      * @returns {string|*}
@@ -130,44 +142,63 @@ class FunctionNode {
         return `${this.type}.${this.name}`;
     }
 
+
     //noinspection JSAnnotator
-    eval(context, ops) {
-        return new Promise((resolve, reject) => {
-            //Process args in context
-            //If they have " " -> string literal (remove quotes)
-            //If they don't -> fetch from context
+      /**
+       *
+       * @param context
+       * @param ops
+       * @param cachedResult (optional) if set, will not perform query, but use that result
+       * @returns {Promise}
+       */
+    async eval(context, ops) {
             try {
-                const processedArgs = recursiveReplace(this.args, context);
+                const processedArgs = this.getProcessedArgs(context);
 
-                //Determine material node type and materialize itself
-                const MaterialClass = supportedTypes[this.type];
-                const materialNode = new MaterialClass(this.getName(), this.children, processedArgs);
+                const materialValuePayload = await this.performFunction(processedArgs, context, ops);
+                return await this.continueTree(context, ops, materialValuePayload);
 
-                materialNode.eval(context, ops).catch(reject).then((payload) => {
-                    //Create context and add payload to it
-                    let ctx = Object.assign({}, context);
-                    ctx[this.getName()] = payload;
-
-                    //Process down the tree...
-                     if(typeof payload === 'string') {
-                         (new LeafNode(this.getName())).eval(ctx).then(resolve).catch(reject);
-                     } else if(typeof payload === 'object') {
-                     let innerContext = Object.assign({}, context);
-                     innerContext[this.getName()] =  payload;
-
-                     let innerNode = new CompositeNode(this.getName(), materialNode.children);
-
-                     innerNode.eval(innerContext, ops).then(resolve).catch(reject);
-
-                     } else { //"You don't het another chance, life ain't a Nintendo game" - Eminem
-                     reject(`APIError: got invalid data type ${typeof payload} which is not supported by function nodes`);
-                     }
-                });
             } catch (e) {
-                reject(`Error parsing arguments: ${e}`);
+                throw `Error in ${this.getName()}: ${e}`;
             }
-        });
         
+    }
+
+    async performFunction(processedArgs, context, ops) {
+      //Determine material node type and materialize itself
+      const MaterialClass = supportedTypes[this.type];
+      const materialNode = new MaterialClass(this.getName(), this.children, processedArgs);
+
+      return await materialNode.eval(context, ops);
+    }
+
+  /**
+   * Appends payload from function node to context and continues tree execution
+   * @param materialNode
+   * @param context
+   * @param ops
+   * @param payload
+   * @returns {Promise.<*>}
+   */
+    async continueTree(context, ops, payload) {
+      //Create context and add payload to it
+      let ctx = Object.assign({}, context);
+      ctx[this.getName()] = payload;
+
+      //Process down the tree...
+      if(typeof payload === 'string') {
+        return await (new LeafNode(this.getName())).eval(ctx);
+      } else if(typeof payload === 'object') {
+        let innerContext = Object.assign({}, context);
+        innerContext[this.getName()] =  payload;
+
+        let innerNode = new CompositeNode(this.getName(), this.children);
+
+        return await innerNode.eval(innerContext, ops);
+
+      } else { //"You don't het another chance, life ain't a Nintendo game" - Eminem
+        throw `APIError: got invalid data type ${typeof payload} which is not supported by function nodes` ;
+      }
     }
 }
 

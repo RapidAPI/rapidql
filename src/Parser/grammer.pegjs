@@ -19,6 +19,7 @@ Complex = "{" firstNode:Node? nodes:("," Node)* "}" {
 Node
 	= RenameNode
     / OptionalNode
+    / CachedFunctionNode
     / FunctionNode
     / CompositeNode
     / CastedLeafNode
@@ -53,6 +54,13 @@ CompositeNode = label:Word values:Complex {
         FunctionNode = require('./../Nodes/FunctionNode');
     return new CompositeNode(label, values);
     //return {'label' : label, 'value': values};
+}
+
+
+CachedFunctionNode = "*" innerNode:FunctionNode {
+    const CachedFunctionNode = require('./../Nodes/CachedFunctionNode');
+    return new CachedFunctionNode(innerNode);
+	// return {type: 'cached', value:n}
 }
 
 FunctionNode = label:Word args:ArgSet values:Complex? {
@@ -94,7 +102,7 @@ KVCompValue = "{}" {return {};} //empty
         return rs;
     }
 
-Word = chars:[-$!<*=>@_0-9a-zA-Z.]+ {
+Word = chars:[-$!<=>@_0-9a-zA-Z.]+ {
 	return chars.join("");
 } / str:StringLiteralValue {
     return str.slice(1,-1);

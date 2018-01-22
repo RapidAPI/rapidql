@@ -29,7 +29,7 @@ describe("LeafNode", () => {
             ln.eval({}).then((val) => { //Running on empty context
                 done("Should not resolve");
             }).catch((err) => {
-                assert(""+err, "Name a does not exist in context [object Object]");
+                assert(""+err, "Name a does not exist in context {}");
                 done();
             });
         });

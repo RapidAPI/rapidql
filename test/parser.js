@@ -9,7 +9,8 @@ const assert = require('assert'),
     RenameNode = require('../src/Nodes/RenameNode'),
     OptionalNode = require('../src/Nodes/OptionalNode'),
     CastedLeafNode = require('../src/Nodes/CastedLeafNode'),
-    FunctionNode = require('../src/Nodes/FunctionNode');
+    FunctionNode = require('../src/Nodes/FunctionNode'),
+    CachedFunctionNode = require('../src/Nodes/CachedFunctionNode');
 
 
 const parse = require('../src/Parser/Parser').parse;
@@ -435,5 +436,25 @@ describe('Parser', () => {
             assert.equal(n.children[0].getName(), "b");
             assert.equal(n.children[0].innerNode instanceof LeafNode, true);
         });
+    });
+
+    describe('cached function nodes', () => {
+      it('should support cached function nodes', async () => {
+        const val = await parse(`
+                {
+                    *RapidAPI.Name.Function(key1:val1, key2:{subKey: subValue}) {
+                        b
+                    }
+                }
+            `);
+        let n = val[0];
+        assert.equal(val.length, 1); // Only 1 node
+        assert.equal(n instanceof CachedFunctionNode, true); // Cached function node
+        assert.equal(n.getName(), "RapidAPI.Name.Function"); //Name should stay the same
+        assert.equal(n.innerNode instanceof FunctionNode, true);
+        assert.equal(n.innerNode.children.length, 1);
+        assert.equal(n.innerNode.children[0].getName(), "b");
+        assert.equal(Object.keys(n.innerNode.args).length, 2);
+      });
     });
 });
