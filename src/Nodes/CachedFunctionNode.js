@@ -27,7 +27,7 @@ class CachedFunctionNode {
     });
 
     if (innerNodeHash in global._function_node_cache) {
-      return await global._function_node_cache[innerNodeHash];
+      return await this.innerNode.continueTree(context, ops, global._function_node_cache[innerNodeHash]);
     } else {
       global._function_node_cache[innerNodeHash] = this.innerNode.performFunction(processedArgs, context, ops);;
       const innerNodeValue = await global._function_node_cache[innerNodeHash];
