@@ -10,6 +10,16 @@ const   _request = require('request'),
         queryString = require("query-string");
 const limit = require("simple-rate-limiter");
 
+const dns = require('dns'),
+  dnscache = require('dnscache')({
+    "enable" : true,
+    "ttl" : 360000,
+    "cachesize" : 1000
+  });
+
+
+
+
 global.request = null;
 function getRequestClient(ops) {
     if (global.request !== null)
