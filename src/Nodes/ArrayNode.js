@@ -27,9 +27,6 @@ class ArrayNode {
                 for (let i in arr) {
                     let obj = arr[i];
 
-                    // let innerContext = Object.assign({}, context);
-                    // innerContext[this.getName()] = obj;
-
                     let innerContext = createMixedContext(context, {
                         [this.getName()] : obj
                     });
