@@ -10,11 +10,6 @@ const ObjectNode = require('../src/Nodes/ObjectNode');
 const LeafNode = require('../src/Nodes/LeafNode');
 
 describe('ObjectNode', () => {
-  it('should throw error if element is not an object', async () => {
-    let n = new ObjectNode('obj', []);
-
-    await expect(n.eval({'obj' : 1})).to.be.rejectedWith('TypeError: element obj in context is not an object');
-  });
 
   it('should handle valid objects properly', async () => {
       let n = new ObjectNode('obj', [

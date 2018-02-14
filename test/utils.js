@@ -66,12 +66,5 @@ describe('Utils', () => {
       assert.equal(context.c, undefined);
     });
 
-    it ('should support hasOwnProperty', () => {
-      let context = utils.createMixedContext({a:1}, {b:3});
-      assert.equal(context.hasOwnProperty('a'), true);
-      assert.equal(context.hasOwnProperty('b'), true);
-      assert.equal(context.hasOwnProperty('c'), false);
-    });
-
   });
 });

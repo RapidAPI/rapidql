@@ -17,9 +17,6 @@ class ObjectNode {
 
     //noinspection JSAnnotator
     eval(context, ops) {
-        if (typeof context[this.getName()] !== "object") {
-            return Promise.reject(`TypeError: element ${this.getName()} in context is not an object`)
-        }
         const ctx = createMixedContext(context, context[this.getName()]);
         let res = {};
         let promises = [];
