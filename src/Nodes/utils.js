@@ -11,8 +11,37 @@
 module.exports.resolve = (path, object) => {
     return path.split('.').reduce(function (prev, curr) {
         if (prev)
-            if (prev.hasOwnProperty(curr))
+            //if (prev.hasOwnProperty(curr))
+          if (prev[curr] !== undefined)
                 return prev[curr];
         throw `Name ${path} does not exist in context ${JSON.stringify(object, null, 4)}`;
     }, object);
+};
+
+/**
+ * Create an object that is a combination of an inner context and outer context. Will strive to return elements from inner context, defaulting to outer if not in inner
+ * @param outerContext
+ * @param innerContext
+ * @returns {Proxy}
+ */
+module.exports.createMixedContext = (outerContext, innerContext) => {
+    const handler = {
+        get: (target, name) => {
+            // Lookup order: innerContext > outerContext > undefined
+            // JS is ugly. Using "in" instead of !== undefined would have been MUCH nicer, but in is not supported with Proxy... (WHY????)
+            return target.innerContext[name] !== undefined ? target.innerContext[name]
+                 : target.outerContext[name] !== undefined ? target.outerContext[name]
+                 : undefined;
+        }
+    };
+
+    // Add support for native functions
+    // Proxy.prototype.hasOwnProperty = function (name) {
+    //     return this[name] !== undefined ? this[name] : false;
+    // };
+
+    return new Proxy({
+      innerContext,
+      outerContext
+    }, handler);
 };

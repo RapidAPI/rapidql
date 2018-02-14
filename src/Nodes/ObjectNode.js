@@ -3,6 +3,8 @@
  */
 "use strict";
 
+const { createMixedContext } = require('./utils');
+
 class ObjectNode {
     constructor(name, children) {
         this.name = name;
@@ -15,7 +17,10 @@ class ObjectNode {
 
     //noinspection JSAnnotator
     eval(context, ops) {
-        const ctx = Object.assign({}, context, context[this.getName()]);
+        if (typeof context[this.getName()] !== "object") {
+            return Promise.reject(`TypeError: element ${this.getName()} in context is not an object`)
+        }
+        const ctx = createMixedContext(context, context[this.getName()]);
         let res = {};
         let promises = [];
         this.children.forEach((child) => {

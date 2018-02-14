@@ -44,4 +44,34 @@ describe('Utils', () => {
             }
         });
     });
+
+  describe('createMixedContext', () => {
+    it('should return inner context value if only in inner context', () => {
+        let context = utils.createMixedContext({}, {a:1});
+        assert.equal(context.a, 1);
+    });
+
+    it('should give precedence to inner context over outer context, even if property exists in both', () => {
+      let context = utils.createMixedContext({a: 2}, {a:1});
+      assert.equal(context.a, 1);
+    });
+
+    it('should default to outer context if property not in inner context', () => {
+      let context = utils.createMixedContext({a:1}, {b:3});
+      assert.equal(context.a, 1);
+    });
+
+    it ('should return undefined if property doesnt exist in both contexts', () => {
+      let context = utils.createMixedContext({a:1}, {b:3});
+      assert.equal(context.c, undefined);
+    });
+
+    it ('should support hasOwnProperty', () => {
+      let context = utils.createMixedContext({a:1}, {b:3});
+      assert.equal(context.hasOwnProperty('a'), true);
+      assert.equal(context.hasOwnProperty('b'), true);
+      assert.equal(context.hasOwnProperty('c'), false);
+    });
+
+  });
 });

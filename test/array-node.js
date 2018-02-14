@@ -39,6 +39,25 @@ describe("ArrayNode", () => {
         assert.deepEqual(res, arr);
     });
 
+      it('should support referencing properties from outside context in object array', async () => {
+        /*
+        {
+            arr {
+                a,
+                b
+            }
+        }
+         */
+        let n = new ArrayNode('arr', [
+          new LeafNode('a'),
+          new LeafNode('b')
+        ]);
+        let arrIn = [{a:1}, {a:2}, {a:3}];
+        let arrComp = [{a:1, b: "b"}, {a:2, b: "b"}, {a:3, b: "b"}];
+        let res = await n.eval({arr:arrIn, b: "b"}, {});
+        assert.deepEqual(res, arrComp);
+      });
+
     it('should support string array - explicit', async () => {
         let n = new ArrayNode('arr', [
             new LeafNode('arr')

@@ -4,7 +4,7 @@
 "use strict";
 const ObjectNode = require('./ObjectNode');
 const LeafNode = require('./LeafNode');
-
+const { createMixedContext } = require('./utils');
 
 class ArrayNode {
     constructor(name, children) {
@@ -21,14 +21,18 @@ class ArrayNode {
             let arr = context[this.getName()];
             let promises = [];
             if (!Array.isArray(arr)) {
-                return new Promise((resolve, reject) => {reject(`TypeError: element ${this.getName()} in context is not an array`)});
+                return Promise.reject(`TypeError: element ${this.getName()} in context is not an array`);
             } else {
 
                 for (let i in arr) {
                     let obj = arr[i];
 
-                    let innerContext = Object.assign({}, context);
-                    innerContext[this.getName()] = obj;
+                    // let innerContext = Object.assign({}, context);
+                    // innerContext[this.getName()] = obj;
+
+                    let innerContext = createMixedContext(context, {
+                        [this.getName()] : obj
+                    });
 
                     let innerNode;
                     if(typeof obj === "object")
