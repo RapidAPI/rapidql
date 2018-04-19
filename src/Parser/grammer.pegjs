@@ -1,6 +1,6 @@
 //To compile (while in directory)
 //npm install -g pegjs
-//pegjs grammer.pegjs
+//c
 
 
 start = Complex
@@ -20,6 +20,7 @@ Node
 	= RenameNode
     / OptionalNode
     / CachedFunctionNode
+    / FlatObjectNode
     / FunctionNode
     / CompositeNode
     / CastedLeafNode
@@ -33,6 +34,11 @@ RenameNode = name:Word ":" innerNode:Node {
 OptionalNode = "?" innerNode:Node {
 	const OptionalNode = require('./../Nodes/OptionalNode')
 	return new OptionalNode(innerNode);
+}
+
+FlatObjectNode = "-" innerNode:Node {
+	const FlatObjectNode = require('./../Nodes/FlatObjectNode')
+	return new FlatObjectNode(innerNode);
 }
 
 CastedLeafNode = cast:Word "(" innerNode:LeafNode ")" {
