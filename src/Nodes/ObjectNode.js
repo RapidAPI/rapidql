@@ -17,7 +17,7 @@ class ObjectNode {
 
     //noinspection JSAnnotator
     eval(context, ops) {
-        const ctx = createMixedContext(context, context[this.getName()]);
+        const ctx = createMixedContext(context, context[this.getName()] || {});
         let res = {};
         let promises = [];
         this.children.forEach((child) => {

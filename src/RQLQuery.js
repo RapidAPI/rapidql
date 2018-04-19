@@ -3,6 +3,8 @@
  */
 "use strict";
 
+const ObjectNode = require('./Nodes/ObjectNode');
+
 class WQLQuery {
 
     /**
@@ -21,26 +23,9 @@ class WQLQuery {
      * @param context the context to perform the query in
      * @return Promise
      */
-    eval(context) {
-        let res = {};
-        let promises = [];
-        this.roots.forEach((root) => {
-            promises.push(new Promise((resolve, reject) => {
-                root.eval(context, this.options)
-                    .then((val) => {
-                        res[root.getName()] = val;
-                        resolve();
-                    })
-                    .catch(reject);
-            }));
-        });
-        return new Promise((resolve, reject) => {
-            Promise.all(promises)
-                .then(()=> {
-                    resolve(res);
-                })
-                .catch(reject);
-        });
+    async eval(context) {
+        const queryNode = new ObjectNode('root', this.roots);
+        return await queryNode.eval(context, this.options);
     }
 }
 
