@@ -25,19 +25,33 @@ class ArrayNode {
             } else {
 
                 for (let i in arr) {
+                    /**
+                     * If iterating over array of objects, inner context is the object in the array.
+                     * If iterating over array of scalars ([s]), inner context is the object {[this.name]:s}
+                     */
                     let obj = arr[i];
 
-                    let innerContext = createMixedContext(context, {
-                        [this.getName()] : obj
-                    });
+                    let innerContext;
 
                     let innerNode;
-                    if(typeof obj === "object")
+                    if(typeof obj === "object") {
+                        innerContext  = createMixedContext(context, {
+                            [this.getName()] : obj
+                        });
                         innerNode = new ObjectNode(this.getName(), this.children);
-                    else if (this.children.length > 0)
+                    } else if (this.children.length > 0) {
+                        innerContext  = createMixedContext(context, {
+                            [this.getName()] : {
+                                [this.getName()] : obj
+                            }
+                        });
                         innerNode = new ObjectNode(this.getName(), this.children);
-                    else
+                    } else {
+                        innerContext  = createMixedContext(context, {
+                            [this.getName()] : obj
+                        });
                         innerNode = new LeafNode(this.getName());
+                    }
                     promises.push(innerNode.eval(innerContext, ops));
                 }
 

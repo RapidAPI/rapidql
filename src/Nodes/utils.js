@@ -25,6 +25,10 @@ module.exports.resolve = (path, object) => {
  * @returns {Proxy}
  */
 module.exports.createMixedContext = (outerContext, innerContext) => {
+
+    if (typeof innerContext != 'object' || typeof outerContext != 'object')
+        throw `Contexts must be of object type`;
+
     const handler = {
         get: (target, name) => {
             // Lookup order: innerContext > outerContext > undefined
