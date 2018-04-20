@@ -32,6 +32,19 @@ module.exports.createMixedContext = (outerContext, innerContext) => {
             return target.innerContext[name] !== undefined ? target.innerContext[name]
                  : target.outerContext[name] !== undefined ? target.outerContext[name]
                  : undefined;
+        },
+        has: (target, name) => {
+            return name in target.innerContext || name in target.outerContext;
+        },
+        getOwnPropertyDescriptor: (target, name) => {
+            if (name in target.innerContext || name in target.outerContext) {
+                return {
+                    enumerable : true,
+                    configurable : true,
+                    writable : true
+                };
+            }
+            return undefined;
         }
     };
 
