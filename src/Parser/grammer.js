@@ -519,13 +519,13 @@ function peg$parse(input, options) {
   function peg$parseNode() {
     var s0;
 
-    s0 = peg$parseRenameNode();
+    s0 = peg$parseFlatObjectNode();
     if (s0 === peg$FAILED) {
-      s0 = peg$parseOptionalNode();
+      s0 = peg$parseRenameNode();
       if (s0 === peg$FAILED) {
-        s0 = peg$parseCachedFunctionNode();
+        s0 = peg$parseOptionalNode();
         if (s0 === peg$FAILED) {
-          s0 = peg$parseFlatObjectNode();
+          s0 = peg$parseCachedFunctionNode();
           if (s0 === peg$FAILED) {
             s0 = peg$parseFunctionNode();
             if (s0 === peg$FAILED) {

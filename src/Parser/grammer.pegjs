@@ -1,6 +1,6 @@
 //To compile (while in directory)
 //npm install -g pegjs
-//c
+//pegjs grammer.pegjs
 
 
 start = Complex
@@ -17,10 +17,10 @@ Complex = "{" firstNode:Node? nodes:("," Node)* "}" {
 }
 
 Node
-	= RenameNode
+	= FlatObjectNode
+	/ RenameNode
     / OptionalNode
     / CachedFunctionNode
-    / FlatObjectNode
     / FunctionNode
     / CompositeNode
     / CastedLeafNode
