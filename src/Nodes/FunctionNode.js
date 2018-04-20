@@ -7,6 +7,8 @@ const LeafNode = require('./LeafNode'),
     ArrayNode = require('./ArrayNode'),
     CompositeNode = require('./CompositeNode');
 
+const { createMixedContext } = require('./utils');
+
 const Mustache = require('mustache');
 
 const supportedTypes = {
@@ -189,8 +191,11 @@ class FunctionNode {
       if(typeof payload === 'string') {
         return await (new LeafNode(this.getName())).eval(ctx);
       } else if(typeof payload === 'object') {
-        let innerContext = Object.assign({}, context);
-        innerContext[this.getName()] =  payload;
+          let innerContext = createMixedContext(context, {
+              [this.getName()] : payload
+          });
+        // let innerContext = Object.assign({}, context);
+        // innerContext[this.getName()] =  payload;
 
         let innerNode = new CompositeNode(this.getName(), this.children);
 

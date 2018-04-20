@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9596d340-4f3f-4ef6-babc-0ba4e5549a8d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/ObjectNode.js" afterPath="$PROJECT_DIR$/src/Nodes/ObjectNode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RQLQuery.js" afterPath="$PROJECT_DIR$/src/RQLQuery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nodes/FunctionNode.js" afterPath="$PROJECT_DIR$/src/Nodes/FunctionNode.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/flat-object-node.js" afterPath="$PROJECT_DIR$/test/flat-object-node.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/parser.js" afterPath="$PROJECT_DIR$/test/parser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/utils.js" afterPath="$PROJECT_DIR$/test/utils.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,38 +32,50 @@
           <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Nodes/utils.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="660">
-                  <caret line="46" column="2" lean-forward="true" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="2" />
-                  <folding />
+                <state relative-caret-position="443">
+                  <caret line="33" column="33" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+                  <folding>
+                    <marker date="1524256308000" expanded="true" signature="870:990" ph="//..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="playground.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="playground.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/playground.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1255">
-                  <caret line="490" column="3" lean-forward="false" selection-start-line="490" selection-start-column="3" selection-end-line="490" selection-end-column="3" />
+                <state relative-caret-position="653">
+                  <caret line="531" column="18" lean-forward="false" selection-start-line="531" selection-start-column="18" selection-end-line="531" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CachedFunctionNode.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Nodes/CachedFunctionNode.js">
+          <file leaf-file-name="grammer.pegjs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Parser/grammer.pegjs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+                <state relative-caret-position="375">
+                  <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="array-node.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test/array-node.js">
+          <file leaf-file-name="OptionalNode.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Nodes/OptionalNode.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1065">
-                  <caret line="71" column="30" lean-forward="false" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
+                <state relative-caret-position="210">
+                  <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="30" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ObjectNode.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Nodes/ObjectNode.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="503">
+                  <caret line="44" column="1" lean-forward="true" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
@@ -70,18 +84,8 @@
           <file leaf-file-name="ArrayNode.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Nodes/ArrayNode.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="27" column="37" lean-forward="false" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="RQLQuery.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/RQLQuery.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+                <state relative-caret-position="675">
+                  <caret line="45" column="29" lean-forward="false" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
                   <folding />
                 </state>
               </provider>
@@ -90,12 +94,106 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file leaf-file-name="ObjectNode.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Nodes/ObjectNode.js">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="array-node.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test/array-node.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="19" column="77" lean-forward="false" selection-start-line="19" selection-start-column="77" selection-end-line="19" selection-end-column="77" />
+                <state relative-caret-position="435">
+                  <caret line="29" column="15" lean-forward="false" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FlatObjectNode.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Nodes/FlatObjectNode.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+                  <folding>
+                    <element signature="e#0#38#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CompositeNode.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Nodes/CompositeNode.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FunctionNode.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="613">
+                  <caret line="196" column="8" lean-forward="false" selection-start-line="196" selection-start-column="11" selection-end-line="197" selection-end-column="51" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="HttpNode.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/HttpNode.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1500">
+                  <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="LeafNode.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Nodes/LeafNode.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="45">
+                  <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="21" selection-end-column="26" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="optional-node.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test/optional-node.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="flat-object-node.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test/flat-object-node.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="765">
+                  <caret line="53" column="11" lean-forward="false" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
+                  <folding>
+                    <element signature="e#0#38#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="parser.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test/parser.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="360">
+                  <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="RQLQuery.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/RQLQuery.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="405">
+                  <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -114,26 +212,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>removeSpecialArgs</find>
-      <find>Operation Error: operation</find>
-      <find>Error parsing arguments:</find>
-      <find>recursiveReplace</find>
-      <find>Type Error: type</find>
-      <find>ctx</find>
-      <find>RapidAPI.a</find>
-      <find>space</find>
-      <find>mong</find>
-      <find>c</find>
-      <find>context</find>
-      <find>context[</find>
-      <find>functions</find>
-      <find>ad</find>
-      <find>RapidAPI.</find>
-      <find>to.be</find>
-      <find>Rapid</find>
-      <find>hottestCityByDay</find>
-      <find>mongo</find>
-      <find>$id</find>
       <find>coldestCityByDay</find>
       <find>maxDiameter</find>
       <find>35.188.26.133</find>
@@ -141,6 +219,29 @@
       <find>url</find>
       <find>ArrayNode should support string array - explicit</find>
       <find>should support string array -</find>
+      <find>describe('RenameNode', () =&gt; {</find>
+      <find>TypeError: Cannot use</find>
+      <find>TypeError: Cannot us</find>
+      <find>TypeError: Cannot u</find>
+      <find>TypeError: Cannot</find>
+      <find>TypeError: Cannot</find>
+      <find>TypeError: Ca</find>
+      <find>TypeError: C</find>
+      <find>TypeError:</find>
+      <find>TypeError:</find>
+      <find>c</find>
+      <find>cannit</find>
+      <find>cannit</find>
+      <find>cann</find>
+      <find>cannot use</find>
+      <find>Cannot use</find>
+      <find />
+      <find>in</find>
+      <find>\n       \* \@param ops</find>
+      <find>Error in :</find>
+      <find>Error in</find>
+      <find>Error in Http.get:</find>
+      <find>createMixedContext</find>
     </findStrings>
     <replaceStrings>
       <replace>`</replace>
@@ -152,8 +253,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test/node-interface.js" />
-        <option value="$PROJECT_DIR$/test/generative/gen-typecasted-leaf-nodes.js" />
         <option value="$PROJECT_DIR$/src/Parser/Parser.js" />
         <option value="$PROJECT_DIR$/test/generative/gen-parser.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/test/test-server.js" />
@@ -185,10 +284,7 @@
         <option value="$PROJECT_DIR$/test/E2E.js" />
         <option value="$PROJECT_DIR$/src/Parser/grammer-raw.pegjs" />
         <option value="$PROJECT_DIR$/src/Nodes/OptionalNode.js" />
-        <option value="$PROJECT_DIR$/src/Parser/grammer.pegjs" />
-        <option value="$PROJECT_DIR$/src/Nodes/FunctionNode.js" />
         <option value="$PROJECT_DIR$/test/leaf-node.js" />
-        <option value="$PROJECT_DIR$/test/parser.js" />
         <option value="$PROJECT_DIR$/src/Nodes/CachedFunctionNode.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/HttpNode.js" />
         <option value="$PROJECT_DIR$/samples.js" />
@@ -196,13 +292,18 @@
         <option value="$PROJECT_DIR$/bin/utils.js" />
         <option value="$PROJECT_DIR$/bin/rql-query.js" />
         <option value="$PROJECT_DIR$/test/array-node.js" />
-        <option value="$PROJECT_DIR$/src/Nodes/utils.js" />
-        <option value="$PROJECT_DIR$/src/Nodes/ArrayNode.js" />
-        <option value="$PROJECT_DIR$/test/utils.js" />
         <option value="$PROJECT_DIR$/test/object-node.js" />
-        <option value="$PROJECT_DIR$/playground.js" />
         <option value="$PROJECT_DIR$/src/RQLQuery.js" />
+        <option value="$PROJECT_DIR$/src/Nodes/FlatObjectNode.js" />
+        <option value="$PROJECT_DIR$/test/flat-object-node.js" />
+        <option value="$PROJECT_DIR$/test/parser.js" />
+        <option value="$PROJECT_DIR$/test/utils.js" />
+        <option value="$PROJECT_DIR$/src/Nodes/ArrayNode.js" />
         <option value="$PROJECT_DIR$/src/Nodes/ObjectNode.js" />
+        <option value="$PROJECT_DIR$/src/Nodes/utils.js" />
+        <option value="$PROJECT_DIR$/src/Parser/grammer.pegjs" />
+        <option value="$PROJECT_DIR$/src/Nodes/FunctionNode.js" />
+        <option value="$PROJECT_DIR$/playground.js" />
       </list>
     </option>
   </component>
@@ -267,6 +368,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -405,62 +508,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MapReduce" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RapidQL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RapidQL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nodes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FunctionNodes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MapReduce" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RapidQL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RapidQL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Nodes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FunctionNodes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="HttpDriver" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -481,8 +528,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -520,7 +565,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.playground.js">
-    <configuration default="false" name="test/utils.js" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Utils.createMixedContext.hasOwnProperty operator.should return true if in inner context" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
@@ -528,8 +573,34 @@
       <envs />
       <ui>bdd</ui>
       <extra-mocha-options />
-      <test-kind>TEST_FILE</test-kind>
+      <test-kind>TEST</test-kind>
       <test-file>$PROJECT_DIR$/test/utils.js</test-file>
+      <test-names>
+        <name value="Utils" />
+        <name value="createMixedContext" />
+        <name value="hasOwnProperty operator" />
+        <name value="should return true if in inner context" />
+      </test-names>
+      <method />
+    </configuration>
+    <configuration default="false" name="Utils.createMixedContext.hasOwnProperty operator" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/test/utils.js</test-file>
+      <test-names>
+        <name value="Utils" />
+        <name value="createMixedContext" />
+        <name value="hasOwnProperty operator" />
+      </test-names>
+      <method />
+    </configuration>
+    <configuration default="false" name="playground.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="playground.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
     <configuration default="false" name="ArrayNode.should support string array - explicit" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
@@ -548,21 +619,6 @@
       </test-names>
       <method />
     </configuration>
-    <configuration default="false" name="ObjectNode" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/object-node.js</test-file>
-      <test-names>
-        <name value="ObjectNode" />
-      </test-names>
-      <method />
-    </configuration>
     <configuration default="false" name="ArrayNode" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -576,9 +632,6 @@
       <test-names>
         <name value="ArrayNode" />
       </test-names>
-      <method />
-    </configuration>
-    <configuration default="false" name="playground.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="playground.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -695,19 +748,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Mocha.Test" />
-      <item index="1" class="java.lang.String" itemvalue="Mocha.test/utils.js" />
-      <item index="2" class="java.lang.String" itemvalue="Mocha.ArrayNode.should support string array - explicit" />
-      <item index="3" class="java.lang.String" itemvalue="Mocha.ObjectNode" />
-      <item index="4" class="java.lang.String" itemvalue="Mocha.ArrayNode" />
-      <item index="5" class="java.lang.String" itemvalue="Node.js.playground.js" />
+      <item index="1" class="java.lang.String" itemvalue="Mocha.Utils.createMixedContext.hasOwnProperty operator.should return true if in inner context" />
+      <item index="2" class="java.lang.String" itemvalue="Mocha.Utils.createMixedContext.hasOwnProperty operator" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.playground.js" />
+      <item index="4" class="java.lang.String" itemvalue="Mocha.ArrayNode.should support string array - explicit" />
+      <item index="5" class="java.lang.String" itemvalue="Mocha.ArrayNode" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Node.js.playground.js" />
         <item index="1" class="java.lang.String" itemvalue="Mocha.ArrayNode" />
         <item index="2" class="java.lang.String" itemvalue="Mocha.ArrayNode.should support string array - explicit" />
-        <item index="3" class="java.lang.String" itemvalue="Mocha.ObjectNode" />
-        <item index="4" class="java.lang.String" itemvalue="Mocha.test/utils.js" />
+        <item index="3" class="java.lang.String" itemvalue="Mocha.Utils.createMixedContext.hasOwnProperty operator" />
+        <item index="4" class="java.lang.String" itemvalue="Mocha.Utils.createMixedContext.hasOwnProperty operator.should return true if in inner context" />
       </list>
     </recent_temporary>
   </component>
@@ -786,44 +839,45 @@
       <workItem from="1518146736296" duration="1029000" />
       <workItem from="1518602833616" duration="548000" />
       <workItem from="1524116289593" duration="456000" />
-      <workItem from="1524178192017" duration="694000" />
+      <workItem from="1524178192017" duration="7957000" />
+      <workItem from="1524257474981" duration="371000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ArrayNode - 2018.02.13 at 20h 39m 48s.xml">
+    <history-entry file="ArrayNode - 2018.04.20 at 13h 31m 40s.xml">
       <configuration name="ArrayNode" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="ArrayNode_should_support_string_array_-_explicit - 2018.02.13 at 20h 37m 20s.xml">
+    <history-entry file="ArrayNode - 2018.04.20 at 13h 31m 55s.xml">
+      <configuration name="ArrayNode" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="ArrayNode_should_support_string_array_-_explicit - 2018.04.20 at 13h 21m 22s.xml">
       <configuration name="ArrayNode.should support string array - explicit" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="ArrayNode_should_support_string_array_-_explicit - 2018.02.13 at 20h 39m 43s.xml">
+    <history-entry file="ArrayNode_should_support_string_array_-_explicit - 2018.04.20 at 13h 21m 35s.xml">
       <configuration name="ArrayNode.should support string array - explicit" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="ObjectNode - 2018.02.13 at 20h 39m 36s.xml">
-      <configuration name="ObjectNode" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="ArrayNode_should_support_string_array_-_explicit - 2018.04.20 at 13h 21m 52s.xml">
+      <configuration name="ArrayNode.should support string array - explicit" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="ObjectNode_should_handle_valid_objects_properly - 2018.02.13 at 20h 28m 11s.xml">
-      <configuration name="ObjectNode.should handle valid objects properly" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="ArrayNode_should_support_string_array_-_explicit - 2018.04.20 at 13h 25m 43s.xml">
+      <configuration name="ArrayNode.should support string array - explicit" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="ObjectNode_should_handle_valid_objects_properly - 2018.02.13 at 20h 28m 34s.xml">
-      <configuration name="ObjectNode.should handle valid objects properly" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="ArrayNode_should_support_string_array_-_explicit - 2018.04.20 at 13h 30m 22s.xml">
+      <configuration name="ArrayNode.should support string array - explicit" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="ObjectNode_should_handle_valid_objects_properly - 2018.02.13 at 20h 28m 39s.xml">
-      <configuration name="ObjectNode.should handle valid objects properly" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="ArrayNode_should_support_string_array_-_explicit - 2018.04.20 at 13h 30m 34s.xml">
+      <configuration name="ArrayNode.should support string array - explicit" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="ObjectNode_should_handle_valid_objects_properly - 2018.02.13 at 20h 28m 42s.xml">
-      <configuration name="ObjectNode.should handle valid objects properly" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Utils_createMixedContext_hasOwnProperty_operator - 2018.04.20 at 12h 53m 36s.xml">
+      <configuration name="Utils.createMixedContext.hasOwnProperty operator" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="ObjectNode_should_support_referencing_properties_from_outside_object_within_object - 2018.02.13 at 20h 29m 49s.xml">
-      <configuration name="ObjectNode.should support referencing properties from outside object within object" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_utils_js - 2018.02.13 at 20h 36m 15s.xml">
-      <configuration name="test/utils.js" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Utils_createMixedContext_hasOwnProperty_operator_should_return_true_if_in_inner_context - 2018.04.20 at 12h 53m 17s.xml">
+      <configuration name="Utils.createMixedContext.hasOwnProperty operator.should return true if in inner context" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301384000" />
+    <option name="totallyTimeSpent" value="309018000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -843,12 +897,12 @@
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4082192" sideWeight="0.50913423" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2642336" sideWeight="0.49086577" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2642336" sideWeight="0.49086577" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21678832" sideWeight="0.4639622" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38978103" sideWeight="0.49704608" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38978103" sideWeight="0.49704608" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -897,11 +951,6 @@
           <option name="timeStamp" value="186" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/test/utils.js</url>
-          <line>29</line>
-          <option name="timeStamp" value="220" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/Nodes/FunctionNodes/RapidAPIDriver/RapidAPINode.js</url>
           <line>57</line>
           <option name="timeStamp" value="226" />
@@ -922,46 +971,31 @@
           <option name="timeStamp" value="242" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/Nodes/LeafNode.js</url>
-          <line>17</line>
-          <option name="timeStamp" value="257" />
+          <url>file://$PROJECT_DIR$/src/Nodes/FunctionNode.js</url>
+          <line>163</line>
+          <option name="timeStamp" value="292" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/RQLQuery.js</url>
-          <line>15</line>
-          <properties />
-          <option name="timeStamp" value="267" />
+          <url>file://$PROJECT_DIR$/src/Nodes/ArrayNode.js</url>
+          <line>54</line>
+          <option name="timeStamp" value="300" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/Nodes/ObjectNode.js</url>
-          <line>20</line>
-          <properties />
-          <option name="timeStamp" value="269" />
+          <url>file://$PROJECT_DIR$/src/Nodes/ArrayNode.js</url>
+          <line>47</line>
+          <option name="timeStamp" value="301" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/Nodes/ArrayNode.js</url>
+          <line>33</line>
+          <option name="timeStamp" value="303" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="270" />
+      <option name="time" value="304" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="NodeJSConfigurationType">
-        <watch expression="args.subscription_id[&quot;0&quot;]" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MongoDBDriver/functions/aggregate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/RedisDriver/types/hash.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1058,20 +1092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/OptionalNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2415">
-          <caret line="161" column="31" lean-forward="false" selection-start-line="161" selection-start-column="31" selection-end-line="161" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1128,24 +1148,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/LeafNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/generative/gen-typecasted-leaf-nodes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/optional-node.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-373">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -1168,13 +1173,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6585">
-          <caret line="439" column="0" lean-forward="false" selection-start-line="439" selection-start-column="0" selection-end-line="439" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1214,42 +1212,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="66" column="7" lean-forward="false" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/object-node.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/array-node.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="71" column="30" lean-forward="false" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/HttpNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/CachedFunctionNode.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1258,58 +1220,150 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/object-node.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="818">
+          <caret line="103" column="59" lean-forward="false" selection-start-line="103" selection-start-column="59" selection-end-line="103" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Parser/grammer.pegjs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="66" column="42" lean-forward="false" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="42" />
+        <state relative-caret-position="375">
+          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/utils.js">
+    <entry file="file://$PROJECT_DIR$/src/Nodes/OptionalNode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="46" column="2" lean-forward="true" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/CompositeNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="43" />
+        <state relative-caret-position="210">
+          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/ArrayNode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="37" lean-forward="false" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+        <state relative-caret-position="675">
+          <caret line="45" column="29" lean-forward="false" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/playground.js">
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FlatObjectNode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1255">
-          <caret line="490" column="3" lean-forward="false" selection-start-line="490" selection-start-column="3" selection-end-line="490" selection-end-column="3" />
+        <state relative-caret-position="225">
+          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/CompositeNode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/HttpNode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/LeafNode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="21" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/optional-node.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/flat-object-node.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="53" column="11" lean-forward="false" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RQLQuery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        <state relative-caret-position="405">
+          <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="33" column="33" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+          <folding>
+            <marker date="1524256308000" expanded="true" signature="870:990" ph="//..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/array-node.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="15" lean-forward="false" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="196" column="8" lean-forward="false" selection-start-line="196" selection-start-column="11" selection-end-line="197" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/ObjectNode.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="77" lean-forward="false" selection-start-line="19" selection-start-column="77" selection-end-line="19" selection-end-column="77" />
+        <state relative-caret-position="503">
+          <caret line="44" column="1" lean-forward="true" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/playground.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="653">
+          <caret line="531" column="18" lean-forward="false" selection-start-line="531" selection-start-column="18" selection-end-line="531" selection-end-column="18" />
           <folding />
         </state>
       </provider>

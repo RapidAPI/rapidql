@@ -10,6 +10,7 @@ const assert = require('assert'),
     OptionalNode = require('../src/Nodes/OptionalNode'),
     CastedLeafNode = require('../src/Nodes/CastedLeafNode'),
     FunctionNode = require('../src/Nodes/FunctionNode'),
+    FlatObjectNode = require('../src/Nodes/FlatObjectNode'),
     CachedFunctionNode = require('../src/Nodes/CachedFunctionNode');
 
 
@@ -456,5 +457,56 @@ describe('Parser', () => {
         assert.equal(n.innerNode.children[0].getName(), "b");
         assert.equal(Object.keys(n.innerNode.args).length, 2);
       });
+    });
+
+    describe('FlatObjectNode', () => {
+        it('should support flat composite nodes nodes', async () => {
+            const val = await parse(`
+                {
+                    -a {
+                        b
+                    }
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof FlatObjectNode, true); // Optional node
+            assert.equal(n.getName(), "a");
+            assert.equal(n.innerNode instanceof CompositeNode, true);
+            assert.equal(n.innerNode.children.length, 1);
+            assert.equal(n.innerNode.children[0].getName(), "b");
+        });
+
+        it('should support flat function nodes', async () => {
+            const val = await parse(`
+                {
+                    -RapidAPI.Name.Function(key1:val1, key2:{subKey: subValue}) {
+                        b
+                    }
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof FlatObjectNode, true); // Optional node
+            assert.equal(n.getName(), "RapidAPI.Name.Function");
+            assert.equal(n.innerNode instanceof FunctionNode, true);
+            assert.equal(n.innerNode.children.length, 1);
+            assert.equal(n.innerNode.children[0].getName(), "b");
+        });
+
+        it('should support optional flat nodes', async () => {
+            const val = await parse(`
+                {
+                    ?-b {
+                    
+                    }
+                }
+            `);
+            let n = val[0];
+            assert.equal(val.length, 1); // Only 1 node
+            assert.equal(n instanceof OptionalNode, true); // Optional node
+            assert.equal(n.innerNode instanceof FlatObjectNode, true); // Optional node
+            assert.equal(n.innerNode.innerNode instanceof CompositeNode, true); // Optional node
+        });
     });
 });

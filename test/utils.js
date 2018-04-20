@@ -51,6 +51,11 @@ describe('Utils', () => {
         assert.equal(context.a, 1);
     });
 
+      it('should return inner context value if only in outer context', () => {
+          let context = utils.createMixedContext({a:1}, {});
+          assert.equal(context.a, 1);
+      });
+
     it('should give precedence to inner context over outer context, even if property exists in both', () => {
       let context = utils.createMixedContext({a: 2}, {a:1});
       assert.equal(context.a, 1);
@@ -65,6 +70,40 @@ describe('Utils', () => {
       let context = utils.createMixedContext({a:1}, {b:3});
       assert.equal(context.c, undefined);
     });
+
+    describe('in operator', () => {
+       it('should return true if in inner context', () => {
+           let context = utils.createMixedContext({}, {a:1});
+           assert.equal(true, 'a' in context);
+       });
+
+        it('should return true if in outer context', () => {
+            let context = utils.createMixedContext({a:1}, {});
+            assert.equal(true, 'a' in context);
+        });
+
+        it('should return false if not in any context', () => {
+            let context = utils.createMixedContext({a:1}, {b:2});
+            assert.equal(false, 'c' in context);
+        });
+    });
+
+      describe('hasOwnProperty operator', () => {
+          it('should return true if in inner context', () => {
+              let context = utils.createMixedContext({}, {a:1});
+              assert.equal(true, context.hasOwnProperty('a'));
+          });
+
+          it('should return true if in outer context', () => {
+              let context = utils.createMixedContext({a:1}, {});
+              assert.equal(true, context.hasOwnProperty('a'));
+          });
+
+          it('should return false if not in any context', () => {
+              let context = utils.createMixedContext({a:1}, {b:2});
+              assert.equal(false, context.hasOwnProperty('c'));
+          });
+      });
 
   });
 });
