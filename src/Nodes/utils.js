@@ -9,6 +9,8 @@
  * @returns {*}
  */
 module.exports.resolve = (path, object) => {
+    if (object.hasOwnProperty(path))
+        return object[path];
     return path.split('.').reduce(function (prev, curr) {
         if (prev)
             //if (prev.hasOwnProperty(curr))
