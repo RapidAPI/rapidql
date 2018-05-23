@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9596d340-4f3f-4ef6-babc-0ba4e5549a8d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functionNode.js" afterPath="$PROJECT_DIR$/test/functionNode.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,18 +24,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Nodes/utils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-              <folding>
-                <marker date="1525034153000" expanded="true" signature="936:1056" ph="//..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="playground.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/playground.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -46,31 +34,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+            <state relative-caret-position="30">
+              <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leaf-node.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/leaf-node.js">
+      <file leaf-file-name="functionNode.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/functionNode.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="58" column="11" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="58" selection-end-column="11" />
+            <state relative-caret-position="322">
+              <caret line="93" column="86" lean-forward="true" selection-start-line="93" selection-start-column="86" selection-end-line="93" selection-end-column="86" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySQLNode.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/MySQLDriver/MySQLNode.js">
+      <file leaf-file-name="FunctionNode.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="11" lean-forward="false" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
+            <state relative-caret-position="158">
+              <caret line="63" column="25" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -137,8 +125,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>coldestCityByDay</find>
-      <find>maxDiameter</find>
       <find>35.188.26.133</find>
       <find>redis</find>
       <find>url</find>
@@ -165,6 +151,10 @@
       <find>Error in Http.get:</find>
       <find>createMixedContext</find>
       <find>mustache</find>
+      <find>rec</find>
+      <find>must</find>
+      <find>replaceVariables</find>
+      <find>tem</find>
     </findStrings>
     <replaceStrings>
       <replace>`</replace>
@@ -176,7 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Parser/Parser.js" />
         <option value="$PROJECT_DIR$/test/generative/gen-parser.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/test/test-server.js" />
         <option value="$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/test/http.js" />
@@ -227,6 +216,7 @@
         <option value="$PROJECT_DIR$/test/leaf-node.js" />
         <option value="$PROJECT_DIR$/playground.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/test/functionNode.js" />
       </list>
     </option>
   </component>
@@ -597,41 +587,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.playground.js">
-    <configuration default="false" name="Utils.createMixedContext.hasOwnProperty operator" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/utils.js</test-file>
-      <test-names>
-        <name value="Utils" />
-        <name value="createMixedContext" />
-        <name value="hasOwnProperty operator" />
-      </test-names>
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Mocha.Function Nodes.Recursive replace.should replace template">
     <configuration default="false" name="playground.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="playground.js" working-dir="$PROJECT_DIR$">
-      <method />
-    </configuration>
-    <configuration default="false" name="ArrayNode.should support string array - explicit" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/array-node.js</test-file>
-      <test-names>
-        <name value="ArrayNode" />
-        <name value="should support string array - explicit" />
-      </test-names>
       <method />
     </configuration>
     <configuration default="false" name="ArrayNode" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
@@ -663,6 +620,40 @@
         <name value="LeafNode" />
         <name value="eval() validity" />
         <name value="should resolve path with points directly when possible" />
+      </test-names>
+      <method />
+    </configuration>
+    <configuration default="false" name="Function Nodes.removeQuotes.should ignore single quote" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/functionNode.js</test-file>
+      <test-names>
+        <name value="Function Nodes" />
+        <name value="removeQuotes" />
+        <name value="should ignore single quote" />
+      </test-names>
+      <method />
+    </configuration>
+    <configuration default="false" name="Function Nodes.Recursive replace.should replace template" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/functionNode.js</test-file>
+      <test-names>
+        <name value="Function Nodes" />
+        <name value="Recursive replace" />
+        <name value="should replace template" />
       </test-names>
       <method />
     </configuration>
@@ -780,19 +771,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Mocha.Test" />
-      <item index="1" class="java.lang.String" itemvalue="Mocha.Utils.createMixedContext.hasOwnProperty operator" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js.playground.js" />
-      <item index="3" class="java.lang.String" itemvalue="Mocha.ArrayNode.should support string array - explicit" />
-      <item index="4" class="java.lang.String" itemvalue="Mocha.ArrayNode" />
-      <item index="5" class="java.lang.String" itemvalue="Mocha.LeafNode.eval() validity.should resolve path with points directly when possible" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.playground.js" />
+      <item index="2" class="java.lang.String" itemvalue="Mocha.ArrayNode" />
+      <item index="3" class="java.lang.String" itemvalue="Mocha.LeafNode.eval() validity.should resolve path with points directly when possible" />
+      <item index="4" class="java.lang.String" itemvalue="Mocha.Function Nodes.removeQuotes.should ignore single quote" />
+      <item index="5" class="java.lang.String" itemvalue="Mocha.Function Nodes.Recursive replace.should replace template" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.playground.js" />
-        <item index="1" class="java.lang.String" itemvalue="Mocha.LeafNode.eval() validity.should resolve path with points directly when possible" />
-        <item index="2" class="java.lang.String" itemvalue="Mocha.ArrayNode" />
-        <item index="3" class="java.lang.String" itemvalue="Mocha.ArrayNode.should support string array - explicit" />
-        <item index="4" class="java.lang.String" itemvalue="Mocha.Utils.createMixedContext.hasOwnProperty operator" />
+        <item index="0" class="java.lang.String" itemvalue="Mocha.Function Nodes.Recursive replace.should replace template" />
+        <item index="1" class="java.lang.String" itemvalue="Mocha.Function Nodes.removeQuotes.should ignore single quote" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.playground.js" />
+        <item index="3" class="java.lang.String" itemvalue="Mocha.LeafNode.eval() validity.should resolve path with points directly when possible" />
+        <item index="4" class="java.lang.String" itemvalue="Mocha.ArrayNode" />
       </list>
     </recent_temporary>
   </component>
@@ -875,20 +866,11 @@
       <workItem from="1524257474981" duration="1389000" />
       <workItem from="1524983512087" duration="1677000" />
       <workItem from="1525210752802" duration="1392000" />
-      <workItem from="1527052565905" duration="256000" />
+      <workItem from="1527052565905" duration="632000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ArrayNode - 2018.04.20 at 13h 31m 55s.xml">
-      <configuration name="ArrayNode" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="ArrayNode_should_support_string_array_-_explicit - 2018.04.20 at 13h 21m 22s.xml">
-      <configuration name="ArrayNode.should support string array - explicit" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="ArrayNode_should_support_string_array_-_explicit - 2018.04.20 at 13h 21m 35s.xml">
-      <configuration name="ArrayNode.should support string array - explicit" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="ArrayNode_should_support_string_array_-_explicit - 2018.04.20 at 13h 21m 52s.xml">
       <configuration name="ArrayNode.should support string array - explicit" configurationId="mocha-javascript-test-runner" />
     </history-entry>
@@ -901,6 +883,15 @@
     <history-entry file="ArrayNode_should_support_string_array_-_explicit - 2018.04.20 at 13h 30m 34s.xml">
       <configuration name="ArrayNode.should support string array - explicit" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="Function_Nodes_Recursive_replace_should_replace_template - 2018.05.22 at 22h 27m 25s.xml">
+      <configuration name="Function Nodes.Recursive replace.should replace template" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Function_Nodes_removeQuotes_should_ignore_single_quote - 2018.05.22 at 22h 25m 44s.xml">
+      <configuration name="Function Nodes.removeQuotes.should ignore single quote" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="Function_Nodes_removeQuotes_should_ignore_single_quote - 2018.05.22 at 22h 26m 37s.xml">
+      <configuration name="Function Nodes.removeQuotes.should ignore single quote" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
     <history-entry file="LeafNode_eval()_validity_should_resolve_path_with_points_directly_when_possible - 2018.04.29 at 13h 39m 27s.xml">
       <configuration name="LeafNode.eval() validity.should resolve path with points directly when possible" configurationId="mocha-javascript-test-runner" />
     </history-entry>
@@ -912,7 +903,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313361000" />
+    <option name="totallyTimeSpent" value="313737000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -931,11 +922,12 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4082192" sideWeight="0.50913423" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.360274" sideWeight="0.49086577" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.360274" sideWeight="0.49086577" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21643835" sideWeight="0.4639622" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21643835" sideWeight="0.4639622" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3890411" sideWeight="0.49704608" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -943,7 +935,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="V8 CPU Profiling" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.63941604" sideWeight="0.49389523" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1036,13 +1027,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/E2E.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNodes/HttpDriver/test/http.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1061,13 +1045,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-52">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="42" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/functionNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="34" column="61" lean-forward="false" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -1253,13 +1230,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="15" lean-forward="false" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2940">
-          <caret line="196" column="8" lean-forward="false" selection-start-line="196" selection-start-column="11" selection-end-line="197" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -1268,6 +1238,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="3" column="29" lean-forward="false" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1392,8 +1365,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        <state relative-caret-position="30">
+          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/FunctionNode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="63" column="25" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/functionNode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="93" column="86" lean-forward="true" selection-start-line="93" selection-start-column="86" selection-end-line="93" selection-end-column="86" />
           <folding />
         </state>
       </provider>

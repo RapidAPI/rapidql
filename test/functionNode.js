@@ -53,6 +53,15 @@ describe('Function Nodes', () => {
         it('shouldnt change string with no quotes', () => {
             assert.deepEqual(FunctionNode.removeQuotes("asdasda"), 'asdasda');
         });
+
+        it('should ignore single quote', () => {
+            assert.deepEqual(FunctionNode.removeQuotes("'asdasda"), '\'asdasda');
+            assert.deepEqual(FunctionNode.removeQuotes("\"asdasda"), '\"asdasda');
+            assert.deepEqual(FunctionNode.removeQuotes("asdasda'"), 'asdasda\'');
+            assert.deepEqual(FunctionNode.removeQuotes("asdasda\""), 'asdasda\"');
+            assert.deepEqual(FunctionNode.removeQuotes("asdasda\"a"), 'asdasda\"a');
+            assert.deepEqual(FunctionNode.removeQuotes("asdasda\'a"), 'asdasda\'a');
+        });
     });
 
     describe('Recursive replace', () => {
@@ -78,6 +87,11 @@ describe('Function Nodes', () => {
 
         it('should traverse down objects, replacing from the context tree', () => {
             assert.deepEqual(FunctionNode.recursiveReplace({b:{a:'a'}}, {a:2}), {b:{a:2}});
+        });
+
+        it('should replace template (mustache templates)', () => {
+            assert.deepEqual(FunctionNode.recursiveReplace({a:'"a={{a}}"'}, {a:2}), {a:"a=2"});
+            assert.deepEqual(FunctionNode.recursiveReplace({a:'"{{a}}"'}, {a:2}), {a:"2"});
         });
     });
 });
