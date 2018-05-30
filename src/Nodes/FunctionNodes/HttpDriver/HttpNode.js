@@ -42,7 +42,8 @@ function getRequestClient(ops) {
 const functions = {
     get: null,
     post: null,
-    put: null
+    put: null,
+    delete: null
 };
 
 class HttpNode {
