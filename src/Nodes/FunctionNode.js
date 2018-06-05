@@ -7,7 +7,7 @@ const LeafNode = require('./LeafNode'),
     ArrayNode = require('./ArrayNode'),
     CompositeNode = require('./CompositeNode');
 
-const { createMixedContext } = require('./utils');
+const { createMixedContext, resolve } = require('./utils');
 
 const Mustache = require('mustache');
 
@@ -23,19 +23,6 @@ const supportedTypes = {
 };
 
 const SEP_CHAR = '.';
-
-/**
- * Get's a key's value from the context or throws a 'Does not exist' error
- * @param key
- * @param context
- */
-function getFromContext(key, context) {
-    if (context.hasOwnProperty(key))
-        return context[key];
-    else {
-        throw `Name error: name ${key} does not exist in context`;
-    }
-}
 
 /**
  * Check if a string is wrapped in quotes
@@ -84,7 +71,7 @@ function recursiveReplace(args, context) {
             switch (typeof arg) {
                 case 'string':
                     //Check for quotes:
-                    processedArgs[key] = quoted(arg) ? replaceVariables(arg.slice(1, -1), context) : getFromContext(arg, context);
+                    processedArgs[key] = quoted(arg) ? replaceVariables(arg.slice(1, -1), context) : resolve(arg, context);
                     //If literal - Remove quotes, render template and add to processed args
                     // If Variable - get from context
                     break;
@@ -208,7 +195,6 @@ class FunctionNode {
 }
 
 FunctionNode.recursiveReplace = recursiveReplace;
-FunctionNode.getFromContext = getFromContext;
 FunctionNode.quoted = quoted;
 FunctionNode.removeQuotes = removeQuotes;
 

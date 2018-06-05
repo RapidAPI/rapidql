@@ -7,20 +7,6 @@ const assert = require('assert'),
     FunctionNode = require('../src/Nodes/FunctionNode');
 
 describe('Function Nodes', () => {
-    describe('getFromContext', () => {
-       it('should get the correct value from context', () => {
-           assert.deepEqual(FunctionNode.getFromContext('a', {'a': 'HELLO'}), "HELLO");
-       });
-
-        it('should throw an error if key does not exist in context', (done) => {
-            try {
-                FunctionNode.getFromContext('a', {'b':'BBB'});
-                done("Didn't throw error for key that is not in context");
-            } catch (e) {
-                done();
-            }
-        });
-    });
 
     describe('quoted', () => {
         it('should identify a string quoted with double quotes', ()=> {
@@ -92,6 +78,10 @@ describe('Function Nodes', () => {
         it('should replace template (mustache templates)', () => {
             assert.deepEqual(FunctionNode.recursiveReplace({a:'"a={{a}}"'}, {a:2}), {a:"a=2"});
             assert.deepEqual(FunctionNode.recursiveReplace({a:'"{{a}}"'}, {a:2}), {a:"2"});
+        });
+
+        it('should handle deep referencing (dot notation) in objects', () => {
+            assert.deepEqual(FunctionNode.recursiveReplace({a:'a.b'}, {a:{b:2}}), {a:2});
         });
     });
 });
