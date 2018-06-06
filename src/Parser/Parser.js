@@ -12,6 +12,10 @@ const WHITE_SPACES = [
     '\n',
     '\t'
 ];
+function removeComments(str) {
+    str = str.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '');;
+    return str;
+}
 function removeWhiteSpaces(str) {
     str = str.replace("\n", "").replace("\t", "");
     return str.replace(/\s+(?=((\\[\\"]|[^\\"])*"(\\[\\"]|[^\\"])*")*(\\[\\"]|[^\\"])*$)/g, '');
@@ -19,6 +23,8 @@ function removeWhiteSpaces(str) {
 module.exports.removeWhiteSpaces = removeWhiteSpaces;
 
 module.exports.parse = (str) => {
+    //Find and replace comments
+    str = removeComments(str);
     //Find and replace spaces
     str = removeWhiteSpaces(str);
 
