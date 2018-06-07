@@ -16,6 +16,7 @@ const assert = require('assert'),
 
 const parse = require('../src/Parser/Parser').parse;
 const removeWhiteSpaces = require('../src/Parser/Parser').removeWhiteSpaces;
+const removeComments = require('../src/Parser/Parser').removeComments;
 
 describe('Parser', () => {
 
@@ -31,6 +32,24 @@ describe('Parser', () => {
         it('should ignore escaped double quoted string', () => {
             assert.equal('sdfsdfsdf"iddo is \"awesome\""', removeWhiteSpaces('sdf sdf sdf "iddo is \"awesome\""'));
         });
+    });
+
+    describe('removeComments', () => {
+        it('should return empty string if line if it starts with //', () => {
+             assert.equal('', removeComments('// sdf sdf sdf'));
+        });
+
+        it('should return string normally if it does not start with //', () => {
+            assert.equal('sdf sdf sdf', removeComments('sdf sdf sdf'));
+        })
+
+        it('should return lines that do not include // but remove lines that do have //', () => {
+            assert.equal('sdf sdf sdf \n', removeComments('sdf sdf sdf \n // sdf sdf sdf'));
+        })
+
+        it('should return lines that do not include // but remove lines that do have //', () => {
+            assert.equal('\n sdf sdf sdf', removeComments('// sdf sdf sdf \n sdf sdf sdf'));
+        })
     });
 
     describe('Basics', () => {
