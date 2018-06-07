@@ -21,6 +21,7 @@ function removeWhiteSpaces(str) {
     return str.replace(/\s+(?=((\\[\\"]|[^\\"])*"(\\[\\"]|[^\\"])*")*(\\[\\"]|[^\\"])*$)/g, '');
 }
 module.exports.removeWhiteSpaces = removeWhiteSpaces;
+module.exports.removeComments = removeComments;
 
 module.exports.parse = (str) => {
     //Find and replace comments
