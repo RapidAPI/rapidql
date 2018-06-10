@@ -18,7 +18,7 @@ module.exports = () => {
             let res = await n.eval({}, {});
             assert.equal(res.args.a, "b");
             assert.equal(res.args.c, 1);
-        });
+        }).timeout(10000);
 
         it("should properly send headers", async () => {
             let n = new HttpNode('Http.get', [], {
@@ -31,7 +31,7 @@ module.exports = () => {
             let res = await n.eval({}, {});
             assert.equal(res.headers["X-Test"], "b");
             assert.equal(res.headers["Host"], "httpbin.org");
-        })
+        }).timeout(10000);
     });
 
     describe('post request', () => {
@@ -49,7 +49,7 @@ module.exports = () => {
             assert.equal(res.form.c, 1);
             assert.equal(res.json, null);
             assert.equal(res.url, "https://httpbin.org/post");
-        });
+        }).timeout(10000);
 
         it('should send json data', async () => {
             let n = new HttpNode('Http.post', [], {
@@ -64,6 +64,6 @@ module.exports = () => {
             assert.equal(res.json.a, "b");
             assert.equal(res.json.c, 1);
             assert.equal(res.url, "https://httpbin.org/post");
-        });
+        }).timeout(10000);
     });
 };

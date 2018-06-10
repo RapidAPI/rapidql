@@ -9,6 +9,12 @@ const parser = require('./Parser/Parser'),
 class RQL {
     constructor(ops) {
         this.ops = ops;
+        this.ops.logger = {
+            log(msg) {
+                if (ops.logLevel === 'info')
+                    console.log(msg);
+            }
+        };
     }
 
     query(queryString, context) {

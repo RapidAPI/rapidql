@@ -57,18 +57,38 @@ class HttpNode {
         return `${this.name}`;
     }
 
+    get signature() {
+        return `Http.${this.operation.toUpperCase()} - ${this.urlWithParameters}`;
+    }
+
+    get queryParameters() {
+        return this.args['params'] || {}
+    }
+
+    get urlWithParameters() {
+        return `${(this.args['url'] || "")}${Object.keys(this.queryParameters).length ? "?" : ""}${queryString.stringify(this.queryParameters)}`;
+    }
+
+    get tokenizedName() {
+        return this.name.split(SEP_CHAR);
+    }
+
+    get operation() {
+        return this.tokenizedName[1];
+    }
+
     eval(context, ops) {
         const self = this;
 
         return new Promise((resolve, reject) => {
-            const tokenizedName = this.name.split(SEP_CHAR);
-            const operation = tokenizedName[1];
+            const tokenizedName = this.tokenizedName;
+            const operation = this.operation;
 
             if(!functions.hasOwnProperty(operation))
                 return reject(`Operation Error: operation ${operation} does not exist / is not supported`);
 
-            const   params      = self.args['params'] || {},
-                    url         = `${(self.args['url'] || "")}${Object.keys(params).length ? "?" : ""}${queryString.stringify(params)}`,
+            const   params      = self.queryParameters,
+                    url         = self.urlWithParameters,
                     body        = (operation === 'get') ? (null) : (self.args['body'] || {}),
                     form        = (operation === 'get') ? (null) : (self.args['form'] || null),
                     json        = (operation === 'get') ? (null) : (self.args['json'] || null),

@@ -154,11 +154,18 @@ class FunctionNode {
     }
 
     async performFunction(processedArgs, context, ops) {
+
+      const exStart = process.hrtime();
+
       //Determine material node type and materialize itself
       const MaterialClass = supportedTypes[this.type];
       const materialNode = new MaterialClass(this.getName(), this.children, processedArgs);
+      const val =  await materialNode.eval(context, ops);
 
-      return await materialNode.eval(context, ops);
+      const exEnd = process.hrtime(exStart);
+      ops.logger.log(`Executing: ${materialNode.signature || materialNode.getName()} (took ${exEnd[0]}s ${exEnd[1]/1000000}ms)`);
+
+      return val;
     }
 
   /**

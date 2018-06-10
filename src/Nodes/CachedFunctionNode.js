@@ -27,9 +27,11 @@ class CachedFunctionNode {
     });
 
     if (innerNodeHash in global._function_node_cache) {
+      ops.logger.log(`Cache hit: ${this.innerNode.getName()}`);
       return await this.innerNode.continueTree(context, ops, await global._function_node_cache[innerNodeHash]);
     } else {
-      global._function_node_cache[innerNodeHash] = this.innerNode.performFunction(processedArgs, context, ops);;
+      ops.logger.log(`Cache miss: ${this.innerNode.getName()}`);
+      global._function_node_cache[innerNodeHash] = this.innerNode.performFunction(processedArgs, context, ops);
       const innerNodeValue = await global._function_node_cache[innerNodeHash];
       return await this.innerNode.continueTree(context, ops, innerNodeValue);
     }
