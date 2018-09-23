@@ -14,6 +14,7 @@ Complex = "{" firstNode:Node? nodes:("," Node)* "}" {
 Node
 	= RenameNode
     / OptionalNode
+    / LogicNode
     / CachedFunctionNode
     / FunctionNode
     / CompositeNode
@@ -36,6 +37,10 @@ LeafNode = Word
 
 CompositeNode = label:Word values:Complex {
     return {'label' : label, 'value': values};
+}
+
+LogicNode = "@" n:FunctionNode {
+	return {'t':'logic', 'l':n.label, 'a':n.args};
 }
 
 CachedFunctionNode = "*" n:FunctionNode {

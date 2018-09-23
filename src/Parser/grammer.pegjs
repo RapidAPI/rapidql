@@ -20,6 +20,7 @@ Node
 	= FlatObjectNode
 	/ RenameNode
     / OptionalNode
+    / LogicNode
     / CachedFunctionNode
     / FunctionNode
     / CompositeNode
@@ -62,6 +63,11 @@ CompositeNode = label:Word values:Complex {
     //return {'label' : label, 'value': values};
 }
 
+LogicNode = "@" n:FunctionNode {
+    const LogicNode = require('./../Nodes/LogicNode');
+    return new LogicNode(n.getName(), n.children, n.args);
+	//return {'t':'logic', 'l':n.label, 'a':n.args};
+}
 
 CachedFunctionNode = "*" innerNode:FunctionNode {
     const CachedFunctionNode = require('./../Nodes/CachedFunctionNode');

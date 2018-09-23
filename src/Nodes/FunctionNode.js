@@ -5,7 +5,8 @@
 const LeafNode = require('./LeafNode'),
     ObjectNode = require('./ObjectNode'),
     ArrayNode = require('./ArrayNode'),
-    CompositeNode = require('./CompositeNode');
+    CompositeNode = require('./CompositeNode'),
+    LogicNode = require('./LogicNode');
 
 const { createMixedContext, resolve } = require('./utils');
 
@@ -19,7 +20,9 @@ const supportedTypes = {
     "Redis"         : require('./FunctionNodes/RedisDriver/RedisNode'),
     "MongoDB"       : require('./FunctionNodes/MongoDBDriver/MongoDBNode'),
     "MapReduce"     : require('./FunctionNodes/MapReduce/MapReduceNode'),
-    "Csv"           : require('./FunctionNodes/CsvDriver/CsvNode')
+    "Csv"           : require('./FunctionNodes/CsvDriver/CsvNode'),
+    "Logic"         : require('./LogicNode'),
+    ...LogicNode.logicFunctions // This is a work around for the parser, as it first initializes logic nodes as function nodes (if(...){...}) and then converts them to logic nodes and it sees prefixing '@'. Better solution TBD
 };
 
 const SEP_CHAR = '.';
