@@ -4,16 +4,8 @@
 const SEP_CHAR = '.';
 
 const FunctionNode = require('./FunctionNode'); // Uses recursive replace from there
+const ObjectNode = require('./ObjectNode');
 const { createMixedContext } = require('./utils');
-
-/**
- * Logic.switch(value: "", ?comparison: "") {}
- * @private
- */
-function __switch(args, childrenLabels) {
-    const val = args['value'];
-    const comparison = args['comparison'] || "==";
-}
 
 function __if(args, _) {
     const val1 = args['val1'];
@@ -22,17 +14,57 @@ function __if(args, _) {
 
     switch (comparison) {
         case "==":
-            return val1 == val2 ? 'true' : 'false';
+            return val1 == val2;
+            break;
+        case "!=":
+            return val1 != val2;
+            break;
+        case ">":
+            return val1 > val2;
+            break;
+        case "<":
+            return val1 < val2;
+            break;
+        case ">=":
+            return val1 >= val2;
+            break;
+        case "<=":
+            return val1 <= val2;
+            break;
+        case "set":
+            return !!val1;
+            break;
+        case "prefixes": //val1 prefixes val2
+            if (`${val1}`.length > `${val2}`.length) return false;
+            return `${val1}` === `${val2}`.substr(0, val1.length);
+            break;
+        case "notSet":
+            return !val1;
             break;
     }
 }
 
+function __prefix(args) {
+    return __if({
+        val1        : args['prefix'],
+        val2        : args['string'],
+        comparison  : 'prefixes'
+    })
+}
+
+function __equal(args) {
+    return __if({
+        val1        : args['val1'],
+        val2        : args['val2'],
+        comparison  : '=='
+    })
+}
+
 const __ops = {
     "if"        : __if,
-    "switch"    : __switch
+    "prefix"    : __prefix,
+    "equal"     : __equal
 };
-
-// TODO this should support recursive replace (from Function node) and tree expansion
 
 class LogicNode {
     constructor(name, children, args) {
@@ -58,18 +90,21 @@ class LogicNode {
     }
 
     async eval(context, ops) {
-        const self = this;
 
         const operation = this.getName().slice(1);
 
         try {
 
             const result = __ops[operation](this.getProcessedArgs(context), null);
-            const resultNodes = this.children.filter(c => c.getName() === result);
-            if (resultNodes.length === 0)
+
+            if (!result)
                 return null;
-            else
-                return await resultNodes[0].eval(createMixedContext(context, {[result]: {}}), ops);
+
+            let innerContext = createMixedContext(context, {
+                [this.getName()] : {}
+            });
+            let innerNode = new ObjectNode(this.getName(), this.children);
+            return await innerNode.eval(innerContext, ops);
 
         } catch (e) {
             throw `Error in ${this.getName()}: ${e}`;

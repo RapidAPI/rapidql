@@ -6,6 +6,12 @@
 const parser = require('./Parser/Parser'),
     RQLQuery = require('./RQLQuery');
 
+
+const BASE_CONTEXT = {
+    "false": false,
+    "true": true
+};
+
 class RQL {
     constructor(ops) {
         this.ops = ops;
@@ -19,6 +25,7 @@ class RQL {
 
     query(queryString, context) {
         if(!context) context = {};
+        context = Object.assign(context, BASE_CONTEXT);
         return new Promise((resolve, reject) => {
             parser.parse(queryString)
                 .catch(reject)

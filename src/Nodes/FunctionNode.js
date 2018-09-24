@@ -181,7 +181,7 @@ class FunctionNode {
    */
     async continueTree(context, ops, payload) {
       //Create context and add payload to it
-      let ctx = Object.assign({}, context);
+      let ctx = Object.assign({}, context); //TODO optimize to use mixedContext wrapper
       ctx[this.getName()] = payload;
 
       //Process down the tree...

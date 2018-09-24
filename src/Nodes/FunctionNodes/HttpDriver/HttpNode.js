@@ -89,12 +89,13 @@ class HttpNode {
 
             const   params      = self.queryParameters,
                     url         = self.urlWithParameters,
-                    body        = (operation === 'get') ? (null) : (self.args['body'] || {}),
+                    body        = (operation === 'get') ? (null) : (self.args['body'] || ""),
                     form        = (operation === 'get') ? (null) : (self.args['form'] || null),
                     json        = (operation === 'get') ? (null) : (self.args['json'] || null),
                     headers     = self.args['headers'] || {},
                     bearer      = self.args['bearer'] || null,
-                    basic       = self.args['basic'] || null;
+                    basic       = self.args['basic'] || null,
+                    stopOnError = self.args.hasOwnProperty('stopOnError') ? self.args['stopOnError'] : true;
 
 
             if (bearer !== null) {
@@ -118,7 +119,7 @@ class HttpNode {
                 if(!response)
                     return reject(`HttpError: no response from ${url}`);
 
-                if(response.statusCode > 299)
+                if(response.statusCode > 299 && stopOnError)
                     return reject(`HttpError: got non-2xx response from ${url}: \ncode: ${response.statusCode}, \ncontent: ${response}`);
 
                 if(typeof body !== OBJECT_TYPE) {
