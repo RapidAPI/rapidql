@@ -20,6 +20,7 @@ Node
 	= FlatObjectNode
 	/ RenameNode
     / OptionalNode
+    / LogicNode
     / CachedFunctionNode
     / FunctionNode
     / CompositeNode
@@ -62,6 +63,11 @@ CompositeNode = label:Word values:Complex {
     //return {'label' : label, 'value': values};
 }
 
+LogicNode = "@" n:FunctionNode f:LogicNode?{
+    const LogicNode = require('./../Nodes/LogicNode');
+    return new LogicNode(n.getName(), n.children, n.args, f);
+	//return {'t':'logic', 'l':n.label, 'a':n.args};
+}
 
 CachedFunctionNode = "*" innerNode:FunctionNode {
     const CachedFunctionNode = require('./../Nodes/CachedFunctionNode');
@@ -94,7 +100,19 @@ KVTuple = key:Word ":" value:KVValue {
 }
 
 //Added new intermidiate type to support (key:{subkey:value})
-KVValue = Number / ValueWord / Word / KVCompValue
+KVValue = Number / ValueWord / Word / KVCompValue / KVArray
+
+//Support array parameters
+KVArray = "[" el0:KVValue? els:("," value:KVValue)* "]" {
+	let res = [];
+    if (el0) {
+    	res[0] = el0;
+        els.forEach(function(e) {
+        	res.push(e[1]);
+        });
+    }
+    return res;
+}
 
 
 //This support having json types in args

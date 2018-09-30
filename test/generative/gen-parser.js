@@ -20,8 +20,8 @@ const parse = require('../../src/Parser/Parser').parse;
 describe('Generative - Parser', () => {
     describe('Leaf Nodes', () => {
         check.it('should detect simple alpha-numeric leaf nodes that are un-quoted',{result: true, times: 50}, gen.array(gen.alphaNumString), async (leafs) => {
-                // Filter out empty strings
-                leafs = leafs.filter(a => a.length > 0);
+                // Filter out empty strings and remove spaces
+                leafs = leafs.map(a => a.replace(" ", "")).filter(a => a.length > 0);
 
                 const queryString = `{
                     ${leafs.join(",\n")}
@@ -36,6 +36,7 @@ describe('Generative - Parser', () => {
         });
 
         check.it('should detect double-quoted freestyle ascii leaf nodes',{result: true, times: 50}, gen.array(gen.asciiString), async (leafs) => {
+                leafs = leafs.map(a => a.replace(" ", ""));
                 leafs = leafs.map(a => a.replace(/"/g, ''));
                 leafs = leafs.map(a => a.replace(/\\/g, ''));
                 // Filter out empty strings

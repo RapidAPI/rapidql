@@ -5,7 +5,8 @@
 const LeafNode = require('./LeafNode'),
     ObjectNode = require('./ObjectNode'),
     ArrayNode = require('./ArrayNode'),
-    CompositeNode = require('./CompositeNode');
+    CompositeNode = require('./CompositeNode'),
+    LogicNode = require('./LogicNode');
 
 const { createMixedContext, resolve } = require('./utils');
 
@@ -19,7 +20,9 @@ const supportedTypes = {
     "Redis"         : require('./FunctionNodes/RedisDriver/RedisNode'),
     "MongoDB"       : require('./FunctionNodes/MongoDBDriver/MongoDBNode'),
     "MapReduce"     : require('./FunctionNodes/MapReduce/MapReduceNode'),
-    "Csv"           : require('./FunctionNodes/CsvDriver/CsvNode')
+    "Csv"           : require('./FunctionNodes/CsvDriver/CsvNode'),
+    "Logic"         : require('./LogicNode'),
+    ...LogicNode.logicFunctions // This is a work around for the parser, as it first initializes logic nodes as function nodes (if(...){...}) and then converts them to logic nodes and it sees prefixing '@'. Better solution TBD
 };
 
 const SEP_CHAR = '.';
@@ -59,7 +62,7 @@ function replaceVariables(value, context) {
  * @returns {{}}
  */
 function recursiveReplace(args, context) {
-    let processedArgs = {};
+    let processedArgs = Array.isArray(args) ? [] : {};
     for (let key in args) {
         if (args.hasOwnProperty(key)) {
             let arg = args[key];
@@ -178,7 +181,7 @@ class FunctionNode {
    */
     async continueTree(context, ops, payload) {
       //Create context and add payload to it
-      let ctx = Object.assign({}, context);
+      let ctx = Object.assign({}, context); //TODO optimize to use mixedContext wrapper
       ctx[this.getName()] = payload;
 
       //Process down the tree...
