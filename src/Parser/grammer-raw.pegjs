@@ -39,8 +39,8 @@ CompositeNode = label:Word values:Complex {
     return {'label' : label, 'value': values};
 }
 
-LogicNode = "@" n:FunctionNode {
-	return {'t':'logic', 'l':n.label, 'a':n.args};
+LogicNode = "@" n:FunctionNode f:LogicNode?{
+	return {'t':'logic', 'l':n.label, 'a':n.args,'f':f};
 }
 
 CachedFunctionNode = "*" n:FunctionNode {

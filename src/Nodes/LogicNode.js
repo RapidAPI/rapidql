@@ -41,6 +41,26 @@ function __if(args, _) {
         case "notSet":
             return !val1;
             break;
+        case "in":
+            if (!Array.isArray(val2))
+                throw `ComparisonError: for 'in' comparison, val1 should be an array. Got ${typeof val2} (value: ${val2}).`;
+            return val2.indexOf(val1) >= 0;
+            break;
+        case "notIn":
+            if (!Array.isArray(val2))
+                throw `ComparisonError: for 'in' comparison, val1 should be an array. Got ${typeof val2} (value: ${val2}).`;
+            return val2.indexOf(val1) < 0;
+            break;
+        case "prefixIn":
+            if (!Array.isArray(val2))
+                throw `ComparisonError: for 'in' comparison, val1 should be an array. Got ${typeof val2} (value: ${val2}).`;
+            return val2.map(v2 => `${v2}` === `${val1}`.substr(0, v2.length)).filter(v2 => !!v2).length > 0;
+            break;
+        case "prefixNotIn":
+            if (!Array.isArray(val2))
+                throw `ComparisonError: for 'in' comparison, val1 should be an array. Got ${typeof val2} (value: ${val2}).`;
+            return val2.map(v2 => `${v2}` === `${val1}`.substr(0, v2.length)).filter(v2 => !!v2).length === 0;
+            break;
     }
 }
 
@@ -63,14 +83,21 @@ function __equal(args) {
 const __ops = {
     "if"        : __if,
     "prefix"    : __prefix,
-    "equal"     : __equal
+    "equal"     : __equal,
+    "else"      : () => true,
+    "elseif"    : __if
 };
 
 class LogicNode {
-    constructor(name, children, args) {
+    constructor(name, children, args, followOnNode) {
         this.name = name;
         this.args = args;
         this.children = children;
+
+        if (followOnNode && !(followOnNode.getName() === "@elseif" || followOnNode.getName() === "@else"))
+            throw `Logic Node following an @if node must be either @elseif or @else, got: ${followOnNode.getName()}`;
+
+        this.followOnNode = followOnNode; //Follow on node will be an @elseif or @else node
     }
 
     getName() {
@@ -97,8 +124,12 @@ class LogicNode {
 
             const result = __ops[operation](this.getProcessedArgs(context), null);
 
-            if (!result)
+            if (!result) {
+                if (this.followOnNode) {
+                    return await this.followOnNode.eval(context, ops);
+                }
                 return null;
+            }
 
             let innerContext = createMixedContext(context, {
                 [this.getName()] : {}

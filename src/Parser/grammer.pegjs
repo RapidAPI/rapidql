@@ -63,9 +63,9 @@ CompositeNode = label:Word values:Complex {
     //return {'label' : label, 'value': values};
 }
 
-LogicNode = "@" n:FunctionNode {
+LogicNode = "@" n:FunctionNode f:LogicNode?{
     const LogicNode = require('./../Nodes/LogicNode');
-    return new LogicNode(n.getName(), n.children, n.args);
+    return new LogicNode(n.getName(), n.children, n.args, f);
 	//return {'t':'logic', 'l':n.label, 'a':n.args};
 }
 

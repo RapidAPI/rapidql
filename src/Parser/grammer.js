@@ -199,9 +199,9 @@ function peg$parse(input, options) {
       },
       peg$c23 = "@",
       peg$c24 = peg$literalExpectation("@", false),
-      peg$c25 = function(n) {
+      peg$c25 = function(n, f) {
           const LogicNode = require('./../Nodes/LogicNode');
-          return new LogicNode(n.getName(), n.children, n.args);
+          return new LogicNode(n.getName(), n.children, n.args, f);
       	//return {'t':'logic', 'l':n.label, 'a':n.args};
       },
       peg$c26 = "*",
@@ -747,7 +747,7 @@ function peg$parse(input, options) {
   }
 
   function peg$parseLogicNode() {
-    var s0, s1, s2;
+    var s0, s1, s2, s3;
 
     s0 = peg$currPos;
     if (input.charCodeAt(peg$currPos) === 64) {
@@ -760,9 +760,18 @@ function peg$parse(input, options) {
     if (s1 !== peg$FAILED) {
       s2 = peg$parseFunctionNode();
       if (s2 !== peg$FAILED) {
-        peg$savedPos = s0;
-        s1 = peg$c25(s2);
-        s0 = s1;
+        s3 = peg$parseLogicNode();
+        if (s3 === peg$FAILED) {
+          s3 = null;
+        }
+        if (s3 !== peg$FAILED) {
+          peg$savedPos = s0;
+          s1 = peg$c25(s2, s3);
+          s0 = s1;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
       } else {
         peg$currPos = s0;
         s0 = peg$FAILED;

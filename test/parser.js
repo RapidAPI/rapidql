@@ -188,6 +188,58 @@ describe('Parser', () => {
 
     });
 
+    it('should support logic node with single follow on (else)', async () => {
+        const val = await parse(`{
+                @if (key1:val1, key2:val2) {
+                    a
+                } @else (key1:val3, key2:val4) {
+                    a
+                }
+            }`);
+
+        // Check @if node
+        assert.equal(val.length, 1);
+        assert.equal(val[0] instanceof LogicNode, true);
+        assert.equal(val[0].args['key1'], "val1"); //Check simple arg
+        assert.equal(val[0].args['key2'], "val2"); //Check simple arg
+
+        // Check @else node
+        assert.equal(!!val[0].followOnNode, true);
+        assert.equal(val[0].followOnNode instanceof LogicNode, true);
+        assert.equal(val[0].followOnNode.args['key1'], "val3");
+        assert.equal(val[0].followOnNode.args['key2'], "val4");
+    });
+
+    it('should support logic node with multiple follow ons (elseif, else)', async () => {
+        const val = await parse(`{
+                @if (key1:val1, key2:val2) {
+                    a
+                } @elseif (key1:val3, key2:val4) {
+                    a
+                } @else (key1:val5, key2:val6) {
+                    a
+                }
+            }`);
+
+        // Check @if node
+        assert.equal(val.length, 1);
+        assert.equal(val[0] instanceof LogicNode, true);
+        assert.equal(val[0].args['key1'], "val1"); //Check simple arg
+        assert.equal(val[0].args['key2'], "val2"); //Check simple arg
+
+        // Check @elseif node
+        assert.equal(!!val[0].followOnNode, true);
+        assert.equal(val[0].followOnNode instanceof LogicNode, true);
+        assert.equal(val[0].followOnNode.args['key1'], "val3");
+        assert.equal(val[0].followOnNode.args['key2'], "val4");
+
+        // Check @else node
+        assert.equal(!!val[0].followOnNode.followOnNode, true);
+        assert.equal(val[0].followOnNode.followOnNode instanceof LogicNode, true);
+        assert.equal(val[0].followOnNode.followOnNode.args['key1'], "val5");
+        assert.equal(val[0].followOnNode.followOnNode.args['key2'], "val6");
+    });
+
     describe('function nodes data types', () => {
         it('should support variable names', async () => {
             const val = await parse(`{
