@@ -62,7 +62,7 @@ function replaceVariables(value, context) {
  * @returns {{}}
  */
 function recursiveReplace(args, context) {
-    let processedArgs = {};
+    let processedArgs = Array.isArray(args) ? [] : {};
     for (let key in args) {
         if (args.hasOwnProperty(key)) {
             let arg = args[key];

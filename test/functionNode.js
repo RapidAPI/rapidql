@@ -83,5 +83,15 @@ describe('Function Nodes', () => {
         it('should handle deep referencing (dot notation) in objects', () => {
             assert.deepEqual(FunctionNode.recursiveReplace({a:'a.b'}, {a:{b:2}}), {a:2});
         });
+
+        describe('arrays', () => {
+            it ('should support array of constants', () => {
+                assert.deepEqual(FunctionNode.recursiveReplace({arr:['"a"','"b"', 5]}, {}), {arr:['a','b', 5]});
+            });
+
+            it ('should support array of keys', () => {
+                assert.deepEqual(FunctionNode.recursiveReplace({arr:['a','b']}, {a: 1, b: "bbb"}), {arr:[1,'bbb']});
+            });
+        });
     });
 });

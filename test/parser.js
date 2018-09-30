@@ -10,6 +10,7 @@ const assert = require('assert'),
     OptionalNode = require('../src/Nodes/OptionalNode'),
     CastedLeafNode = require('../src/Nodes/CastedLeafNode'),
     FunctionNode = require('../src/Nodes/FunctionNode'),
+    LogicNode = require('../src/Nodes/LogicNode'),
     FlatObjectNode = require('../src/Nodes/FlatObjectNode'),
     CachedFunctionNode = require('../src/Nodes/CachedFunctionNode');
 
@@ -174,6 +175,19 @@ describe('Parser', () => {
         });
     });
 
+    it('should support logic nodes', async () => {
+        const val = await parse(`{
+                @if(key1:val1, key2:val2) {
+                    a
+                }
+            }`);
+        assert.equal(val.length, 1);
+        assert.equal(val[0] instanceof LogicNode, true);
+        assert.equal(val[0].args['key1'], "val1"); //Check simple arg
+        assert.equal(val[0].args['key2'], "val2"); //Check simple arg
+
+    });
+
     describe('function nodes data types', () => {
         it('should support variable names', async () => {
             const val = await parse(`{
@@ -240,6 +254,23 @@ describe('Parser', () => {
             assert.equal(typeof val[0].args['obj'], 'object'); //Check simple arg
             assert.equal(val[0].args['obj']['key1'], '"str1"'); //Check simple arg
             assert.equal(val[0].args['obj']['key2'], 2); //Check simple arg
+        });
+
+        it('should support array', async () => {
+            const val = await parse(`{
+                RapidAPI.Name.Function(arr:[key, "string", {k:"v"}]) {
+                    a
+                }
+            }`);
+            assert.equal(val.length, 1); // Exactly 1 root node
+            assert.equal(val[0].hasOwnProperty('args'), true); // Check type. Only function nodes have args (it can be sub-type)
+            assert.equal(Array.isArray(val[0].args['arr']), true);
+            assert.equal(val[0].args['arr'].length, 3);
+            assert.equal(val[0].args['arr'][0], "key");
+            assert.equal(val[0].args['arr'][1], '"string"');
+            assert.equal(typeof val[0].args['arr'][2], 'object');
+            assert.equal(val[0].args['arr'][2]['k'], '"v"');
+
         });
 
     });
