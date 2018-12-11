@@ -78,6 +78,7 @@ class HttpNode {
     }
 
     eval(context, ops) {
+
         const self = this;
 
         return new Promise((resolve, reject) => {
@@ -86,6 +87,18 @@ class HttpNode {
 
             if(!functions.hasOwnProperty(operation))
                 return reject(`Operation Error: operation ${operation} does not exist / is not supported`);
+
+            // Take default headers from ops and add to headers
+            if(ops.Http.headers) {
+                if ( self.args['headers'] === undefined)
+                    self.args['headers'] = {};
+                Object.keys(ops.Http.headers).forEach(header => {
+                    if(self.args['headers'][header] === undefined){
+                        self.args['headers'][header] = ops.Http.headers[header]
+                        console.log(self.args['headers'])
+                    }
+                })
+            }
 
             const   params      = self.queryParameters,
                     url         = self.urlWithParameters,
