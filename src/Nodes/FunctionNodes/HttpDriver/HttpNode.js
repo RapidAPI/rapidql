@@ -9,7 +9,6 @@ const OBJECT_TYPE = 'object';
 const   _request = require('request'),
         queryString = require("query-string");
 const limit = require("simple-rate-limiter");
-const { createMixedContext } = require('../../utils');
 
 const dns = require('dns'),
   dnscache = require('dnscache')({
