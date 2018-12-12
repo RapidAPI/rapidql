@@ -9,6 +9,7 @@ const OBJECT_TYPE = 'object';
 const   _request = require('request'),
         queryString = require("query-string");
 const limit = require("simple-rate-limiter");
+const { createMixedContext } = require('../../utils');
 
 const dns = require('dns'),
   dnscache = require('dnscache')({
@@ -88,28 +89,15 @@ class HttpNode {
             if(!functions.hasOwnProperty(operation))
                 return reject(`Operation Error: operation ${operation} does not exist / is not supported`);
 
-            // Take default headers from ops and add to headers
-            if(ops.Http.headers) {
-                if ( self.args['headers'] === undefined)
-                    self.args['headers'] = {};
-                Object.keys(ops.Http.headers).forEach(header => {
-                    if(self.args['headers'][header] === undefined){
-                        self.args['headers'][header] = ops.Http.headers[header]
-                        console.log(self.args['headers'])
-                    }
-                })
-            }
-
             const   params      = self.queryParameters,
                     url         = self.urlWithParameters,
                     body        = (operation === 'get') ? (null) : (self.args['body'] || ""),
                     form        = (operation === 'get') ? (null) : (self.args['form'] || null),
                     json        = (operation === 'get') ? (null) : (self.args['json'] || null),
-                    headers     = self.args['headers'] || {},
-                    bearer      = self.args['bearer'] || null,
-                    basic       = self.args['basic'] || null,
+                    headers     = { ...ops.Http['headers'], ...self.args['headers'] } || {},
+                    bearer      = (self.args['bearer']) ? self.args['bearer'] : ops.Http['bearer'] || null,
+                    basic       = (self.args['basic']) ? self.args['basic'] : ops.Http['basic'] || null,
                     stopOnError = self.args.hasOwnProperty('stopOnError') ? self.args['stopOnError'] : true;
-
 
             if (bearer !== null) {
                 headers['Authorization'] = `Bearer ${bearer}`;
