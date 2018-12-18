@@ -84,15 +84,9 @@ class HttpNode {
         return new Promise((resolve, reject) => {
             const tokenizedName = this.tokenizedName;
             const operation = this.operation;
-            
-            console.log('ops');
-            console.log(ops);
-            console.log('self.args');
-            console.log(self.args);
 
-            // ops.Http is default parameters
+            // ops.Http is default HTTP parameters
             // self.args is patameters at time of call
-
             if(ops.Http === undefined)
                 ops.Http = {};
 
