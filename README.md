@@ -1,5 +1,5 @@
 # RapidQL
-[![](https://i.imgur.com/9iuHMLS.png)](rapidql.com)
+[![](https://i.imgur.com/9iuHMLS.png)](https://rapidql.com)
 
 **RapidQL** let's developer query multiple API resources at a time, combining them to create 1 unified Query.
 
@@ -7,7 +7,7 @@
 [![](https://circleci.com/gh/iddogino/rapidql.svg?style=shield&circle-token=70838eabb9e7255c543594d9c12d44db3e9b979e)](https://circleci.com/gh/iddogino/rapidql)
 
 ## Full Documentation
-See the [RapidQL documentation](docs.rapidql.com)
+See the [RapidQL documentation](https://docs.rapidql.com)
 
 ## Installation
 Install through either cloning the GitHub Repo or by using [npm package](https://www.npmjs.com/package/rapidql)
