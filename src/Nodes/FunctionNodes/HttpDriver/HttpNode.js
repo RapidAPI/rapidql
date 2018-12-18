@@ -84,6 +84,20 @@ class HttpNode {
         return new Promise((resolve, reject) => {
             const tokenizedName = this.tokenizedName;
             const operation = this.operation;
+            
+            console.log('ops');
+            console.log(ops);
+            console.log('self.args');
+            console.log(self.args);
+
+            // ops.Http is default parameters
+            // self.args is patameters at time of call
+
+            if(ops.Http === undefined)
+                ops.Http = {};
+
+            if(self.args === undefined)
+                self.args = {};
 
             if(!functions.hasOwnProperty(operation))
                 return reject(`Operation Error: operation ${operation} does not exist / is not supported`);
