@@ -1,18 +1,31 @@
+# RapidQL
+
 **RapidQL** let's developer query multiple API resources at a time, combining them to create 1 unified Query.
 
+[![NPM version](https://badge.fury.io/js/nodemon.svg)](https://npmjs.org/package/rapidql)
 [![](https://circleci.com/gh/iddogino/rapidql.svg?style=shield&circle-token=70838eabb9e7255c543594d9c12d44db3e9b979e)](https://circleci.com/gh/iddogino/rapidql)
 
-## Installation
-    npm install https://github.com/iddogino/rapidql.git -g
+## Full Documentation
+See the [RapidQL documentation](docs.rapidql.com)
 
-The `-g` flag is necessary to run from command line (see bellow).
+## Installation
+Install through either cloning the GitHub Repo or by using [npm package](https://www.npmjs.com/package/rapidql)
+    
+    npm install https://github.com/iddogino/rapidql.git
+
+To install the package globally, use the -g flag. Global installation is necessary to run from command line ([see below](https://github.com/iddogino/rapidql#running-in-commandline)).
+
+    npm install https://github.com/iddogino/rapidql.git -g
 
 ## Initialization
 
-After requiring the RapidQL package, you can initialize it. You may also pass options, such as RapidAPI credentials.
+After requiring the RapidQL package, you can initialize it. You may also pass options, such as RapidAPI credentials or default HTTP Parameters
 
     const RapidQL = require('RapidQL');
     let rql = new RapidQL({
+        Http : {
+            X-RapidAPI-Header: '***********'
+        },
         RapidAPI : {
             projectName : '########',
             apiKey: '##########'
@@ -38,6 +51,72 @@ Queries return promises. If the promise rejects, the returned value will be the 
         b: 2
     }).then(console.log).catch(console.warn);
 
+## Logging
+
+Similarly to querying, you can directly log the results of your query using the rql.log() method. It takes 2 arguments:
+
+1. The query string
+2. *[optional]* A base context. You may use the base context for parameter passing (any parameters such as user name used in the query should be passed through the base context. The query string should be completely static).
+
+Queries return promises. If the promise rejects, the returned value will be the error message. If the query resolves, the returned value will be the query result.
+
+    //Running this query on this base context will return the object {a:1}
+    rql.log(`
+    {
+        a
+    }
+    `, {
+        a: 1,
+        b: 2
+    })
+
+## HTTP Requests
+With RapidQL, you can also connect to any HTTP url using Http.get(). You may also use patch, post, and put requests.
+
+    const RapidQL = require('RapidQL');
+    const rql = new RapidQL({});  
+
+    rql.log(`{
+        Http.get(url:"http://httpbin.org/ip") {
+            origin
+        }
+    }`);
+
+An HTTP request in RQL can take many parameters beyond the url. The params include:
+
+- __url__: a fully qualified URI
+- __body__: entity body for PATCH, POST and PUT requests (not usable on GET requests)
+- __form__: data to pass for a multipart/form-data request (not usable on GET requests)
+- __json__: a boolean that when true, sets body to JSON representation of value and adds the 
+- __Content-type__: application/json header (not usable on GET requests)
+- __headers__: HTTP headers (default: {})
+- __bearer__: an OAuth bearer token
+- __basic__: credentials for basic auth.
+
+### Setting Default HTTP Parameters
+When initializing your RapidQL instance, you can provide default parameters for HTTP requests by supplying an Http object as an option. This Http can set default parameters for headers, bearer, and basic. These parameters will then be sent with every HTTP request.
+
+    const RapidQL = require('RapidQL');
+    const rql = new RapidQL({
+        Http: {
+            headers : {
+                'X-RapidAPI-Key' : '*****************',
+                'default' : 'this header will always be sent, unless defined otherwise at time of call'
+            },
+            basic : {
+                username : 'my_username',
+                password : 'my_password'
+            }
+        }
+    });
+
+    rql.log(`{
+        Http.post(
+            url:"http://httpbin.org/ip"
+        ){
+            
+        }
+    }`)
 
 ## Sample queries
 
@@ -172,5 +251,3 @@ To use RQL from platforms other than nodejs, you can either use it as a command 
 - **-c** / **--conf** : set the config file for rql to pull configurations from. By default - .rqlconfig at the same path.
 
 ### API:
-
-Th
