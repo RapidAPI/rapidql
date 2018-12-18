@@ -1,5 +1,5 @@
 # RapidQL
-[![](https://i.imgur.com/9iuHMLS.png)](https://rapidql.com)
+[![](https://i.imgur.com/9iuHMLS.png)](http://rapidql.com)
 
 **RapidQL** let's developer query multiple API resources at a time, combining them to create 1 unified Query.
 
