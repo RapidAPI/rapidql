@@ -177,17 +177,17 @@ To add a database connection to your rql instance, you need to add it's connecti
 ```javascript
 const RapidQL = require('RapidQL');
 const rql = new RapidQL({
-        PostgreSQL: {
-                    Sample: {
-                        user: 'admin', //required
-                        database: 'compose', //required
-                        password: '#########', //required
-                        host: 'aws-us-east-1-portal.23.dblayer.com', // required
-                        port: 17052, //required
-                        max: 10, // optional - max connections
-                        idleTimeoutMillis: 30000 // optional - how long a client is allowed to remain idle before being closed
-                    }
+    PostgreSQL: {
+        Sample: {
+            user: 'admin', //required
+            database: 'compose', //required
+            password: '#########', //required
+            host: 'aws-us-east-1-portal.23.dblayer.com', // required
+            port: 17052, //required
+            max: 10, // optional - max connections
+            idleTimeoutMillis: 30000 // optional - how long a client is allowed to remain idle before being closed
         }
+    }
 });
 ```
 
