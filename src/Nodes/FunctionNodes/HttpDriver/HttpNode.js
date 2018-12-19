@@ -128,7 +128,7 @@ class HttpNode {
                     return reject(`HttpError: no response from ${url}`);
 
                 if(response.statusCode > 299 && stopOnError)
-                    return reject(`HttpError: got non-2xx response from ${url}: \ncode: ${response.statusCode}, \ncontent: ${response}`);
+                    return reject(`HttpError: got non-2xx response from ${url}: \ncode: ${response.statusCode}, \ncontent: ${response}, \nmessage: ${body}`);
 
                 if(typeof body !== OBJECT_TYPE) {
                     try {

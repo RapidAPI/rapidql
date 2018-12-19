@@ -113,50 +113,60 @@ rql.log(`{
 }`)
 ```
 
-## Sample queries
-
-Get images from Instagram and then process with AWS Rekognition
+### Escaping Strings
+If you need to have a variable string within on of your queries (Ex/ URL parameters for an API) you're able to escape the string by using the following notation: {{variable_name}}. An example of how to use this is the following:
 ```javascript
-rql.query(`
-{
-    Instagram.getUsersRecentMedia(userId:"self", accessToken:"175826345.49afbf0.885ac554935e45ac9f83d811e870211c") {
-        data {
-            caption {
-                text
-            },
-            images {
-                standard_resolution {
-                    url,
-                    AWSRekognition.detectLabelsInImage(image:url, apiKey:"AKIAJELI5PIGECVCLS2Q", apiSecret : "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") {
-                        Labels {
-                            Name,
-                            Confidence
-                        }
-                    }
-                }
-            }
-        }
+const RapidQL = require('RapidQL');
+const rql = new RapidQL({});
+
+rql.log(`{
+    Http.post(
+        url:"http://httpbin.org/status/{{status_code}}"
+    ){
+      
     }
-}
-`).then(pipe(JSON.stringify, console.log)).catch((err) => {console.warn(err)});
+}`, {
+  status_code: 400
+})
 ```
 
-Get friends and their profile pics
+## Sample queries
+
+Get user from a database and do validation of both email and phone number
 ```javascript
-rql.query(`
-{
-    FacebookGraphAPI.getUsersFriends(user_id : "me", access_token:"EAACEdEose0cBAMf2uam36XJ5NZByqoq3cwiYacIba3eDkgkMhQ6kVqWbg5zLXw2LgAkZAgYQA9qRZAcYGVP527AHXakDDnF38YOZAZBnQDTQZCmKlG8ZCOFBDSZABdllBteFzzgnBFCQihxO3Vl7wuwZBrXvXLJ61JvaYWVpqoqTDcwZDZD") {
-        data {
-                name,
-                FacebookGraphAPI.getProfilePicture(profile_id:d, access_token:"EAACEdEose0cBAMf2uam36XJ5NZByqoq3cwiYacIba3eDkgkMhQ6kVqWbg5zLXw2LgAkZAgYQA9qRZAcYGVP527AHXakDDnF38YOZAZBnQDTQZCmKlG8ZCOFBDSZABdllBteFzzgnBFCQihxO3Vl7wuwZBrXvXLJ61JvaYWVpqoqTDcwZDZD"){
-                data {
-                    url
-                }
-                }
-        }
+rql.log(`{
+  MySQL.public.users.find(username:input) {
+    email,
+    phoneNumber,
+    name,
+    - Telesign:Http.post(
+      url: 'https://telesign-telesign-score-v1.p.rapidapi.com/score/{{phoneNumber}}',
+      headers : {
+        'Content-Type' : 'application/x-www-form-urlencoded'
+      },
+      params : {
+        'account_lifecycle_event' : 'create'
+      }
+    ){
+      phone_number_risk : risk
+    },
+    - Mailboxlayer:Http.get(
+      url: 'https://apilayer-mailboxlayer-v1.p.rapidapi.com/check',
+      headers : {
+      },
+      params : {
+        smtp: '1',
+        catch_all: '0',
+        email: email,
+        access_key: '************************'
+      }
+    ){
+      email_score:score
     }
-}
-`).then(pipe(JSON.stringify, console.log)).catch(console.warn);
+  }
+}` , {
+  input : 'rapidapi'
+})
 ```
 
 ## DB Queries
