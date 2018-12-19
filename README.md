@@ -3,7 +3,7 @@
 
 **RapidQL** let's developer query multiple API resources at a time, combining them to create 1 unified Query.
 
-[![NPM version](https://badge.fury.io/js/nodemon.svg)](https://www.npmjs.com/package/rapidql)
+[![NPM version](https://badge.fury.io/js/rapidql.svg)](https://www.npmjs.com/package/rapidql)
 [![](https://circleci.com/gh/iddogino/rapidql.svg?style=shield&circle-token=70838eabb9e7255c543594d9c12d44db3e9b979e)](https://circleci.com/gh/iddogino/rapidql)
 
 ## Full Documentation
