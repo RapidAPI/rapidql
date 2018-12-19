@@ -78,11 +78,20 @@ class HttpNode {
     }
 
     eval(context, ops) {
+
         const self = this;
 
         return new Promise((resolve, reject) => {
             const tokenizedName = this.tokenizedName;
             const operation = this.operation;
+
+            // ops.Http is default HTTP parameters
+            // self.args is patameters at time of call
+            if(ops.Http === undefined)
+                ops.Http = {};
+
+            if(self.args === undefined)
+                self.args = {};
 
             if(!functions.hasOwnProperty(operation))
                 return reject(`Operation Error: operation ${operation} does not exist / is not supported`);
@@ -92,11 +101,10 @@ class HttpNode {
                     body        = (operation === 'get') ? (null) : (self.args['body'] || ""),
                     form        = (operation === 'get') ? (null) : (self.args['form'] || null),
                     json        = (operation === 'get') ? (null) : (self.args['json'] || null),
-                    headers     = self.args['headers'] || {},
-                    bearer      = self.args['bearer'] || null,
-                    basic       = self.args['basic'] || null,
+                    headers     = { ...ops.Http['headers'], ...self.args['headers'] } || {},
+                    bearer      = (self.args['bearer']) ? self.args['bearer'] : ops.Http['bearer'] || null,
+                    basic       = (self.args['basic']) ? self.args['basic'] : ops.Http['basic'] || null,
                     stopOnError = self.args.hasOwnProperty('stopOnError') ? self.args['stopOnError'] : true;
-
 
             if (bearer !== null) {
                 headers['Authorization'] = `Bearer ${bearer}`;
@@ -120,7 +128,7 @@ class HttpNode {
                     return reject(`HttpError: no response from ${url}`);
 
                 if(response.statusCode > 299 && stopOnError)
-                    return reject(`HttpError: got non-2xx response from ${url}: \ncode: ${response.statusCode}, \ncontent: ${response}`);
+                    return reject(`HttpError: got non-2xx response from ${url}: \ncode: ${response.statusCode}, \ncontent: ${response}, \nmessage: ${body}`);
 
                 if(typeof body !== OBJECT_TYPE) {
                     try {
