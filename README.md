@@ -9,6 +9,18 @@
 ## Full Documentation
 See the [RapidQL documentation](https://docs.rapidql.com)
 
+## Installation
+Either through cloning with git or by using npm (the recommended way):
+
+```
+npm install rapidql
+```
+The -g flag is necessary to run from the command line (see below)
+
+```
+npm install -g rapidql
+```
+
 ## Initialization
 
 After requiring the RapidQL package, you can initialize it. You may also pass options, such as RapidAPI credentials or default HTTP Parameters
