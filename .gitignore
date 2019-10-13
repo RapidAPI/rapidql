@@ -94,6 +94,7 @@ jspm_packages
 
 playground.js
 samples.js
+playground
 
 # .DS_Store
 .DS_Store

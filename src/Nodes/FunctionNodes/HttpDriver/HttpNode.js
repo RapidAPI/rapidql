@@ -89,6 +89,9 @@ class HttpNode {
             // self.args is patameters at time of call
             if(ops.Http === undefined)
                 ops.Http = {};
+            if(!ops.Http.headers)
+                ops.Http.headers = {};
+                
 
             if(self.args === undefined)
                 self.args = {};
