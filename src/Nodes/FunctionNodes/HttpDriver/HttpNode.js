@@ -101,7 +101,7 @@ class HttpNode {
 
             const   params      = self.queryParameters,
                     url         = self.urlWithParameters,
-                    body        = (operation === 'get') ? (null) : (self.args['body'] || ""),
+                    body        = (operation === 'get') ? (null) : (self.args['body'] || null),
                     form        = (operation === 'get') ? (null) : (self.args['form'] || null),
                     json        = (operation === 'get') ? (null) : (self.args['json'] || null),
                     headers     = { ...ops.Http['headers'], ...self.args['headers'] } || {},

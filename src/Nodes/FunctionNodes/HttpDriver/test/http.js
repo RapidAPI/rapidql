@@ -66,4 +66,28 @@ module.exports = () => {
             assert.equal(res.url, "https://httpbin.org/post");
         }).timeout(10000);
     });
+
+    describe('delete request', () => {
+        it('should perform delete request without a body', async () => {
+            let n = new HttpNode('Http.delete', [], {
+                url: "https://httpbin.org/delete"
+            });
+
+            let res = await n.eval({}, {});
+            assert.equal(res.url, "https://httpbin.org/delete");
+        }).timeout(10000);
+
+        it('should perform delete request with a json body', async () => {
+            let n = new HttpNode('Http.delete', [], {
+                url: "https://httpbin.org/delete",
+                json: {
+                    id: 42
+                }
+            });
+
+            let res = await n.eval({}, {});
+            assert.equal(res.json.id, 42);
+            assert.equal(res.url, "https://httpbin.org/delete");
+        }).timeout(10000);
+    });
 };
